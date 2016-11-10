@@ -26,3 +26,9 @@ E.g.,
 ```
 $ python generate_missing_value_datasets.py -f wine_dataset/red.csv -m 0.5
 ```
+
+which will generate training and test data set files under
+```wine_dataset/red_training.csv``` and ```wine_dataset/red_test.csv```
+respectively.  The training data set contains the first 70% rows, and target
+columns, while the test data set contains the last 70% rows of the original
+dataset, and no target columns.
