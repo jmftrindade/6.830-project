@@ -6,7 +6,7 @@ import pandas as pd
 import random
 
 
-def get_dataframe_as_float_from_csv(csv_filename, column_separator):
+def get_dataframe_as_float_from_csv(csv_filename):
     """
     Returns a dataframe loaded from CSV and parsed as floats.  The reason why
     we need the columns to be floats is because NaN can only be inserted into
@@ -15,7 +15,7 @@ def get_dataframe_as_float_from_csv(csv_filename, column_separator):
     TODO: Should we use null instead?  Maybe that doesn't suffer from the NaN
     problem, where the column dtype needs to be a float.
     """
-    return pd.read_csv(csv_filename, sep=column_separator, dtype=float)
+    return pd.read_csv(csv_filename, dtype=float)
 
 
 def get_df_with_missing_value_MCAR(df, sample_fraction):
@@ -55,12 +55,12 @@ def get_target_df_column_names(df):
     return target_df_column_names
 
 
-def generate_training_and_test_datasets(csv_filename, column_separator, sample_fraction):
+def generate_training_and_test_datasets(csv_filename, sample_fraction):
     """
     Returns a dataframe concatenating the dataframe with inserted missing
     values, and the target variables dataframe (essentially the original data).
     """
-    target_df = get_dataframe_as_float_from_csv(csv_filename, column_separator)
+    target_df = get_dataframe_as_float_from_csv(csv_filename)
     df_with_nan = get_df_with_missing_value_MCAR(target_df, sample_fraction)
     target_df.columns = get_target_df_column_names(target_df)
 
@@ -84,11 +84,9 @@ def generate_training_and_test_datasets(csv_filename, column_separator, sample_f
 
     training_df.head(training_set_num_rows).to_csv(
         training_set_filename,
-        sep=column_separator,
         index=False)
     df_with_nan.tail(test_set_num_rows).to_csv(
         test_set_filename,
-        sep=column_separator,
         index=False)
 
     print('Saved training data set under \"%s\"' % training_set_filename)
@@ -105,11 +103,6 @@ if __name__ == "__main__":
         ' columns.',
         required='True')
     parser.add_argument(
-        '-s',
-        '--column_separator',
-        help='Optional CSV column separator, in case it is something other'
-        ' than a comma')
-    parser.add_argument(
         '-m',
         '--missing_value_fraction',
         type=float,
@@ -121,5 +114,4 @@ if __name__ == "__main__":
           % args.input_csv_file)
     generate_training_and_test_datasets(
         args.input_csv_file,
-        args.column_separator,
         args.missing_value_fraction)
