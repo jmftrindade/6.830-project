@@ -75,3 +75,6 @@ concatenated.head()
 
 concatenated.to_csv('~/Desktop/trainig_target.csv', sep=',')
 
+
+
+
