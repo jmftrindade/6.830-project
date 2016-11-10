@@ -8,8 +8,7 @@ The script ```generate_missing_value_data_sets.py``` can be used as follows:
 ```
 $ python generate_missing_value_datasets.py -h
 usage: generate_missing_value_datasets.py [-h] -f INPUT_CSV_FILE
-                                          [-s COLUMN_SEPARATOR] -m
-                                          MISSING_VALUE_FRACTION
+                                          -m MISSING_VALUE_FRACTION
 
 Generate missing values training and test data sets.
 
