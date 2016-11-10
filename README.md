@@ -18,9 +18,6 @@ optional arguments:
   -f INPUT_CSV_FILE, --input_csv_file INPUT_CSV_FILE
                         Relative path of input CSV file containing data set
                         with numeric columns.
-  -s COLUMN_SEPARATOR, --column_separator COLUMN_SEPARATOR
-                        Optional CSV column separator, in case it is something
-                        other than a comma
   -m MISSING_VALUE_FRACTION, --missing_value_fraction MISSING_VALUE_FRACTION
                         Fraction of missing values to be inserted.
 ```
@@ -28,5 +25,5 @@ optional arguments:
 E.g.,
 
 ```
-$ python generate_missing_value_datasets.py -f wine_dataset/red.csv -s ";" -m 0.5
+$ python generate_missing_value_datasets.py -f wine_dataset/red.csv -m 0.5
 ```
