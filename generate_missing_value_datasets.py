@@ -15,7 +15,13 @@ def get_dataframe_as_float_from_csv(csv_filename):
     TODO: Should we use null instead?  Maybe that doesn't suffer from the NaN
     problem, where the column dtype needs to be a float.
     """
-    return pd.read_csv(csv_filename, dtype=float)
+    data = pd.read_csv(csv_filename)
+
+    for col in data:
+        if data[col].dtypes == 'int64':
+            data[col] = data[col].astype(float)
+
+    return data
 
 
 def get_df_with_missing_value_MCAR(df, sample_fraction):
@@ -75,8 +81,8 @@ def generate_training_and_test_datasets(csv_filename, sample_fraction):
     # are training, and bottom 30% rows are test.
     #
     # FIXME do we need to shuffle the rows first?
-    training_set_num_rows = math.ceil(.7 * float(training_df.shape[0]))
-    test_set_num_rows = math.floor(.3 * float(training_df.shape[0]))
+    training_set_num_rows = int(math.ceil(.7 * float(training_df.shape[0])))
+    test_set_num_rows = int(math.floor(.3 * float(training_df.shape[0])))
 
     output_filename_prefix = os.path.splitext(csv_filename)
     training_set_filename = output_filename_prefix[0] + "_training.csv"
