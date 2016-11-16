@@ -1,4 +1,5 @@
 import argparse
+import csv
 import math
 import numpy as np
 import os
@@ -90,10 +91,14 @@ def generate_training_and_test_datasets(csv_filename, sample_fraction):
 
     training_df.head(training_set_num_rows).to_csv(
         training_set_filename,
-        index=False)
+        index=False,
+        quoting=csv.QUOTE_ALL,
+        quotechar='"')
     df_with_nan.tail(test_set_num_rows).to_csv(
         test_set_filename,
-        index=False)
+        index=False,
+        quoting=csv.QUOTE_ALL,
+        quotechar='"')
 
     print('Saved training data set under \"%s\"' % training_set_filename)
     print('Saved test data set under \"%s\"' % test_set_filename)
