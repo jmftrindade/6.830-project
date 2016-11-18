@@ -36,6 +36,9 @@ def get_df_with_missing_value_MCAR(df, sample_fraction):
     if sample_fraction < 0.0 or sample_fraction > 1.0:
         raise ValueError("sample fraction must be number between 0 and 1")
 
+    print('Statistics of original data set:')
+    print(df.describe())
+
     # Copy into a separate dataframe.  Note that if the original dataframe
     # is prohibitively large, this call is doubling that size.
     df_with_nan = df.copy()
