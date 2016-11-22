@@ -9,8 +9,8 @@ NUMBER_RUNS=1  #10
 
 # Experiment -> dataset directory
 declare -A EXPERIMENT_DATASETS
-#EXPERIMENT_DATASETS["categorical"]=datasets/classification/*csv
-EXPERIMENT_DATASETS["numerical"]=datasets/regression/*csv
+EXPERIMENT_DATASETS["categorical"]=datasets/classification/*csv
+#EXPERIMENT_DATASETS["numerical"]=datasets/regression/*csv
 #EXPERIMENT_DATASETS["FD_paper"]=datasets/from_FD_paper/*csv
 
 # Run experiment and generate logs.
@@ -76,10 +76,6 @@ do
     plot_csv $csv_filename $plot_file_basename-algo_vs_runtime.pdf algo runtime_seconds
     plot_csv $csv_filename $plot_file_basename-algo_vs_test_accuracy.pdf algo test_accuracy
     plot_csv $csv_filename $plot_file_basename-algo_vs_training_accuracy.pdf algo training_accuracy
-    # X axis = number of rows.
-    plot_csv $csv_filename $plot_file_basename-num_rows_vs_runtime.pdf num_rows runtime_seconds
-    plot_csv $csv_filename $plot_file_basename-num_rows_vs_test_accuracy.pdf num_rows test_accuracy
-    plot_csv $csv_filename $plot_file_basename-num_rows_vs_training_accuracy.pdf num_rows training_accuracy
     # X axis = number of uniques in target variable.
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_runtime.pdf target_num_unique runtime_seconds
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_test_accuracy.pdf target_num_unique test_accuracy
@@ -92,4 +88,17 @@ do
     plot_csv $csv_filename $plot_file_basename-stdev_vs_test_accuracy.pdf target_stdev test_accuracy
   done
 
+  # Merge all logs so we can plot data from multiple data sets.
+  all_datasets_logs=experiment_logs/$TODAY-$experiment-*.csv
+  # Because of this, we should not have a dataset called "all.csv" :-)
+  all_datasets_csv_filename=experiment_logs/$TODAY-$experiment-all.csv
+  all_datasets_plot_file_basename=plots/$TODAY-$experiment
+
+  generate_csv $all_datasets_logs $all_datasets_csv_filename
+
+  # It only makes sense to plot these for multiple data sets.
+  # X axis = number of rows.
+  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-num_rows_vs_runtime.pdf num_rows runtime_seconds
+  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-num_rows_vs_test_accuracy.pdf num_rows test_accuracy
+  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-num_rows_vs_training_accuracy.pdf num_rows training_accuracy
 done

@@ -62,7 +62,7 @@ def get_dataframe_as_float_from_csv(csv_filename):
     data = pd.read_csv(csv_filename)
 
     for col in data:
-        if isinstance(data[col].dtypes, (int)):
+        if is_numerical(data, col):
             data[col] = data[col].astype(float)
 
     return data
@@ -122,6 +122,13 @@ def get_scaled_dataframe(df):
     return pd.DataFrame(x_scaled, columns=df.columns)
 
 
+def is_numerical(df, column_name):
+    """
+    Whether this column has only numerical data.
+    """
+    return isinstance(df[column_name].dtypes, (int, float))
+
+
 def run_all_classifiers(target, features, training_df, test_df):
     """Try all classification ML algorithms and report their accuracies."""
 
@@ -148,14 +155,18 @@ def run_all_classifiers(target, features, training_df, test_df):
          'dt': RandomForestClassifier(max_depth=1024, random_state=42)}
     ]
 
-    # Experiment stats to record per classifier run.
-    scaled_df = get_scaled_dataframe(training_df)
-    scaled_target = scaled_df[target]
+    # Experiment stats to record per classifier run for numerical columns.
+    stdev = None
+    var = None
+    if is_numerical(training_df, target):
+        scaled_df = get_scaled_dataframe(training_df)
+        scaled_target = scaled_df[target]
+        var, stdev = scaled_target.var(), scaled_target.std()
     fn_stats_to_record = {
-        'num_rows': len(scaled_target),
+        'num_rows': training_df.shape[0],
         'target_num_unique': len(y.unique()),
-        'target_variance': scaled_target.var(),
-        'target_stdev': scaled_target.std()
+        'target_variance': var if var is not None else '',
+        'target_stdev': stdev if stdev is not None else ''
     }
     fn_stats_to_record_from_result = ['test_accuracy', 'training_accuracy']
 
@@ -169,14 +180,23 @@ def run_all_classifiers(target, features, training_df, test_df):
         #    classifier['name'], res['test_accuracy']))
 
 
-@fn_timer
-def run_classifier(y, X, y_test, X_test, dt, *args, **kwargs):
+def encode_labels(X):
+    """
+    Converts values in all X columns from string to integer.
+    """
     # Convert from string to integer.
     le = LabelEncoder()
     for col in X.columns.values:
         data = X[col]
         le.fit(data.values)
         X[col] = le.transform(X[col])
+    return X
+
+
+@fn_timer
+def run_classifier(y, X, y_test, X_test, dt, *args, **kwargs):
+    X = encode_labels(X)
+    X_test = encode_labels(X_test)
 
     # 5-fold shuffle cross-validation.
     k_fold = KFold(n_splits=5, shuffle=True)
@@ -207,7 +227,7 @@ def run_ml_for_all_columns(training_df, test_df):
         # Use both classification and regression for numerical data.
         # All numerical data is read as floats, so no need to check for other
         # numerical data types here.
-        if training_df[column].dtypes == 'float64':
+        if is_numerical(training_df, column):
             print('TODO: check accuracy for regression.')
 
         run_all_classifiers(column, features, training_df, test_df)
