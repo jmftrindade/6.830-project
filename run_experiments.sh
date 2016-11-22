@@ -37,7 +37,7 @@ function generate_csv {
 
   # Generate CSV from experiment logs.
   echo "Generating CSV..."
-  grep run_classifier ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,target_num_unique,algo,test_accuracy,training_accuracy' > ${output_csv_file}
+  grep run_classifier ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy' > ${output_csv_file}
   echo "Saved CSV as \"${output_csv_file}\"."
 }
 
@@ -63,7 +63,7 @@ do
   for input_dataset_file in ${input_datasets_dir} ;
   do
     file_basename=$(basename $input_dataset_file)
-    file_basename_no_extension=$TODAY-${file_basename%.*}
+    file_basename_no_extension=$TODAY-$experiment-${file_basename%.*}
     log_filename=experiment_logs/${file_basename_no_extension}.log
     csv_filename=experiment_logs/${file_basename_no_extension}.csv
     plot_file_basename=plots/${file_basename_no_extension}
@@ -78,6 +78,10 @@ do
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_test_accuracy.pdf target_num_unique test_accuracy
     plot_csv $csv_filename $plot_file_basename-algo_vs_training_accuracy.pdf algo training_accuracy
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_training_accuracy.pdf target_num_unique training_accuracy
+    plot_csv $csv_filename $plot_file_basename-variance_vs_training_accuracy.pdf target_variance training_accuracy
+    plot_csv $csv_filename $plot_file_basename-variance_vs_test_accuracy.pdf target_variance test_accuracy
+    plot_csv $csv_filename $plot_file_basename-stdev_vs_training_accuracy.pdf target_stdev training_accuracy
+    plot_csv $csv_filename $plot_file_basename-stdev_vs_test_accuracy.pdf target_stdev test_accuracy
   done
 
 done

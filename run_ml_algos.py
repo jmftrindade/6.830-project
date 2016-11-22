@@ -6,9 +6,9 @@ import random
 import sys
 import time
 from functools import wraps
-from sklearn import linear_model, metrics, svm
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.preprocessing import LabelEncoder
+from sklearn import linear_model, metrics, preprocessing, svm
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from sklearn.model_selection import KFold, cross_val_score
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.svm import SVC
@@ -111,6 +111,17 @@ def get_training_and_test_datasets(df):
     return training_df, test_df
 
 
+def get_scaled_dataframe(df):
+    """
+    Produces a scaled dataframe that we can use to compute aggregate stats
+    (measures of central tendency and dispersion).
+    """
+    x = df.values  # The underlying numpy array.
+    scaler = preprocessing.MinMaxScaler()
+    x_scaled = scaler.fit_transform(x)
+    return pd.DataFrame(x_scaled, columns=df.columns)
+
+
 def run_all_classifiers(target, features, training_df, test_df):
     """Try all classification ML algorithms and report their accuracies."""
 
@@ -132,12 +143,19 @@ def run_all_classifiers(target, features, training_df, test_df):
         {'name': 'Decision Tree',
          'dt': DecisionTreeClassifier(max_depth=1024, random_state=42)},
         {'name': 'SVM',
-         'dt': svm.SVC()}
+         'dt': svm.SVC()},
+        {'name': 'Random Forest Classifier',
+         'dt': RandomForestClassifier(max_depth=1024, random_state=42)}
     ]
 
     # Experiment stats to record per classifier run.
+    scaled_df = get_scaled_dataframe(training_df)
+    scaled_target = scaled_df[target]
     fn_stats_to_record = {
-        'target_num_unique': len(y.unique())
+        'num_rows': len(scaled_target),
+        'target_num_unique': len(y.unique()),
+        'target_variance': scaled_target.var(),
+        'target_stdev': scaled_target.std()
     }
     fn_stats_to_record_from_result = ['test_accuracy', 'training_accuracy']
 
