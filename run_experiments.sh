@@ -10,8 +10,8 @@ NUMBER_RUNS=1  #10
 # Experiment -> dataset directory
 declare -A EXPERIMENT_DATASETS
 #EXPERIMENT_DATASETS["categorical"]=datasets/classification/*csv
-EXPERIMENT_DATASETS["numerical"]=datasets/regression/*csv
-#EXPERIMENT_DATASETS["FD_paper"]=datasets/from_FD_paper/*csv
+#EXPERIMENT_DATASETS["numerical"]=datasets/regression/*csv
+EXPERIMENT_DATASETS["FD_paper"]=datasets/from_FD_paper/*csv
 
 # Run experiment and generate logs.
 function run_experiment {
@@ -26,7 +26,7 @@ function run_experiment {
   args="-m timeit -n 1 -r ${number_runs} 'import os' 'os.system(\"python run_ml_algos.py -f ${input_dataset}\")' > ${output_log_file} 2>&1"
   echo "Running:"
   echo "python $args"
-  #eval python $args
+  eval python $args
   echo "Saved logs as \"${output_log_file}\"."
 }
 
@@ -38,7 +38,7 @@ function generate_csv {
   # Generate CSV from experiment logs.
   echo "Generating CSV..."
   echo "grep run_classifier ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,target_num_unique,algo,accuracy' > ${output_csv_file}"
-  #grep run_classifier ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,target_num_unique,algo,accuracy' > ${output_csv_file}
+  grep run_classifier ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,target_num_unique,algo,accuracy' > ${output_csv_file}
   echo "Saved CSV as \"${output_csv_file}\"."
 }
 
