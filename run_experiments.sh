@@ -72,14 +72,22 @@ do
     generate_csv $log_filename $csv_filename
 
     # TODO: Generalize this code.
+    # X axis = ML algorithm.
     plot_csv $csv_filename $plot_file_basename-algo_vs_runtime.pdf algo runtime_seconds
-    plot_csv $csv_filename $plot_file_basename-num_unique_vs_runtime.pdf target_num_unique runtime_seconds
     plot_csv $csv_filename $plot_file_basename-algo_vs_test_accuracy.pdf algo test_accuracy
-    plot_csv $csv_filename $plot_file_basename-num_unique_vs_test_accuracy.pdf target_num_unique test_accuracy
     plot_csv $csv_filename $plot_file_basename-algo_vs_training_accuracy.pdf algo training_accuracy
+    # X axis = number of rows.
+    plot_csv $csv_filename $plot_file_basename-num_rows_vs_runtime.pdf num_rows runtime_seconds
+    plot_csv $csv_filename $plot_file_basename-num_rows_vs_test_accuracy.pdf num_rows test_accuracy
+    plot_csv $csv_filename $plot_file_basename-num_rows_vs_training_accuracy.pdf num_rows training_accuracy
+    # X axis = number of uniques in target variable.
+    plot_csv $csv_filename $plot_file_basename-num_unique_vs_runtime.pdf target_num_unique runtime_seconds
+    plot_csv $csv_filename $plot_file_basename-num_unique_vs_test_accuracy.pdf target_num_unique test_accuracy
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_training_accuracy.pdf target_num_unique training_accuracy
+    # X axis = target variable scaled and normalized variance.
     plot_csv $csv_filename $plot_file_basename-variance_vs_training_accuracy.pdf target_variance training_accuracy
     plot_csv $csv_filename $plot_file_basename-variance_vs_test_accuracy.pdf target_variance test_accuracy
+    # X axis = target variable scaled and normalized standard deviation.
     plot_csv $csv_filename $plot_file_basename-stdev_vs_training_accuracy.pdf target_stdev training_accuracy
     plot_csv $csv_filename $plot_file_basename-stdev_vs_test_accuracy.pdf target_stdev test_accuracy
   done
