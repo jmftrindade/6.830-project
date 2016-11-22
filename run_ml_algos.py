@@ -222,13 +222,13 @@ def run_ml_for_all_columns(training_df, test_df):
 
     for column in training_df:
         features = [c for c in training_df.columns if c is not column]
-        print('\nRunning ML for column \"%s\"' % column)
+        print >> sys.stderr, '\nRunning ML for column \"%s\"' % column
 
         # Use both classification and regression for numerical data.
         # All numerical data is read as floats, so no need to check for other
         # numerical data types here.
         if is_numerical(training_df, column):
-            print('TODO: check accuracy for regression.')
+            print >> sys.stderr, 'TODO: check accuracy for regression.'
 
         run_all_classifiers(column, features, training_df, test_df)
 
