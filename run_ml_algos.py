@@ -5,17 +5,12 @@ import random
 import sys
 import time
 from functools import wraps
-from sklearn import metrics
-from sklearn.tree import DecisionTreeClassifier, export_graphviz
-
-# To convert str to integer (preprocessing.LabelEncoder())
-from sklearn import preprocessing
-
-from sklearn import linear_model, datasets
-from sklearn import svm
+from sklearn import linear_model, metrics, svm
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
-from sklearn.svm import SVC
 from sklearn.multiclass import OneVsRestClassifier
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 
 
 def fn_timer(function):
@@ -133,6 +128,7 @@ def run_all_classifiers(targ, features, df):
 
 @fn_timer
 def run_classifier(y, X, dt, *args, **kwargs):
+    # Convert from string to integer.
     le = LabelEncoder()
     for col in X.columns.values:
         data = X[col]
