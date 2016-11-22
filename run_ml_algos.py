@@ -106,7 +106,7 @@ def run_all_classifiers(targ, features, df):
         {'name': 'Decision Tree',
          'dt': DecisionTreeClassifier(min_samples_split=30, random_state=99)},
         {'name': 'SVM',
-         'dt': svm.SVC(decision_function_shape='ovo')}
+         'dt': svm.SVC(decision_function_shape='ova')}
     ]
 
     # Experiment stats to record per classifier run.
