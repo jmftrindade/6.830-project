@@ -1,4 +1,5 @@
 import argparse
+import math
 import numpy as np
 import pandas as pd
 import random
@@ -8,6 +9,7 @@ from functools import wraps
 from sklearn import linear_model, metrics, svm
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import KFold, cross_val_score
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
@@ -89,13 +91,37 @@ def encode_target(df, target_column):
     return (df_mod, targets)
 
 
-def run_all_classifiers(targ, features, df):
+def get_training_and_test_datasets(df):
+    """
+    Splits data into training and test data sets.
+    """
+    copy_df = df.copy()
+
+    # Shuffle.
+    #copy_df.reindex(np.random.permutation(copy_df.index))
+
+    # Use a 70-30 breakdown for training and test data sets, where upper 70%
+    # are training, and bottom 30% rows are test.
+    training_set_num_rows = int(math.ceil(.7 * float(copy_df.shape[0])))
+    test_set_num_rows = int(math.floor(.3 * float(copy_df.shape[0])))
+
+    training_df = copy_df.head(training_set_num_rows)
+    test_df = copy_df.tail(test_set_num_rows)
+
+    return training_df, test_df
+
+
+def run_all_classifiers(target, features, training_df, test_df):
     """Try all classification ML algorithms and report their accuracies."""
 
-    df2, targets = encode_target(df, targ)
+    # FIXME: The "targets" variable is not being used.
+    encoded_training_df, targets = encode_target(training_df, target)
+    encoded_test_df, targets = encode_target(test_df, target)
 
-    y = df2["Target"]
-    X = df2[features]
+    y = encoded_training_df["Target"]
+    X = encoded_training_df[features]
+    y_test = encoded_test_df["Target"]
+    X_test = encoded_test_df[features]
 
     # All classifiers that we consider.
     # TODO: Optionally investigate using GridSearch if the accuracies end up
@@ -104,61 +130,69 @@ def run_all_classifiers(targ, features, df):
         {'name': 'Logistic Regression',
          'dt': linear_model.LogisticRegression()},
         {'name': 'Decision Tree',
-         'dt': DecisionTreeClassifier(min_samples_split=30, random_state=99)},
+         'dt': DecisionTreeClassifier(max_depth=1024, random_state=42)},
         {'name': 'SVM',
-         'dt': svm.SVC(decision_function_shape='ova')}
+         'dt': svm.SVC()}
     ]
 
     # Experiment stats to record per classifier run.
     fn_stats_to_record = {
         'target_num_unique': len(y.unique())
     }
-    fn_stats_to_record_from_result = ['accuracy']
+    fn_stats_to_record_from_result = ['test_accuracy', 'training_accuracy']
 
     for classifier in classifiers:
         fn_stats_to_record['algo'] = classifier['name']
         res = run_classifier(
-            y, X, classifier['dt'],
-            # NOTE: This is intentional, as these need to be kwargs.
+            y, X, y_test, X_test, classifier['dt'],
             additional_timer_stats=fn_stats_to_record,
             additional_timer_stats_from_result=fn_stats_to_record_from_result)
         #print('%s classifier accuracy = %f' % (
-        #    classifier['name'], res['accuracy']))
+        #    classifier['name'], res['test_accuracy']))
 
 
 @fn_timer
-def run_classifier(y, X, dt, *args, **kwargs):
+def run_classifier(y, X, y_test, X_test, dt, *args, **kwargs):
     # Convert from string to integer.
     le = LabelEncoder()
     for col in X.columns.values:
         data = X[col]
         le.fit(data.values)
         X[col] = le.transform(X[col])
-    dt.fit(X, y)
-    expected = y
-    predicted = dt.predict(X)
+
+    # 5-fold shuffle cross-validation.
+    k_fold = KFold(n_splits=5, shuffle=True)
+    for train, test in k_fold.split(X):
+        dt.fit(X.iloc[train], y[train]).score(X.iloc[test], y[test])
+
+    # Accuracy over training data set.
+    training_accuracy = metrics.accuracy_score(y, dt.predict(X))
+    test_accuracy = metrics.accuracy_score(y_test, dt.predict(X_test))
 
     # Organized as named entries in a dict for stats collection.
-    return {'accuracy': metrics.accuracy_score(expected, predicted)}
+    return {
+        'test_accuracy': test_accuracy,
+        'training_accuracy': training_accuracy
+    }
 
 
-def run_ml_for_all_columns(df):
+def run_ml_for_all_columns(training_df, test_df):
     # FIXME: I don't think we can figure out an arbitrary "threshold" for this.
     # We should just run both classification and regression for numerical
     # columns, and record how many unique values we have.
     #threshold = 30
 
-    for col in df:
-        print('\nRunning ML for column \"%s\"' % col)
-        features = [column for column in df.columns if column is not col]
+    for column in training_df:
+        features = [c for c in training_df.columns if c is not column]
+        print('\nRunning ML for column \"%s\"' % column)
 
         # Use both classification and regression for numerical data.
         # All numerical data is read as floats, so no need to check for other
         # numerical data types here.
-        if df[col].dtypes == 'float64':
+        if training_df[column].dtypes == 'float64':
             print('TODO: check accuracy for regression.')
 
-        run_all_classifiers(col, features, df)
+        run_all_classifiers(column, features, training_df, test_df)
 
 
 if __name__ == "__main__":
@@ -175,4 +209,5 @@ if __name__ == "__main__":
     print('Running ML algos for input dataset \"%s\"' % args.input_csv_file)
 
     df = get_dataframe_as_float_from_csv(args.input_csv_file)
-    run_ml_for_all_columns(df)
+    training_df, test_df = get_training_and_test_datasets(df)
+    run_ml_for_all_columns(training_df, test_df)

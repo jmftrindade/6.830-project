@@ -10,8 +10,8 @@ NUMBER_RUNS=1  #10
 # Experiment -> dataset directory
 declare -A EXPERIMENT_DATASETS
 #EXPERIMENT_DATASETS["categorical"]=datasets/classification/*csv
-#EXPERIMENT_DATASETS["numerical"]=datasets/regression/*csv
-EXPERIMENT_DATASETS["FD_paper"]=datasets/from_FD_paper/*csv
+EXPERIMENT_DATASETS["numerical"]=datasets/regression/*csv
+#EXPERIMENT_DATASETS["FD_paper"]=datasets/from_FD_paper/*csv
 
 # Run experiment and generate logs.
 function run_experiment {
@@ -37,8 +37,7 @@ function generate_csv {
 
   # Generate CSV from experiment logs.
   echo "Generating CSV..."
-  echo "grep run_classifier ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,target_num_unique,algo,accuracy' > ${output_csv_file}"
-  grep run_classifier ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,target_num_unique,algo,accuracy' > ${output_csv_file}
+  grep run_classifier ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,target_num_unique,algo,test_accuracy,training_accuracy' > ${output_csv_file}
   echo "Saved CSV as \"${output_csv_file}\"."
 }
 
@@ -75,8 +74,10 @@ do
     # TODO: Generalize this code.
     plot_csv $csv_filename $plot_file_basename-algo_vs_runtime.pdf algo runtime_seconds
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_runtime.pdf target_num_unique runtime_seconds
-    plot_csv $csv_filename $plot_file_basename-algo_vs_accuracy.pdf algo accuracy
-    plot_csv $csv_filename $plot_file_basename-num_unique_vs_accuracy.pdf target_num_unique accuracy
+    plot_csv $csv_filename $plot_file_basename-algo_vs_test_accuracy.pdf algo test_accuracy
+    plot_csv $csv_filename $plot_file_basename-num_unique_vs_test_accuracy.pdf target_num_unique test_accuracy
+    plot_csv $csv_filename $plot_file_basename-algo_vs_training_accuracy.pdf algo training_accuracy
+    plot_csv $csv_filename $plot_file_basename-num_unique_vs_training_accuracy.pdf target_num_unique training_accuracy
   done
 
 done
