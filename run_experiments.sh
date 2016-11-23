@@ -37,6 +37,7 @@ function generate_csv {
 
   # Generate CSV from experiment logs.
   echo "Generating CSV..."
+  # FIXME weird grep bug wont return the regressor rows, even though it works on command line?
   grep '^run_regressor\|^run_classifier' ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse' > ${output_csv_file}
   echo "Saved CSV as \"${output_csv_file}\"."
 }
@@ -48,10 +49,10 @@ function plot_csv {
   local x_axis_column=$3
   local y_axis_column=$4
 
-  #echo "Plotting results..."
-  #echo "python plot_experiment_results.py -i ${input_csv_file} -o ${output_plot_file} -x ${x_axis_column} -y ${y_axis_column}"
-  #python plot_experiment_results.py -i ${input_csv_file} -o ${output_plot_file} -x ${x_axis_column} -y ${y_axis_column}
-  #echo "Saved plot as \"${output_plot_file}\"."
+  echo "Plotting results..."
+  echo "python plot_experiment_results.py -i ${input_csv_file} -o ${output_plot_file} -x ${x_axis_column} -y ${y_axis_column}"
+  python plot_experiment_results.py -i ${input_csv_file} -o ${output_plot_file} -x ${x_axis_column} -y ${y_axis_column}
+  echo "Saved plot as \"${output_plot_file}\"."
 }
 
 for experiment in "${!EXPERIMENT_DATASETS[@]}";
