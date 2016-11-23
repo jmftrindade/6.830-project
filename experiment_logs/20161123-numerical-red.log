@@ -1,0 +1,177 @@
+num_rows_f=1599.000000, training=1120, test=479
+
+Running ML for column "fixed acidity"
+//anaconda/envs/python2/lib/python2.7/site-packages/sklearn/utils/validation.py:429: DataConversionWarning: Data with input dtype int64 was converted to float64 by MinMaxScaler.
+  warnings.warn(msg, _DataConversionWarning)
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.767816066742,1120,0.034355337246,95,0.185351928088,Random Forest Regression,,,64.6057805614,12.2709920635
+//anaconda/envs/python2/lib/python2.7/site-packages/scipy/linalg/basic.py:884: RuntimeWarning: internal gelsd driver lwork query error, required iwork dimension not returned. This is likely the result of LAPACK bug 0038, fixed in LAPACK 3.2.2 (released July 21, 2010). Falling back to 'gelss' driver.
+  warnings.warn(mesg, RuntimeWarning)
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0541930198669,1120,0.034355337246,95,0.185351928088,Linear Regression,,,44.6746279065,47.1611961755
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,3.39417004585,1120,0.034355337246,95,0.185351928088,Logistic Regression,0.0563674321503,0.16875,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.356422901154,1120,0.034355337246,95,0.185351928088,Decision Tree,0.0542797494781,0.865178571429,,
+//anaconda/envs/python2/lib/python2.7/site-packages/sklearn/svm/base.py:552: ChangedBehaviorWarning: The decision_function_shape default value will change from 'ovo' to 'ovr' in 0.19. This will change the shape of the decision function returned by SVC.
+  "SVC.", ChangedBehaviorWarning)
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,2.21294617653,1120,0.034355337246,95,0.185351928088,SVC,0.0208768267223,0.0375,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.03161692619,1120,0.034355337246,95,0.185351928088,Random Forest Classifier,0.0584551148225,0.858928571429,,
+
+Running ML for column "volatile acidity"
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.810016870499,1120,0.0385779286602,134,0.196412648931,Random Forest Regression,,,495.19729993,125.654206349
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0468301773071,1120,0.0385779286602,134,0.196412648931,Linear Regression,,,419.044845461,446.357762137
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,4.8570458889,1120,0.0385779286602,134,0.196412648931,Logistic Regression,0.0250521920668,0.123214285714,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.537530899048,1120,0.0385779286602,134,0.196412648931,Decision Tree,0.0208768267223,0.848214285714,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,3.25837802887,1120,0.0385779286602,134,0.196412648931,SVC,0.0208768267223,0.0348214285714,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.12018084526,1120,0.0385779286602,134,0.196412648931,Random Forest Classifier,0.0167014613779,0.849107142857,,
+
+Running ML for column "citric acid"
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.790943145752,1120,0.0630290991938,79,0.25105596825,Random Forest Regression,,,107.7963164,31.661202381
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0518610477448,1120,0.0630290991938,79,0.25105596825,Linear Regression,,,126.891674345,130.038045436
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,3.14913201332,1120,0.0630290991938,79,0.25105596825,Logistic Regression,0.129436325678,0.190178571429,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.326093196869,1120,0.0630290991938,79,0.25105596825,Decision Tree,0.0647181628392,0.852678571429,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.7501180172,1120,0.0630290991938,79,0.25105596825,SVC,0.0062630480167,0.116964285714,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.785377979279,1120,0.0630290991938,79,0.25105596825,Random Forest Classifier,0.0939457202505,0.853571428571,,
+
+Running ML for column "residual sugar"
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.887104988098,1120,0.0276811423615,81,0.166376507841,Random Forest Regression,,,134.488397124,33.069202381
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.047266960144,1120,0.0276811423615,81,0.166376507841,Linear Regression,,,153.539983393,140.355197195
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,2.70661091805,1120,0.0276811423615,81,0.166376507841,Logistic Regression,0.104384133612,0.204464285714,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.368551969528,1120,0.0276811423615,81,0.166376507841,Decision Tree,0.0709812108559,0.866071428571,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,2.12066888809,1120,0.0276811423615,81,0.166376507841,SVC,0.108559498956,0.0946428571429,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.824610948563,1120,0.0276811423615,81,0.166376507841,Random Forest Classifier,0.098121085595,0.866071428571,,
+
+Running ML for column "chlorides"
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.986922979355,1120,0.0231039546897,139,0.151999850953,Random Forest Regression,,,398.198088611,125.059853175
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0513551235199,1120,0.0231039546897,139,0.151999850953,Linear Regression,,,415.75904965,392.441263039
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,4.70456790924,1120,0.0231039546897,139,0.151999850953,Logistic Regression,0.0313152400835,0.13125,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.477074861526,1120,0.0231039546897,139,0.151999850953,Decision Tree,0.0104384133612,0.851785714286,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,2.95923495293,1120,0.0231039546897,139,0.151999850953,SVC,0.0167014613779,0.0410714285714,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.02881407738,1120,0.0231039546897,139,0.151999850953,Random Forest Classifier,0.0313152400835,0.855357142857,,
+
+Running ML for column "free sulfur dioxide"
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.711771011353,1120,0.031166333453,55,0.176539891959,Random Forest Regression,,,62.0478218511,10.3403809524
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0574560165405,1120,0.031166333453,55,0.176539891959,Linear Regression,,,72.1452597158,49.1824033867
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,2.1544342041,1120,0.031166333453,55,0.176539891959,Logistic Regression,0.0730688935282,0.186607142857,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.254379987717,1120,0.031166333453,55,0.176539891959,Decision Tree,0.0709812108559,0.865178571429,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.39911103249,1120,0.031166333453,55,0.176539891959,SVC,0.0709812108559,0.0946428571429,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.686934947968,1120,0.031166333453,55,0.176539891959,Random Forest Classifier,0.0855949895616,0.8625,,
+
+Running ML for column "total sulfur dioxide"
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.772136211395,1120,0.0509378286384,141,0.225694104128,Random Forest Regression,,,415.331472461,92.7159486883
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0486559867859,1120,0.0509378286384,141,0.225694104128,Linear Regression,,,495.510821346,412.969955196
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,4.93797206879,1120,0.0509378286384,141,0.225694104128,Logistic Regression,0.0250521920668,0.170535714286,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.529950141907,1120,0.0509378286384,141,0.225694104128,Decision Tree,0.0229645093946,0.865178571429,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,3.08232188225,1120,0.0509378286384,141,0.225694104128,SVC,0.0167014613779,0.0285714285714,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.04758000374,1120,0.0509378286384,141,0.225694104128,Random Forest Classifier,0.0208768267223,0.849107142857,,
+
+Running ML for column "density"
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.745242834091,1120,0.0575310780952,297,0.23985636972,Random Forest Regression,,,3235.50606356,548.921456349
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0477111339569,1120,0.0575310780952,297,0.23985636972,Linear Regression,,,2432.3672708,2107.06060602
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,7.68169188499,1120,0.0575310780952,297,0.23985636972,Logistic Regression,0.0,0.166071428571,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.05541992188,1120,0.0575310780952,297,0.23985636972,Decision Tree,0.0062630480167,0.850892857143,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,8.86876797676,1120,0.0575310780952,297,0.23985636972,SVC,0.0,0.0339285714286,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.76685214043,1120,0.0575310780952,297,0.23985636972,Random Forest Classifier,0.00417536534447,0.855357142857,,
+
+Running ML for column "pH"
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.855503797531,1120,0.0308836308203,86,0.17573739164,Random Forest Regression,,,83.7249269311,19.536
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0584380626678,1120,0.0308836308203,86,0.17573739164,Linear Regression,,,61.359446452,76.8757282052
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,3.68127298355,1120,0.0308836308203,86,0.17573739164,Logistic Regression,0.0313152400835,0.154464285714,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.425354003906,1120,0.0308836308203,86,0.17573739164,Decision Tree,0.0250521920668,0.85,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,2.06703495979,1120,0.0308836308203,86,0.17573739164,SVC,0.0334029227557,0.0339285714286,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.943803071976,1120,0.0308836308203,86,0.17573739164,Random Forest Classifier,0.0229645093946,0.861607142857,,
+
+Running ML for column "sulphates"
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.844444990158,1120,0.0273309717075,89,0.165320814502,Random Forest Regression,,,164.880547437,32.0595396825
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0490520000458,1120,0.0273309717075,89,0.165320814502,Linear Regression,,,150.284166892,183.309753469
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,3.38568806648,1120,0.0273309717075,89,0.165320814502,Logistic Regression,0.0417536534447,0.134821428571,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.442924022675,1120,0.0273309717075,89,0.165320814502,Decision Tree,0.0250521920668,0.851785714286,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,2.14063405991,1120,0.0273309717075,89,0.165320814502,SVC,0.0459290187891,0.0455357142857,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.954087972641,1120,0.0273309717075,89,0.165320814502,Random Forest Classifier,0.0313152400835,0.860714285714,,
+
+Running ML for column "alcohol"
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.819909095764,1120,0.0462852971849,50,0.215140180312,Random Forest Regression,,,63.9792159592,16.7546230159
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0490100383759,1120,0.0462852971849,50,0.215140180312,Linear Regression,,,54.0187376488,58.2315341504
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,2.1552798748,1120,0.0462852971849,50,0.215140180312,Logistic Regression,0.0668058455115,0.177678571429,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.251346111298,1120,0.0462852971849,50,0.215140180312,Decision Tree,0.0542797494781,0.859821428571,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.41533493996,1120,0.0462852971849,50,0.215140180312,SVC,0.0647181628392,0.0982142857143,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.684044837952,1120,0.0462852971849,50,0.215140180312,Random Forest Classifier,0.062630480167,0.857142857143,,
+
+Running ML for column "quality"
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.727163076401,1120,0.0262663092046,6,0.162068840943,Random Forest Regression,,,0.478543261424,0.116992063492
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0513119697571,1120,0.0262663092046,6,0.162068840943,Linear Regression,,,0.45543410445,0.411770244781
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.273951053619,1120,0.0262663092046,6,0.162068840943,Logistic Regression,0.60751565762,0.597321428571,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.110985994339,1120,0.0262663092046,6,0.162068840943,Decision Tree,0.496868475992,0.924107142857,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.640377044678,1120,0.0262663092046,6,0.162068840943,SVC,0.390396659708,0.444642857143,,
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.41609287262,1120,0.0262663092046,6,0.162068840943,Random Forest Classifier,0.544885177453,0.91875,,
+Running ML algos for input dataset "datasets/regression/red.csv"
+1 loops, best of 1: 104 sec per loop

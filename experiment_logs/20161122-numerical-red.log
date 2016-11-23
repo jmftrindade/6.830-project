@@ -1,0 +1,137 @@
+num_rows_f=1599.000000, training=1120, test=479
+
+Running ML for column "fixed acidity"
+===>>COLUM=fixed acidity IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,3.81277012825,1120,,95,,Logistic Regression,0.0396659707724,0.169642857143
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.385985851288,1120,,95,,Decision Tree,0.0292275574113,0.861607142857
+//anaconda/envs/python2/lib/python2.7/site-packages/sklearn/svm/base.py:552: ChangedBehaviorWarning: The decision_function_shape default value will change from 'ovo' to 'ovr' in 0.19. This will change the shape of the decision function returned by SVC.
+  "SVC.", ChangedBehaviorWarning)
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,2.53406500816,1120,,95,,SVM,0.0208768267223,0.0375
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,1.36109781265,1120,,95,,Random Forest Classifier,0.0647181628392,0.851785714286
+
+Running ML for column "volatile acidity"
+===>>COLUM=volatile acidity IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,4.97994613647,1120,,134,,Logistic Regression,0.0229645093946,0.121428571429
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.609569072723,1120,,134,,Decision Tree,0.0229645093946,0.85625
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,3.35030198097,1120,,134,,SVM,0.0208768267223,0.0348214285714
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,1.40442991257,1120,,134,,Random Forest Classifier,0.0334029227557,0.855357142857
+
+Running ML for column "citric acid"
+===>>COLUM=citric acid IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,3.40662407875,1120,,79,,Logistic Regression,0.129436325678,0.185714285714
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.466370820999,1120,,79,,Decision Tree,0.0772442588727,0.85625
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,2.45376110077,1120,,79,,SVM,0.0062630480167,0.111607142857
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.911893844604,1120,,79,,Random Forest Classifier,0.0835073068894,0.866964285714
+
+Running ML for column "residual sugar"
+===>>COLUM=residual sugar IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,3.18669605255,1120,,81,,Logistic Regression,0.0939457202505,0.198214285714
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.44358587265,1120,,81,,Decision Tree,0.0438413361169,0.857142857143
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,2.56592392921,1120,,81,,SVM,0.108559498956,0.0946428571429
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.888098955154,1120,,81,,Random Forest Classifier,0.0897703549061,0.861607142857
+
+Running ML for column "chlorides"
+===>>COLUM=chlorides IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,4.78536200523,1120,,139,,Logistic Regression,0.027139874739,0.120535714286
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.620573043823,1120,,139,,Decision Tree,0.0250521920668,0.842857142857
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,3.1477560997,1120,,139,,SVM,0.0167014613779,0.0410714285714
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,1.18165397644,1120,,139,,Random Forest Classifier,0.0208768267223,0.857142857143
+
+Running ML for column "free sulfur dioxide"
+===>>COLUM=free sulfur dioxide IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,2.25862288475,1120,,55,,Logistic Regression,0.0605427974948,0.2
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.260613203049,1120,,55,,Decision Tree,0.0730688935282,0.860714285714
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,1.49638795853,1120,,55,,SVM,0.0709812108559,0.0955357142857
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.822926998138,1120,,55,,Random Forest Classifier,0.0835073068894,0.861607142857
+
+Running ML for column "total sulfur dioxide"
+===>>COLUM=total sulfur dioxide IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,5.29494190216,1120,,141,,Logistic Regression,0.0187891440501,0.158928571429
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.592061042786,1120,,141,,Decision Tree,0.0167014613779,0.861607142857
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,3.28766703606,1120,,141,,SVM,0.0167014613779,0.0294642857143
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,1.16684389114,1120,,141,,Random Forest Classifier,0.0208768267223,0.855357142857
+
+Running ML for column "density"
+===>>COLUM=density IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,7.88836789131,1120,,297,,Logistic Regression,0.0,0.175892857143
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.939249038696,1120,,297,,Decision Tree,0.00208768267223,0.8625
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,8.78469395638,1120,,297,,SVM,0.0,0.0339285714286
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,2.1523911953,1120,,297,,Random Forest Classifier,0.00835073068894,0.858035714286
+
+Running ML for column "pH"
+===>>COLUM=pH IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,3.42874884605,1120,,86,,Logistic Regression,0.0396659707724,0.135714285714
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.379508972168,1120,,86,,Decision Tree,0.0292275574113,0.8625
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,2.11743092537,1120,,86,,SVM,0.0334029227557,0.0339285714286
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.904230833054,1120,,86,,Random Forest Classifier,0.027139874739,0.857142857143
+
+Running ML for column "sulphates"
+===>>COLUM=sulphates IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,3.28101587296,1120,,89,,Logistic Regression,0.0438413361169,0.146428571429
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.372956991196,1120,,89,,Decision Tree,0.027139874739,0.851785714286
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,2.06274390221,1120,,89,,SVM,0.0187891440501,0.0776785714286
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.873476982117,1120,,89,,Random Forest Classifier,0.0229645093946,0.864285714286
+
+Running ML for column "alcohol"
+===>>COLUM=alcohol IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,2.1652970314,1120,,50,,Logistic Regression,0.0751565762004,0.175892857143
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.254166126251,1120,,50,,Decision Tree,0.0375782881002,0.865178571429
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,1.45995497704,1120,,50,,SVM,0.0647181628392,0.0973214285714
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.676155805588,1120,,50,,Random Forest Classifier,0.0542797494781,0.865178571429
+
+Running ML for column "quality"
+===>>COLUM=quality IS NOT NUMERICAL!!
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.292649030685,1120,,6,,Logistic Regression,0.60751565762,0.603571428571
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.108392000198,1120,,6,,Decision Tree,0.507306889353,0.921428571429
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.73716711998,1120,,6,,SVM,0.390396659708,0.442857142857
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+run_classifier,0.457519054413,1120,,6,,Random Forest Classifier,0.507306889353,0.921428571429
+Running ML algos for input dataset "datasets/regression/red.csv"
+1 loops, best of 1: 98.5 sec per loop
