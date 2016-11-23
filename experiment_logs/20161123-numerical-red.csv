@@ -1,4 +1,4 @@
-function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy
+function,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse
 run_classifier,3.54809498787,1120,,95,,Logistic Regression,0.0521920668058,0.175
 run_classifier,0.406512975693,1120,,95,,Decision Tree,0.0417536534447,0.852678571429
 run_classifier,2.15753889084,1120,,95,,SVM,0.0208768267223,0.0375

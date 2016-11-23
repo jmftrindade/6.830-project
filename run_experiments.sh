@@ -37,7 +37,7 @@ function generate_csv {
 
   # Generate CSV from experiment logs.
   echo "Generating CSV..."
-  grep run_classifier ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy' > ${output_csv_file}
+  grep run_classifier ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse' > ${output_csv_file}
   echo "Saved CSV as \"${output_csv_file}\"."
 }
 
@@ -76,16 +76,20 @@ do
     plot_csv $csv_filename $plot_file_basename-algo_vs_runtime.pdf algo runtime_seconds
     plot_csv $csv_filename $plot_file_basename-algo_vs_test_accuracy.pdf algo test_accuracy
     plot_csv $csv_filename $plot_file_basename-algo_vs_training_accuracy.pdf algo training_accuracy
+    plot_csv $csv_filename $plot_file_basename-algo_vs_test_mse.pdf algo test_mse
+    plot_csv $csv_filename $plot_file_basename-algo_vs_training_mse.pdf algo training_mse
     # X axis = number of uniques in target variable.
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_runtime.pdf target_num_unique runtime_seconds
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_test_accuracy.pdf target_num_unique test_accuracy
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_training_accuracy.pdf target_num_unique training_accuracy
+    plot_csv $csv_filename $plot_file_basename-num_unique_vs_test_mse.pdf target_num_unique test_mse
+    plot_csv $csv_filename $plot_file_basename-num_unique_vs_training_mse.pdf target_num_unique training_mse
     # X axis = target variable scaled and normalized variance.
-    plot_csv $csv_filename $plot_file_basename-variance_vs_training_accuracy.pdf target_variance training_accuracy
-    plot_csv $csv_filename $plot_file_basename-variance_vs_test_accuracy.pdf target_variance test_accuracy
+    plot_csv $csv_filename $plot_file_basename-variance_vs_training_mse.pdf target_variance training_mse
+    plot_csv $csv_filename $plot_file_basename-variance_vs_test_mse.pdf target_variance test_mse
     # X axis = target variable scaled and normalized standard deviation.
-    plot_csv $csv_filename $plot_file_basename-stdev_vs_training_accuracy.pdf target_stdev training_accuracy
-    plot_csv $csv_filename $plot_file_basename-stdev_vs_test_accuracy.pdf target_stdev test_accuracy
+    plot_csv $csv_filename $plot_file_basename-stdev_vs_training_mse.pdf target_stdev training_mse
+    plot_csv $csv_filename $plot_file_basename-stdev_vs_test_mse.pdf target_stdev test_mse
   done
 
   # Merge all logs so we can plot data from multiple data sets.

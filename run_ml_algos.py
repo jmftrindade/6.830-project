@@ -109,9 +109,8 @@ def is_numerical(df, column_name):
     return df[column_name].dtypes.kind in (np.typecodes["AllInteger"] + np.typecodes["AllFloat"])
 
 
-def run_all_classifiers(target, features, training_df, test_df):
-    """Try all classification ML algorithms and report their accuracies."""
-
+def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
+                        fn_stats_to_record_from_result):
     # All classifiers that we consider.
     # TODO: Optionally investigate using GridSearch if the accuracies end up
     # being too low.
@@ -120,40 +119,39 @@ def run_all_classifiers(target, features, training_df, test_df):
          'clf': linear_model.LogisticRegression()},
         {'name': 'Decision Tree',
          'clf': DecisionTreeClassifier(max_depth=1024, random_state=42)},
-        {'name': 'SVM',
+        {'name': 'SVC',
          'clf': svm.SVC()},
         {'name': 'Random Forest Classifier',
          'clf': RandomForestClassifier(max_depth=1024, random_state=42)}
     ]
 
-    y_train = training_df[target]
-    X_train = training_df[features]
-    y_test = test_df[target]
-    X_test = test_df[features]
-
-    # Experiment stats to record per classifier run for numerical columns.
-    stdev = None
-    var = None
-    if is_numerical(training_df, target):
-        scaled_df = get_scaled_dataframe(training_df)
-        scaled_target = scaled_df[target]
-        var, stdev = scaled_target.var(), scaled_target.std()
-    fn_stats_to_record = {
-        'num_rows': training_df.shape[0],
-        'target_num_unique': len(y_train.unique()),
-        'target_variance': var if var is not None else '',
-        'target_stdev': stdev if stdev is not None else ''
-    }
-    fn_stats_to_record_from_result = ['test_accuracy', 'training_accuracy']
-
     for classifier in classifiers:
         fn_stats_to_record['algo'] = classifier['name']
-        res = run_classifier(y_train, X_train, y_test, X_test,
-                             classifier['clf'],
-                             additional_timer_stats=fn_stats_to_record,
-                             additional_timer_stats_from_result=fn_stats_to_record_from_result)
+        res = run_classifier(
+            y_train, X_train, y_test, X_test, classifier['clf'],
+            additional_timer_stats=fn_stats_to_record,
+            additional_timer_stats_from_result=fn_stats_to_record_from_result)
         #print('%s classifier accuracy = %f' % (
         #    classifier['name'], res['test_accuracy']))
+
+
+def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
+                       fn_stats_to_record_from_result):
+    regressors = [
+        {'name': 'Random Forest Regression',
+         'regressor': RandomForestRegressor(n_estimators=15)},
+        {'name': 'SVR',
+         'regressor': svm.SVR(),
+         'name': 'Linear Regression',
+         'regressor': linear_model.LinearRegression()}
+    ]
+
+    for regressor in regressors:
+        fn_stats_to_record['algo'] = regressor['name']
+        res = run_regressor(
+            y_train, X_train, y_test, X_test, regressor['regressor'],
+            additional_timer_stats=fn_stats_to_record,
+            additional_timer_stats_from_result=fn_stats_to_record_from_result)
 
 
 def get_encoded_df(df):
@@ -168,13 +166,37 @@ def get_encoded_df(df):
     return df
 
 
+def cross_validate(y_train, X_train, num_folds, ml_algo):
+    # Shuffle cross-validation.
+    k_fold = KFold(n_splits=num_folds, shuffle=True)
+    for train, test in k_fold.split(X_train):
+        ml_algo.fit(X_train.iloc[train], y_train[train]).score(
+            X_train.iloc[test], y_train[test])
+
+    return ml_algo
+
+
+@fn_timer
+def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
+    regressor = cross_validate(y_train, X_train, 5, regressor)
+
+    training_mse = metrics.mean_squared_error(
+        y_train, regressor.predict(X_train))
+    test_mse = metrics.mean_squared_error(y_test, regressor.predict(X_test))
+
+    # Organized as named entries in a dict for stats collection
+    return {
+        'test_accuracy': '',
+        'training_accuracy': '',
+        'test_mse': test_mse,
+        'training_mse': training_mse
+    }
+
+
 @fn_timer
 def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
     # 5-fold shuffle cross-validation.
-    k_fold = KFold(n_splits=5, shuffle=True)
-    for train, test in k_fold.split(X_train):
-        clf.fit(X_train.iloc[train], y_train[train]).score(
-            X_train.iloc[test], y_train[test])
+    clf = cross_validate(y_train, X_train, 5, clf)
 
     # Train calibrated classifier with 5-fold cross-validation.
     calibrated_clf = CalibratedClassifierCV(clf, method='sigmoid', cv='prefit')
@@ -190,7 +212,9 @@ def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
     # Organized as named entries in a dict for stats collection.
     return {
         'test_accuracy': test_accuracy,
-        'training_accuracy': training_accuracy
+        'training_accuracy': training_accuracy,
+        'test_mse': '',
+        'training_mse': ''
     }
 
 
@@ -207,13 +231,31 @@ def run_ml_for_all_columns(df):
         print >> sys.stderr, '\nRunning ML for column \"%s\"' % column
         features = [c for c in training_df.columns if c is not column]
 
-        # Use both classification and regression for numerical data.
-        # All numerical data is read as floats, so no need to check for other
-        # numerical data types here.
-        if is_numerical(training_df, column):
-            print >> sys.stderr, 'TODO: check accuracy for regression.'
+        y_train = training_df[column]
+        X_train = training_df[features]
+        y_test = test_df[column]
+        X_test = test_df[features]
 
-        run_all_classifiers(column, features, training_df, test_df)
+        # Experiment stats to record per classifier run for numerical columns.
+        fn_stats_to_record_from_result = ['test_accuracy', 'training_accuracy',
+                                          'test_mse', 'training_mse']
+        fn_stats_to_record = {
+            'num_rows': training_df.shape[0],
+            'target_num_unique': len(y_train.unique()),
+            'target_variance': '',
+            'target_stdev': ''
+        }
+        # Use both classification and regression for numerical data.
+        if is_numerical(training_df, column):
+            scaled_df = get_scaled_dataframe(training_df)
+            scaled_target = scaled_df[column]
+            fn_stats_to_record['target_variance'] = scaled_target.var()
+            fn_stats_to_record['target_stdev'] = scaled_target.std()
+            run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
+                               fn_stats_to_record_from_result)
+
+        run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
+                            fn_stats_to_record_from_result)
 
 
 if __name__ == "__main__":
