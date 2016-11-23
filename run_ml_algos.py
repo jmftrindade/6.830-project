@@ -7,6 +7,7 @@ import sys
 import time
 from functools import wraps
 from sklearn import linear_model, metrics, preprocessing, svm
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from sklearn.model_selection import KFold, cross_val_score
@@ -68,29 +69,6 @@ def get_dataframe_as_float_from_csv(csv_filename):
     return data
 
 
-def encode_target(df, target_column):
-    """Add column to df with integers for the target.
-
-    Args
-    ----
-    df -- pandas DataFrame.
-    target_column -- column to map to int, producing
-                     new Target column.
-
-    Returns
-    -------
-    df_mod -- modified DataFrame.
-    targets -- list of target names.
-    """
-    df_mod = df.copy()
-    targets = df_mod[target_column].unique()
-    map_to_int = {name: n for n, name in enumerate(targets)}
-    # FIXME: Is this replacing the values in the original column?
-    df_mod["Target"] = df_mod[target_column].replace(map_to_int)
-
-    return (df_mod, targets)
-
-
 def get_training_and_test_datasets(df):
     """
     Splits data into training and test data sets.
@@ -100,10 +78,12 @@ def get_training_and_test_datasets(df):
     # Shuffle.
     #copy_df.reindex(np.random.permutation(copy_df.index))
 
-    # Use a 70-30 breakdown for training and test data sets, where upper 70%
-    # are training, and bottom 30% rows are test.
-    training_set_num_rows = int(math.ceil(.7 * float(copy_df.shape[0])))
-    test_set_num_rows = int(math.floor(.3 * float(copy_df.shape[0])))
+    # Use a 70-30 breakdown for training and test data sets.
+    num_rows_f = float(copy_df.shape[0])
+    training_set_num_rows = int(math.ceil(.7 * num_rows_f))
+    test_set_num_rows = int(math.floor(.3 * num_rows_f))
+    print >> sys.stderr, 'num_rows_f=%f, training=%d, test=%d' % (
+        num_rows_f, training_set_num_rows, test_set_num_rows)
 
     training_df = copy_df.head(training_set_num_rows)
     test_df = copy_df.tail(test_set_num_rows)
@@ -126,34 +106,30 @@ def is_numerical(df, column_name):
     """
     Whether this column has only numerical data.
     """
-    return isinstance(df[column_name].dtypes, (int, float))
+    return df[column_name].dtypes.kind in (np.typecodes["AllInteger"] + np.typecodes["AllFloat"])
 
 
 def run_all_classifiers(target, features, training_df, test_df):
     """Try all classification ML algorithms and report their accuracies."""
-
-    # FIXME: The "targets" variable is not being used.
-    encoded_training_df, targets = encode_target(training_df, target)
-    encoded_test_df, targets = encode_target(test_df, target)
-
-    y = encoded_training_df["Target"]
-    X = encoded_training_df[features]
-    y_test = encoded_test_df["Target"]
-    X_test = encoded_test_df[features]
 
     # All classifiers that we consider.
     # TODO: Optionally investigate using GridSearch if the accuracies end up
     # being too low.
     classifiers = [
         {'name': 'Logistic Regression',
-         'dt': linear_model.LogisticRegression()},
+         'clf': linear_model.LogisticRegression()},
         {'name': 'Decision Tree',
-         'dt': DecisionTreeClassifier(max_depth=1024, random_state=42)},
+         'clf': DecisionTreeClassifier(max_depth=1024, random_state=42)},
         {'name': 'SVM',
-         'dt': svm.SVC()},
+         'clf': svm.SVC()},
         {'name': 'Random Forest Classifier',
-         'dt': RandomForestClassifier(max_depth=1024, random_state=42)}
+         'clf': RandomForestClassifier(max_depth=1024, random_state=42)}
     ]
+
+    y_train = training_df[target]
+    X_train = training_df[features]
+    y_test = test_df[target]
+    X_test = test_df[features]
 
     # Experiment stats to record per classifier run for numerical columns.
     stdev = None
@@ -164,7 +140,7 @@ def run_all_classifiers(target, features, training_df, test_df):
         var, stdev = scaled_target.var(), scaled_target.std()
     fn_stats_to_record = {
         'num_rows': training_df.shape[0],
-        'target_num_unique': len(y.unique()),
+        'target_num_unique': len(y_train.unique()),
         'target_variance': var if var is not None else '',
         'target_stdev': stdev if stdev is not None else ''
     }
@@ -172,40 +148,44 @@ def run_all_classifiers(target, features, training_df, test_df):
 
     for classifier in classifiers:
         fn_stats_to_record['algo'] = classifier['name']
-        res = run_classifier(
-            y, X, y_test, X_test, classifier['dt'],
-            additional_timer_stats=fn_stats_to_record,
-            additional_timer_stats_from_result=fn_stats_to_record_from_result)
+        res = run_classifier(y_train, X_train, y_test, X_test,
+                             classifier['clf'],
+                             additional_timer_stats=fn_stats_to_record,
+                             additional_timer_stats_from_result=fn_stats_to_record_from_result)
         #print('%s classifier accuracy = %f' % (
         #    classifier['name'], res['test_accuracy']))
 
 
-def encode_labels(X):
+def get_encoded_df(df):
     """
-    Converts values in all X columns from string to integer.
+    Converts values in all columns from string to integer.
     """
-    # Convert from string to integer.
     le = LabelEncoder()
-    for col in X.columns.values:
-        data = X[col]
+    for col in df.columns.values:
+        data = df[col]
         le.fit(data.values)
-        X[col] = le.transform(X[col])
-    return X
+        df[col] = le.transform(df[col])
+    return df
 
 
 @fn_timer
-def run_classifier(y, X, y_test, X_test, dt, *args, **kwargs):
-    X = encode_labels(X)
-    X_test = encode_labels(X_test)
-
+def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
     # 5-fold shuffle cross-validation.
     k_fold = KFold(n_splits=5, shuffle=True)
-    for train, test in k_fold.split(X):
-        dt.fit(X.iloc[train], y[train]).score(X.iloc[test], y[test])
+    for train, test in k_fold.split(X_train):
+        clf.fit(X_train.iloc[train], y_train[train]).score(
+            X_train.iloc[test], y_train[test])
+
+    # Train calibrated classifier with 5-fold cross-validation.
+    calibrated_clf = CalibratedClassifierCV(clf, method='sigmoid', cv='prefit')
+    calibrated_clf.fit(X_train, y_train)  # Not needed because clf is prefit.
 
     # Accuracy over training data set.
-    training_accuracy = metrics.accuracy_score(y, dt.predict(X))
-    test_accuracy = metrics.accuracy_score(y_test, dt.predict(X_test))
+    training_accuracy = metrics.accuracy_score(
+        y_train, calibrated_clf.predict(X_train))  # clf.predict(X_train))
+    # Accuracy over test data set.
+    test_accuracy = metrics.accuracy_score(
+        y_test, calibrated_clf.predict(X_test))  # clf.predict(X_test))
 
     # Organized as named entries in a dict for stats collection.
     return {
@@ -214,15 +194,18 @@ def run_classifier(y, X, y_test, X_test, dt, *args, **kwargs):
     }
 
 
-def run_ml_for_all_columns(training_df, test_df):
+def run_ml_for_all_columns(df):
     # FIXME: I don't think we can figure out an arbitrary "threshold" for this.
     # We should just run both classification and regression for numerical
     # columns, and record how many unique values we have.
     #threshold = 30
 
+    encoded_df = get_encoded_df(df)
+    training_df, test_df = get_training_and_test_datasets(encoded_df)
+
     for column in training_df:
-        features = [c for c in training_df.columns if c is not column]
         print >> sys.stderr, '\nRunning ML for column \"%s\"' % column
+        features = [c for c in training_df.columns if c is not column]
 
         # Use both classification and regression for numerical data.
         # All numerical data is read as floats, so no need to check for other
@@ -247,5 +230,4 @@ if __name__ == "__main__":
     print('Running ML algos for input dataset \"%s\"' % args.input_csv_file)
 
     df = get_dataframe_as_float_from_csv(args.input_csv_file)
-    training_df, test_df = get_training_and_test_datasets(df)
-    run_ml_for_all_columns(training_df, test_df)
+    run_ml_for_all_columns(df)

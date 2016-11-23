@@ -22,7 +22,6 @@ def load_dataframe_from_csv(csv_filename, x_axis_column, y_axis_column, quantile
 
     # Get only the X and Y columns.
     df = df[[y_axis_column, x_axis_column]]
-    print(df.head())
 
     grouped_data = df.groupby(x_axis_column)
     print(grouped_data.head())
