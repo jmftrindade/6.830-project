@@ -254,14 +254,8 @@ def run_ml_for_all_columns(df):
             fn_stats_to_record['target_variance'] = scaled_target.var()
             fn_stats_to_record['target_stdev'] = scaled_target.std()
             fn_stats_to_record['target_is_numerical'] = 'True'
-
             run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
                                fn_stats_to_record_from_result)
-
-            # Reset as we don't want numerical stats when running classifier.
-            fn_stats_to_record['target_variance'] = ''
-            fn_stats_to_record['target_stdev'] = ''
-            fn_stats_to_record['target_is_numerical'] = 'False'
 
         run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
                             fn_stats_to_record_from_result)
