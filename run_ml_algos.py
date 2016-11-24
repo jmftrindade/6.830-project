@@ -141,8 +141,8 @@ def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
         {'name': 'RFR',
          'regressor': RandomForestRegressor(n_estimators=15)},
         {'name': 'SVR',
-         'regressor': svm.SVR(),
-         'name': 'LinR',
+         'regressor': svm.SVR()},
+        {'name': 'LinR',
          'regressor': linear_model.LinearRegression()}
     ]
 

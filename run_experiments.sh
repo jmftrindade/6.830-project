@@ -37,7 +37,7 @@ function generate_csv {
 
   # Generate CSV from experiment logs.
   echo "Generating CSV..."
-  grep '^run_classifier\|^run_regressor' ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse' > ${output_csv_file}
+  grep '^run_classifier\|^run_regressor' ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse' > ${output_csv_file}
   echo "Saved CSV as \"${output_csv_file}\"."
 }
 
