@@ -115,13 +115,13 @@ def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
     # TODO: Optionally investigate using GridSearch if the accuracies end up
     # being too low.
     classifiers = [
-        {'name': 'Logistic Regression',
+        {'name': 'LogRC',
          'clf': linear_model.LogisticRegression()},
-        {'name': 'Decision Tree',
+        {'name': 'DTC',
          'clf': DecisionTreeClassifier(max_depth=1024, random_state=42)},
         {'name': 'SVC',
          'clf': svm.SVC()},
-        {'name': 'Random Forest Classifier',
+        {'name': 'RFC',
          'clf': RandomForestClassifier(max_depth=1024, random_state=42)}
     ]
 
@@ -138,11 +138,11 @@ def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
 def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
                        fn_stats_to_record_from_result):
     regressors = [
-        {'name': 'Random Forest Regression',
+        {'name': 'RFR',
          'regressor': RandomForestRegressor(n_estimators=15)},
         {'name': 'SVR',
          'regressor': svm.SVR(),
-         'name': 'Linear Regression',
+         'name': 'LinR',
          'regressor': linear_model.LinearRegression()}
     ]
 
@@ -253,6 +253,9 @@ def run_ml_for_all_columns(df):
             fn_stats_to_record['target_stdev'] = scaled_target.std()
             run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
                                fn_stats_to_record_from_result)
+            # Reset as we don't want numerical stats when running classifier.
+            fn_stats_to_record['target_variance'] = ''
+            fn_stats_to_record['target_stdev'] = ''
 
         run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
                             fn_stats_to_record_from_result)

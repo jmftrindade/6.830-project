@@ -37,8 +37,7 @@ function generate_csv {
 
   # Generate CSV from experiment logs.
   echo "Generating CSV..."
-  # FIXME weird grep bug wont return the regressor rows, even though it works on command line?
-  grep '^run_regressor\|^run_classifier' ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse' > ${output_csv_file}
+  grep '^run_classifier\|^run_regressor' ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,num_rows,target_variance,target_num_unique,target_stdev,algo,test_accuracy,training_accuracy,test_mse,training_mse' > ${output_csv_file}
   echo "Saved CSV as \"${output_csv_file}\"."
 }
 
@@ -57,7 +56,7 @@ function plot_csv {
 
 for experiment in "${!EXPERIMENT_DATASETS[@]}";
 do
-  echo "\nexperiment=$experiment"
+  echo "experiment=$experiment"
 
   input_datasets_dir=${EXPERIMENT_DATASETS[$experiment]}
 
@@ -94,10 +93,10 @@ do
   done
 
   # Merge all logs so we can plot data from multiple data sets.
-  all_datasets_logs=experiment_logs/$TODAY-$experiment-*.csv
+  all_datasets_logs=experiment_logs/$TODAY-$experiment-*.log
   # Because of this, we should not have a dataset called "all.csv" :-)
   all_datasets_csv_filename=experiment_logs/$TODAY-$experiment-all.csv
-  all_datasets_plot_file_basename=plots/$TODAY-$experiment
+  all_datasets_plot_file_basename=plots/$TODAY-$experiment-all
 
   generate_csv $all_datasets_logs $all_datasets_csv_filename
 
