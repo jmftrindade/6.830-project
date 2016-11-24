@@ -158,12 +158,13 @@ def get_encoded_df(df):
     """
     Converts values in all columns from string to integer.
     """
+    copy_df = df.copy()
     le = LabelEncoder()
-    for col in df.columns.values:
-        data = df[col]
+    for col in copy_df.columns.values:
+        data = copy_df[col]
         le.fit(data.values)
-        df[col] = le.transform(df[col])
-    return df
+        copy_df[col] = le.transform(copy_df[col])
+    return copy_df
 
 
 def cross_validate(y_train, X_train, num_folds, ml_algo):
@@ -243,19 +244,24 @@ def run_ml_for_all_columns(df):
             'num_rows': training_df.shape[0],
             'target_num_unique': len(y_train.unique()),
             'target_variance': '',
-            'target_stdev': ''
+            'target_stdev': '',
+            'target_is_numerical': 'False'
         }
         # Use both classification and regression for numerical data.
-        if is_numerical(training_df, column):
+        if is_numerical(df, column):
             scaled_df = get_scaled_dataframe(training_df)
             scaled_target = scaled_df[column]
             fn_stats_to_record['target_variance'] = scaled_target.var()
             fn_stats_to_record['target_stdev'] = scaled_target.std()
+            fn_stats_to_record['target_is_numerical'] = 'True'
+
             run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
                                fn_stats_to_record_from_result)
+
             # Reset as we don't want numerical stats when running classifier.
             fn_stats_to_record['target_variance'] = ''
             fn_stats_to_record['target_stdev'] = ''
+            fn_stats_to_record['target_is_numerical'] = 'False'
 
         run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
                             fn_stats_to_record_from_result)
