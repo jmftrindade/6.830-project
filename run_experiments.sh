@@ -47,10 +47,11 @@ function plot_csv {
   local output_plot_file=$2
   local x_axis_column=$3
   local y_axis_column=$4
+  local plot_kind=${5-line}  # Default to "line" if not available.
 
   echo "Plotting results..."
-  echo "python plot_experiment_results.py -i ${input_csv_file} -o ${output_plot_file} -x ${x_axis_column} -y ${y_axis_column}"
-  python plot_experiment_results.py -i ${input_csv_file} -o ${output_plot_file} -x ${x_axis_column} -y ${y_axis_column}
+  echo "python plot_experiment_results.py -i ${input_csv_file} -o ${output_plot_file} -x ${x_axis_column} -y ${y_axis_column} -pk ${plot_kind}"
+  python plot_experiment_results.py -i ${input_csv_file} -o ${output_plot_file} -x ${x_axis_column} -y ${y_axis_column} -pk ${plot_kind}
   echo "Saved plot as \"${output_plot_file}\"."
 }
 
@@ -72,12 +73,12 @@ do
     generate_csv $log_filename $csv_filename
 
     # TODO: Generalize this code.
-    # X axis = ML algorithm.
-    plot_csv $csv_filename $plot_file_basename-algo_vs_runtime.pdf algo runtime_seconds
-    plot_csv $csv_filename $plot_file_basename-algo_vs_test_accuracy.pdf algo test_accuracy
-    plot_csv $csv_filename $plot_file_basename-algo_vs_training_accuracy.pdf algo training_accuracy
-    plot_csv $csv_filename $plot_file_basename-algo_vs_test_mse.pdf algo test_mse
-    plot_csv $csv_filename $plot_file_basename-algo_vs_training_mse.pdf algo training_mse
+    # X axis = ML algorithm bar plots.
+    plot_csv $csv_filename $plot_file_basename-algo_vs_runtime.pdf algo runtime_seconds bar
+    plot_csv $csv_filename $plot_file_basename-algo_vs_test_accuracy.pdf algo test_accuracy bar
+    plot_csv $csv_filename $plot_file_basename-algo_vs_training_accuracy.pdf algo training_accuracy bar
+    plot_csv $csv_filename $plot_file_basename-algo_vs_test_mse.pdf algo test_mse bar
+    plot_csv $csv_filename $plot_file_basename-algo_vs_training_mse.pdf algo training_mse bar
     # X axis = number of uniques in target variable.
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_runtime.pdf target_num_unique runtime_seconds
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_test_accuracy.pdf target_num_unique test_accuracy
