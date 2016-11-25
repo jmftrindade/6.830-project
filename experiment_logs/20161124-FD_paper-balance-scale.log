@@ -1,0 +1,83 @@
+num_rows_f=625.000000, training=438, test=187
+
+Running ML for column "Class Name"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0584239959717,,,3,438,False,LogRC,0.882352941176,0.892694063927,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0508451461792,,,3,438,False,DTC,0.764705882353,0.954337899543,,
+//anaconda/envs/python2/lib/python2.7/site-packages/sklearn/svm/base.py:552: ChangedBehaviorWarning: The decision_function_shape default value will change from 'ovo' to 'ovr' in 0.19. This will change the shape of the decision function returned by SVC.
+  "SVC.", ChangedBehaviorWarning)
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0743219852448,,,3,438,False,SVC,0.898395721925,0.901826484018,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.387044906616,,,3,438,False,RFC,0.770053475936,0.949771689498,,
+
+Running ML for column "Left-Weight"
+//anaconda/envs/python2/lib/python2.7/site-packages/sklearn/utils/validation.py:429: DataConversionWarning: Data with input dtype int64 was converted to float64 by MinMaxScaler.
+  warnings.warn(msg, _DataConversionWarning)
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.494802951813,0.344124865973,0.118421923381,4,438,True,RFR,,,4.51777193361,0.753930261498
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0829429626465,0.344124865973,0.118421923381,4,438,True,SVR,,,4.83870450429,0.749805450006
+//anaconda/envs/python2/lib/python2.7/site-packages/scipy/linalg/basic.py:884: RuntimeWarning: internal gelsd driver lwork query error, required iwork dimension not returned. This is likely the result of LAPACK bug 0038, fixed in LAPACK 3.2.2 (released July 21, 2010). Falling back to 'gelss' driver.
+  warnings.warn(mesg, RuntimeWarning)
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0425801277161,0.344124865973,0.118421923381,4,438,True,LinR,,,5.33459732696,0.925111707426
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0457789897919,0.344124865973,0.118421923381,4,438,True,LogRC,0.0,0.39497716895,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0408220291138,0.344124865973,0.118421923381,4,438,True,DTC,0.00534759358289,0.449771689498,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.083927154541,0.344124865973,0.118421923381,4,438,True,SVC,0.0,0.367579908676,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.341888904572,0.344124865973,0.118421923381,4,438,True,RFC,0.0,0.436073059361,,
+
+Running ML for column "Left-Distance"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.456804990768,0.351149944471,0.123306283502,5,438,True,RFR,,,2.8811582404,1.242407937
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0708999633789,0.351149944471,0.123306283502,5,438,True,SVR,,,3.50974067386,1.28100438246
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0349798202515,0.351149944471,0.123306283502,5,438,True,LinR,,,3.03315415519,1.65587700466
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0503430366516,0.351149944471,0.123306283502,5,438,True,LogRC,0.181818181818,0.310502283105,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0466001033783,0.351149944471,0.123306283502,5,438,True,DTC,0.181818181818,0.367579908676,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0932729244232,0.351149944471,0.123306283502,5,438,True,SVC,0.192513368984,0.312785388128,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.350788831711,0.351149944471,0.123306283502,5,438,True,RFC,0.176470588235,0.37899543379,,
+
+Running ML for column "Right-Weight"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.433702945709,0.35365173704,0.125069551111,5,438,True,RFR,,,1.94897211081,1.20104216259
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0693850517273,0.35365173704,0.125069551111,5,438,True,SVR,,,1.8358740949,1.25431970001
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0327000617981,0.35365173704,0.125069551111,5,438,True,LinR,,,2.0823784483,1.57979649939
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0528120994568,0.35365173704,0.125069551111,5,438,True,LogRC,0.251336898396,0.326484018265,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0486149787903,0.35365173704,0.125069551111,5,438,True,DTC,0.245989304813,0.37899543379,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0865190029144,0.35365173704,0.125069551111,5,438,True,SVC,0.251336898396,0.315068493151,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.339950084686,0.35365173704,0.125069551111,5,438,True,RFC,0.283422459893,0.37899543379,,
+
+Running ML for column "Right-Distance"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.445546865463,0.353751440726,0.125140081816,5,438,True,RFR,,,1.79887932041,1.25061399532
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0750551223755,0.353751440726,0.125140081816,5,438,True,SVR,,,1.66478902052,1.29454904546
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0382599830627,0.353751440726,0.125140081816,5,438,True,LinR,,,2.00940130097,1.59284572134
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0519239902496,0.353751440726,0.125140081816,5,438,True,LogRC,0.27807486631,0.324200913242,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0432178974152,0.353751440726,0.125140081816,5,438,True,DTC,0.256684491979,0.358447488584,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.100200176239,0.353751440726,0.125140081816,5,438,True,SVC,0.262032085561,0.308219178082,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.344887018204,0.353751440726,0.125140081816,5,438,True,RFC,0.251336898396,0.360730593607,,
+Running ML algos for input dataset "datasets/from_FD_paper/balance-scale.csv"
+1 loops, best of 1: 6.44 sec per loop
