@@ -118,9 +118,9 @@ def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
     # TODO: Optionally investigate using GridSearch if the accuracies end up
     # being too low.
     classifiers = [
-        {'name': 'Logistic Regression',
+        {'name': 'LogRC',
          'clf': linear_model.LogisticRegression()},
-        {'name': 'Decision Tree',
+        {'name': 'DTC',
          'clf': DecisionTreeClassifier(max_depth=1024, random_state=42)},
         {'name': 'SVC',
          'clf': svm.SVC()},
@@ -146,11 +146,14 @@ def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
                        fn_stats_to_record_from_result):
     
     regressors = [
-        {'name': 'Random Forest Regression',
+        {'name': 'RFR',
          'regressor': RandomForestRegressor(n_estimators=15)},
         {'name': 'SVR',
+
          'regressor': svm.SVR(kernel='rbf', C=1e3, gamma=0.1)},
          {'name': 'Linear Regression',
+         'regressor': svm.SVR()},
+        {'name': 'LinR',
          'regressor': linear_model.LinearRegression()}
     ]
 
@@ -180,7 +183,9 @@ def get_encoded_df(df):
     *** This does not convert string to integers - This converts categorical values to one hot encoding. So this must be only applied 
     to cateogircal values and not to all columns. 
     """
+    copy_df = df.copy()
     le = LabelEncoder()
+
     for col in df.columns.values:
         #print('Column type is %s' % df[col].dtype)
         if(df[col].dtype == 'object'):
@@ -189,6 +194,7 @@ def get_encoded_df(df):
             le.fit(data.values)
             df[col] = le.transform(df[col])
     return df
+
 
 
 def cross_validate(y_train, X_train, num_folds, ml_algo):
@@ -274,15 +280,20 @@ def run_ml_for_all_columns(df):
             'num_rows': training_df.shape[0],
             'target_num_unique': len(y_train.unique()),
             'target_variance': '',
-            'target_stdev': ''
+            'target_stdev': '',
+            'target_is_numerical': 'False'
         }
         # Use both classification and regression for numerical data.
+
         if is_numerical(training_df, column):
             print('Column is numerical'+ column)
+
+        if is_numerical(df, column):
             scaled_df = get_scaled_dataframe(training_df)
             scaled_target = scaled_df[column]
             fn_stats_to_record['target_variance'] = scaled_target.var()
             fn_stats_to_record['target_stdev'] = scaled_target.std()
+            fn_stats_to_record['target_is_numerical'] = 'True'
             run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
                                fn_stats_to_record_from_result)
 
@@ -305,5 +316,4 @@ if __name__ == "__main__":
 
     df = get_dataframe_as_float_from_csv(args.input_csv_file)
 
-    #encoded_df = get_encoded_df(df)
     run_ml_for_all_columns(df)

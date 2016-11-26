@@ -1,0 +1,95 @@
+num_rows_f=12960.000000, training=9072, test=3888
+
+Running ML for column "parents"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.207007169724,,,3,9072,False,LogRC,0.0,0.524029982363,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.131134986877,,,3,9072,False,DTC,0.102880658436,0.555114638448,,
+//anaconda/envs/python2/lib/python2.7/site-packages/sklearn/svm/base.py:552: ChangedBehaviorWarning: The decision_function_shape default value will change from 'ovo' to 'ovr' in 0.19. This will change the shape of the decision function returned by SVC.
+  "SVC.", ChangedBehaviorWarning)
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,18.7447330952,,,3,9072,False,SVC,0.0887345679012,0.55291005291,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.657183170319,,,3,9072,False,RFC,0.0,0.553681657848,,
+
+Running ML for column "has_nurs"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.352785110474,,,5,9072,False,LogRC,0.119341563786,0.326829805996,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.135262966156,,,5,9072,False,DTC,0.111111111111,0.364307760141,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,19.2576391697,,,5,9072,False,SVC,0.286779835391,0.295855379189,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.70525097847,,,5,9072,False,RFC,0.111111111111,0.364307760141,,
+
+Running ML for column "form"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.293006181717,,,4,9072,False,LogRC,0.222736625514,0.262566137566,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.140344142914,,,4,9072,False,DTC,0.228137860082,0.28516313933,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,20.5817620754,,,4,9072,False,SVC,0.227109053498,0.274911816578,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.672425031662,,,4,9072,False,RFC,0.229681069959,0.284722222222,,
+
+Running ML for column "children"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.293278932571,,,4,9072,False,LogRC,0.278034979424,0.252314814815,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.130083084106,,,4,9072,False,DTC,0.267232510288,0.284060846561,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,21.3079648018,,,4,9072,False,SVC,0.276748971193,0.278990299824,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.653867006302,,,4,9072,False,RFC,0.276491769547,0.283509700176,,
+
+Running ML for column "housing"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.241385936737,,,3,9072,False,LogRC,0.335133744856,0.333884479718,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.132536888123,,,3,9072,False,DTC,0.388888888889,0.388999118166,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,20.4178881645,,,3,9072,False,SVC,0.391975308642,0.387235449735,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.66277217865,,,3,9072,False,RFC,0.378600823045,0.387455908289,,
+
+Running ML for column "finance"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0919201374054,,,2,9072,False,LogRC,0.513374485597,0.498677248677,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.125806093216,,,2,9072,False,DTC,0.521862139918,0.5319664903,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,16.2497107983,,,2,9072,False,SVC,0.531121399177,0.531746031746,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.67277598381,,,2,9072,False,RFC,0.531378600823,0.530974426808,,
+
+Running ML for column "social"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.262542963028,,,3,9072,False,LogRC,0.34670781893,0.32848324515,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.136303901672,,,3,9072,False,DTC,0.379372427984,0.378858024691,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,20.3963291645,,,3,9072,False,SVC,0.383487654321,0.37819664903,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.639213085175,,,3,9072,False,RFC,0.375514403292,0.378527336861,,
+
+Running ML for column "health"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.265050888062,,,3,9072,False,LogRC,0.667695473251,0.666446208113,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.126039981842,,,3,9072,False,DTC,0.761316872428,0.756834215168,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,9.45012307167,,,3,9072,False,SVC,0.694187242798,0.636133156966,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.615701913834,,,3,9072,False,RFC,0.739969135802,0.753306878307,,
+
+Running ML for column "class"
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.425606012344,,,5,9072,False,LogRC,0.781378600823,0.731701940035,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.146940946579,,,5,9072,False,DTC,0.915380658436,0.998897707231,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,4.25754117966,,,5,9072,False,SVC,0.506687242798,0.729276895944,,
+function,runtime_seconds,target_stdev,target_variance,target_num_unique,num_rows,target_is_numerical,algo,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.54936003685,,,5,9072,False,RFC,0.868827160494,0.991732804233,,
+Running ML algos for input dataset "datasets/from_FD_paper/nursery.csv"
+1 loops, best of 1: 162 sec per loop

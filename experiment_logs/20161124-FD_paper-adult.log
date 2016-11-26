@@ -1,0 +1,35 @@
+num_rows_f=32561.000000, training=22793, test=9768
+
+Running ML for column "age"
+Running ML algos for input dataset "datasets/from_FD_paper/adult.csv"
+Traceback (most recent call last):
+  File "run_ml_algos.py", line 278, in <module>
+    run_ml_for_all_columns(df)
+  File "run_ml_algos.py", line 261, in run_ml_for_all_columns
+    fn_stats_to_record_from_result)
+  File "run_ml_algos.py", line 133, in run_all_classifiers
+    additional_timer_stats_from_result=fn_stats_to_record_from_result)
+  File "run_ml_algos.py", line 29, in function_timer
+    result = function(*args, **kwargs)
+  File "run_ml_algos.py", line 200, in run_classifier
+    clf = cross_validate(y_train, X_train, 5, clf)
+  File "run_ml_algos.py", line 174, in cross_validate
+    ml_algo.fit(X_train.iloc[train], y_train[train]).score(
+  File "//anaconda/envs/python2/lib/python2.7/site-packages/pandas/core/series.py", line 624, in __getitem__
+    return self._get_with(key)
+  File "//anaconda/envs/python2/lib/python2.7/site-packages/pandas/core/series.py", line 656, in _get_with
+    return self.reindex(key)
+  File "//anaconda/envs/python2/lib/python2.7/site-packages/pandas/core/series.py", line 2287, in reindex
+    return super(Series, self).reindex(index=index, **kwargs)
+  File "//anaconda/envs/python2/lib/python2.7/site-packages/pandas/core/generic.py", line 2229, in reindex
+    fill_value, copy).__finalize__(self)
+  File "//anaconda/envs/python2/lib/python2.7/site-packages/pandas/core/generic.py", line 2247, in _reindex_axes
+    copy=copy, allow_dups=False)
+  File "//anaconda/envs/python2/lib/python2.7/site-packages/pandas/core/generic.py", line 2341, in _reindex_with_indexers
+    copy=copy)
+  File "//anaconda/envs/python2/lib/python2.7/site-packages/pandas/core/internals.py", line 3586, in reindex_indexer
+    self.axes[axis]._can_reindex(indexer)
+  File "//anaconda/envs/python2/lib/python2.7/site-packages/pandas/indexes/base.py", line 2293, in _can_reindex
+    raise ValueError("cannot reindex from a duplicate axis")
+ValueError: cannot reindex from a duplicate axis
+1 loops, best of 1: 2.41 sec per loop
