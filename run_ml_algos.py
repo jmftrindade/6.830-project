@@ -155,9 +155,9 @@ def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
     ]
 
     for regressor in regressors:
-        #print('running regression now %s' + regressor['name'])
+        print('running regression now %s' + regressor['name'])
         model = regressor['regressor']
-        print(model)
+        #print(model)
         sfs = SFS(model,k_features=8,forward=True,floating=False, 
             scoring='mean_squared_error',cv=2)
         sfs1 = sfs.fit(X_train, y_train)
@@ -171,7 +171,7 @@ def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
             additional_timer_stats=fn_stats_to_record,
             additional_timer_stats_from_result=fn_stats_to_record_from_result)
         print('%s Regressor MSE = %f %f Confidence %f' % (
-            regressor['name'], res['training_mse'], res['test_mse'], res['confidence']))
+            regressor['name'], res['training_mse'], res['test_mse'], res['R2_score']))
 
 
 def get_encoded_df(df):
@@ -203,16 +203,13 @@ def cross_validate(y_train, X_train, num_folds, ml_algo):
 
 @fn_timer
 def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
-    #print(regressor)
-
-    #print(sfs1.subsets_)
 
     regressor = cross_validate(y_train, X_train, 5, regressor)
 
     training_mse = metrics.mean_squared_error(
         y_train, regressor.predict(X_train))
     test_mse = metrics.mean_squared_error(y_test, regressor.predict(X_test))
-    confidence = metrics.r2_score(y_test, regressor.predict(X_test))
+    R2_score = metrics.r2_score(y_test, regressor.predict(X_test))
 
     # Organized as named entries in a dict for stats collection
     return {
@@ -220,7 +217,7 @@ def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
         'training_accuracy': '',
         'test_mse': test_mse,
         'training_mse': training_mse,
-        'confidence': confidence
+        'R2_score': R2_score
     }
 
 
@@ -246,7 +243,7 @@ def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
         'training_accuracy': training_accuracy,
         'test_mse': '',
         'training_mse': '',
-        'confidence': ''
+        'R2_score': ''
     }
 
 
