@@ -158,7 +158,7 @@ def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
         print('running regression now %s' + regressor['name'])
         model = regressor['regressor']
         #print(model)
-        sfs = SFS(model,k_features=8,forward=True,floating=False, 
+        sfs = SFS(model,k_features=5,forward=True,floating=False, 
             scoring='mean_squared_error',cv=2)
         sfs1 = sfs.fit(X_train, y_train)
         print('Selected features:', sfs1.k_feature_idx_)
@@ -286,8 +286,8 @@ def run_ml_for_all_columns(df):
             run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
                                fn_stats_to_record_from_result)
 
-        #run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
-                            #fn_stats_to_record_from_result)
+        run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
+                            fn_stats_to_record_from_result)
 
 
 if __name__ == "__main__":
