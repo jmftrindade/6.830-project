@@ -12,6 +12,7 @@ def generate_plot(dataframe, xlabel, ylabel, output_figure=None, plot_kind=None)
     plt.figure()
     ax = dataframe.plot(kind=plot_kind)
     ax.set(xlabel=xlabel, ylabel=ylabel)
+    ax.legend(loc='best', fancybox=True, framealpha=0.5)
     if output_figure:
         plt.savefig(output_figure, format='pdf', bbox_inches='tight')
     else:
