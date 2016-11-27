@@ -5,6 +5,12 @@ import pandas as pd
 import random
 import sys
 import time
+
+# Supress the annoying LAPACK gelsd warning.
+import warnings
+warnings.filterwarnings(action="ignore", module="scipy",
+                        message="^internal gelsd")
+
 from functools import wraps
 from math import sqrt
 from mlxtend.feature_selection import SequentialFeatureSelector as SFS
@@ -53,6 +59,10 @@ def fn_timer(function):
     return function_timer
 
 
+# UNUSED: only necessary when we start running experiments with missing data.
+# And we should probably reconsider this approach for the NaN, given that once
+# we convert the column from int to float, we lose the info that it was a
+# originally numerical discrete column (instead of continuous).
 def get_dataframe_as_float_from_csv(csv_filename):
     """
     Returns a dataframe loaded from CSV and parsed as floats.  The reason why
@@ -103,9 +113,17 @@ def get_scaled_dataframe(df):
 
 def is_numerical(df, column_name):
     """
-    Whether this column has only numerical data.
+    Whether this column has only numerical data, which can be either discrete
+    or continuous.
     """
     return df[column_name].dtypes.kind in (np.typecodes["AllInteger"] + np.typecodes["AllFloat"])
+
+
+def is_continuous(df, column_name):
+    """
+    Whether this column has only continuous numerical data.
+    """
+    return df[column_name].dtypes.kind in (np.typecodes["AllFloat"])
 
 
 def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
@@ -120,7 +138,7 @@ def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
          'clf': DecisionTreeClassifier(max_depth=1024, random_state=42)},
         {'name': 'SVC',
          'clf': svm.SVC()},
-        {'name': 'SVMLinear',
+        {'name': 'LinSVC',
          'clf': svm.SVC(kernel='linear')},
         {'name': 'RFC',
          'clf': RandomForestClassifier(max_depth=1024, random_state=42)}
@@ -140,6 +158,8 @@ def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
         {'name': 'RFR',
          'regressor': RandomForestRegressor(n_estimators=15)},
         {'name': 'SVR',
+         'regressor': svm.SVR()},
+        {'name': 'CstmSVR',  # Custom SVR for comparison.
          'regressor': svm.SVR(kernel='rbf', C=1e3, gamma=0.1)},
         {'name': 'LinR',
          'regressor': linear_model.LinearRegression()}
@@ -162,7 +182,9 @@ def get_encoded_df(df):
     is not modified.  Only applies label encoding to columns that are not
     numerical.  We limit label encoding to non-numerical columns because
     otherwise numbers with float or double precision would be converted to
-    integers, which loses the original precision.
+    integers, which loses the original precision.  And in the case of integers
+    it would also incorrectly change the range if, for example, it was a sparse
+    column.
     """
     copy_df = df.copy()
     le = LabelEncoder()
@@ -178,34 +200,40 @@ def cross_validate(y_train, X_train, num_folds, ml_algo):
     # Shuffle cross-validation.
     k_fold = KFold(n_splits=num_folds, shuffle=True)
     for train, test in k_fold.split(X_train):
-        ml_algo.fit(X_train.iloc[train], y_train[train]).score(
-            X_train.iloc[test], y_train[test])
+        # NOTE: This is used if using pandas objects.
+        # ml_algo.fit(X_train.iloc[train], y_train[train]).score(
+        #     X_train.iloc[test], y_train[test])
+        # NOTE: This is used if using raw numpy arrays, which is the case with
+        # SFS in run_regressor and run_classifier.
+        ml_algo.fit(X_train[train], y_train[train]).score(
+            X_train[test], y_train[test])
 
     return ml_algo
 
 
 @fn_timer
 def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
-    #regressor = cross_validate(y_train, X_train, 5, regressor)
-
     # Sequential feature selection with 5-fold cross-validation.
+    print >> sys.stderr, 'Running SFS:'
     sfs = SFS(regressor,
               k_features=(1, len(X_train.columns)),
               forward=True,
               floating=False,
-              scoring='neg_mean_squared_error',  # 'accuracy',
+              scoring='neg_mean_squared_error',
               print_progress=False,
               cv=5,
               n_jobs=-1)
-    # mlxtend's SFS expects the underlying numpy array.
+    # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
     sfs = sfs.fit(X_train.as_matrix(), y_train)
 
     print 'SFS features and scores: %s' % sfs.subsets_
 
     # Use SFS results to improve the model.
-    X_train_sfs = sfs.transform(X_train)
-    X_test_sfs = sfs.transform(X_test)
-    regressor.fit(X_train_sfs, y_train)
+    X_train_sfs = sfs.transform(X_train.as_matrix())
+    X_test_sfs = sfs.transform(X_test.as_matrix())
+
+    # 5-fold cross-validation for the fit of transformed SFS features.
+    regressor = cross_validate(y_train, X_train_sfs, 5, regressor)
 
     training_mse = metrics.mean_squared_error(
         y_train, regressor.predict(X_train_sfs))
@@ -225,20 +253,40 @@ def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
 
 @fn_timer
 def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
-    # 5-fold shuffle cross-validation.
-    clf = cross_validate(y_train, X_train, 5, clf)
+    # Sequential feature selection with 5-fold cross-validation.
+    print >> sys.stderr, 'Running SFS:'
+    sfs = SFS(clf,
+              k_features=(1, len(X_train.columns)),
+              forward=True,
+              floating=False,
+              scoring='accuracy',
+              print_progress=False,
+              cv=5,
+              n_jobs=-1)
+
+    # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
+    sfs = sfs.fit(X_train.as_matrix(), y_train)
+
+    print 'SFS features and scores: %s' % sfs.subsets_
+
+    # Use SFS results to improve the model.
+    X_train_sfs = sfs.transform(X_train.as_matrix())
+    X_test_sfs = sfs.transform(X_test.as_matrix())
+
+    # 5-fold cross-validation for the fit of transformed SFS features.
+    clf = cross_validate(y_train, X_train_sfs, 5, clf)
 
     # Train calibrated classifier with prefit cross-validation, as 5-fold CV
     # is performed above.
     calibrated_clf = CalibratedClassifierCV(clf, method='sigmoid', cv='prefit')
-    calibrated_clf.fit(X_train, y_train)  # Not needed because clf is prefit.
+    calibrated_clf.fit(X_train_sfs, y_train)
 
     # Accuracy over training data set.
     training_accuracy = metrics.accuracy_score(
-        y_train, calibrated_clf.predict(X_train))  # clf.predict(X_train))
+        y_train, calibrated_clf.predict(X_train_sfs))
     # Accuracy over test data set.
     test_accuracy = metrics.accuracy_score(
-        y_test, calibrated_clf.predict(X_test))  # clf.predict(X_test))
+        y_test, calibrated_clf.predict(X_test_sfs))
 
     # Organized as named entries in a dict for stats collection.
     return {
@@ -271,25 +319,34 @@ def run_ml_for_all_columns(df):
         # Experiment stats to record per classifier run for numerical columns.
         fn_stats_to_record_from_result = ['test_accuracy', 'training_accuracy',
                                           'test_mse', 'training_mse']
+        is_column_continuous = is_continuous(df, column)
+        is_column_numerical = is_numerical(df, column)
         fn_stats_to_record = {
             'num_rows': training_df.shape[0],
             'target_num_unique': len(y_train.unique()),
             'target_variance': '',
             'target_stdev': '',
-            'target_is_numerical': 'False'
+            'target_is_numerical': is_numerical(df, column),
+            'target_is_continuous': is_continuous(df, column)
         }
-        # Use both classification and regression for numerical data.
+
+        # Record aggregate statistics for data that was originally numerical.
         if is_numerical(df, column):
             scaled_df = get_scaled_dataframe(training_df)
             scaled_target = scaled_df[column]
             fn_stats_to_record['target_variance'] = scaled_target.var()
             fn_stats_to_record['target_stdev'] = scaled_target.std()
-            fn_stats_to_record['target_is_numerical'] = 'True'
+
+        if not is_continuous(df, column):
+            # Only use classification for discrete data (numerical or not).
+            run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
+                                fn_stats_to_record_from_result)
+        else:
+            # While we use regression for any data set, since after encoding
+            # categorical data, all the columns are numerical (discrete or
+            # continuous).
             run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
                                fn_stats_to_record_from_result)
-
-        run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
-                            fn_stats_to_record_from_result)
 
 
 if __name__ == "__main__":
@@ -305,5 +362,5 @@ if __name__ == "__main__":
 
     print('Running ML algos for input dataset \"%s\"' % args.input_csv_file)
 
-    df = get_dataframe_as_float_from_csv(args.input_csv_file)
+    df = pd.read_csv(args.input_csv_file)
     run_ml_for_all_columns(df)
