@@ -322,6 +322,7 @@ def run_ml_for_all_columns(df):
         is_column_continuous = is_continuous(df, column)
         is_column_numerical = is_numerical(df, column)
         fn_stats_to_record = {
+            'column_name': column,
             'num_rows': training_df.shape[0],
             'target_num_unique': len(y_train.unique()),
             'target_variance': '',
@@ -337,16 +338,16 @@ def run_ml_for_all_columns(df):
             fn_stats_to_record['target_variance'] = scaled_target.var()
             fn_stats_to_record['target_stdev'] = scaled_target.std()
 
+        # Only use classification for discrete data (numerical or not).
         if not is_continuous(df, column):
-            # Only use classification for discrete data (numerical or not).
             run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
                                 fn_stats_to_record_from_result)
-        else:
-            # While we use regression for any data set, since after encoding
-            # categorical data, all the columns are numerical (discrete or
-            # continuous).
-            run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
-                               fn_stats_to_record_from_result)
+
+        # While we use regression for any data set, since after encoding
+        # categorical data, all the columns are numerical (discrete or
+        # continuous).
+        run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
+                           fn_stats_to_record_from_result)
 
 
 if __name__ == "__main__":
