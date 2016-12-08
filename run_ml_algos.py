@@ -219,9 +219,6 @@ def get_encoded_df(df):
 
 def cross_validate(y_train, X_train, num_folds, ml_algo):
     # Shuffle cross-validation.
-    print >> sys.stderr, 'using %d-fold CV, y_train:' % num_folds
-    print >> sys.stderr, y_train
-
     k_fold = KFold(n_splits=num_folds, shuffle=True)
     for train, test in k_fold.split(X_train):
         # NOTE: This is used if using pandas objects.
