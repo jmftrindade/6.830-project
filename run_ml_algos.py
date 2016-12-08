@@ -116,7 +116,8 @@ def is_numerical(df, column_name):
     Whether this column has only numerical data, which can be either discrete
     or continuous.
     """
-    return df[column_name].dtypes.kind in (np.typecodes["AllInteger"] + np.typecodes["AllFloat"])
+    return df[column_name].dtypes.kind in (
+        np.typecodes["AllInteger"] + np.typecodes["AllFloat"])
 
 
 def is_continuous(df, column_name):
@@ -131,15 +132,18 @@ def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
     # All classifiers that we consider.
     # TODO: Optionally investigate using GridSearch if the accuracies end up
     # being too low.
+    # TODO: Consider using n_jobs=-1 for the classifiers that accept it when
+    # we run these experiments on a machine that has more than just 1 cpu.
     classifiers = [
         {'name': 'LogRC',
          'clf': linear_model.LogisticRegression()},
         {'name': 'DTC',
          'clf': DecisionTreeClassifier(max_depth=1024, random_state=42)},
-        {'name': 'SVC',
-         'clf': svm.SVC()},
-        {'name': 'LinSVC',
-         'clf': svm.SVC(kernel='linear')},
+# SVM classifiers are too slow.
+#        {'name': 'SVC',
+#         'clf': svm.SVC()},
+#        {'name': 'LinSVC',
+#         'clf': svm.SVC(kernel='linear')},
         {'name': 'RFC',
          'clf': RandomForestClassifier(max_depth=1024, random_state=42)}
     ]
@@ -157,10 +161,11 @@ def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
     regressors = [
         {'name': 'RFR',
          'regressor': RandomForestRegressor(n_estimators=15)},
-        {'name': 'SVR',
-         'regressor': svm.SVR()},
-        {'name': 'CstmSVR',  # Custom SVR for comparison.
-         'regressor': svm.SVR(kernel='rbf', C=1e3, gamma=0.1)},
+# SVM Regressors are too slow.
+#        {'name': 'SVR',
+#         'regressor': svm.SVR()},
+#        {'name': 'CstmSVR',  # Custom SVR for comparison.
+#         'regressor': svm.SVR(kernel='rbf', C=1e3, gamma=0.1)},
         {'name': 'LinR',
          'regressor': linear_model.LinearRegression()}
     ]
@@ -213,16 +218,19 @@ def cross_validate(y_train, X_train, num_folds, ml_algo):
 
 @fn_timer
 def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
-    # Sequential feature selection with 5-fold cross-validation.
+    # Sequential feature selection with 5-fold cross-validation. We limit SFS
+    # to search only for up to ceil[num_columns / 2], as that should suffice
+    # to find a decent combination of features that predicts the target
+    # variable.
     print >> sys.stderr, 'Running SFS:'
+    # TODO: Enable n_jobs=-1 to take advantage of all CPUs available.
     sfs = SFS(regressor,
-              k_features=(1, len(X_train.columns)),
+              k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
               forward=True,
               floating=False,
               scoring='neg_mean_squared_error',
               print_progress=False,
-              cv=5,
-              n_jobs=-1)
+              cv=5)
     # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
     sfs = sfs.fit(X_train.as_matrix(), y_train)
 
@@ -253,16 +261,19 @@ def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
 
 @fn_timer
 def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
-    # Sequential feature selection with 5-fold cross-validation.
+    # Sequential feature selection with 5-fold cross-validation. We limit SFS
+    # to search only for up to ceil[num_columns / 2], as that should suffice
+    # to find a decent combination of features that predicts the target
+    # variable.
     print >> sys.stderr, 'Running SFS:'
+    # TODO: Enable n_jobs=-1 to take advantage of all CPUs available.
     sfs = SFS(clf,
-              k_features=(1, len(X_train.columns)),
+              k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
               forward=True,
               floating=False,
               scoring='accuracy',
               print_progress=False,
-              cv=5,
-              n_jobs=-1)
+              cv=5)
 
     # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
     sfs = sfs.fit(X_train.as_matrix(), y_train)
