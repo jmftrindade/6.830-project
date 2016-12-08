@@ -1,2 +1,5 @@
+matplotlib
+missingno
 mlxtend
+pandas
 sklearn
