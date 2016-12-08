@@ -59,6 +59,21 @@ def fn_timer(function):
     return function_timer
 
 
+def read_dataframe_without_na_from_csv(csv_filename):
+    """
+    Returns a dataframe loaded from CSV where rows with at least 1 NaN were
+    dropped.
+    """
+    df = pd.read_csv(csv_filename)
+
+    # Drop any rows that contain at least one NaN value.
+    df_no_na = df.dropna()
+    print >> sys.stderr, 'WARNING: dropped %d rows with at least one NaN.' % (
+        len(df) - len(df_no_na))
+
+    return df_no_na
+
+
 # UNUSED: only necessary when we start running experiments with missing data.
 # And we should probably reconsider this approach for the NaN, given that once
 # we convert the column from int to float, we lose the info that it was a
@@ -374,5 +389,5 @@ if __name__ == "__main__":
 
     print('Running ML algos for input dataset \"%s\"' % args.input_csv_file)
 
-    df = pd.read_csv(args.input_csv_file)
+    df = read_dataframe_without_na_from_csv(args.input_csv_file)
     run_ml_for_all_columns(df)
