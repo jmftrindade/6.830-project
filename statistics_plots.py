@@ -25,9 +25,10 @@ def plot_histogram_and_correlation_dendrogram(csv_filename):
                                link_color_func=lambda c: 'black')
     plt.show()
 
-    # Use this for datasets with missing values only.
-    # msno.matrix(df)
-    # msno.dendrogram(df)
+    # Only use this for datasets with missing values.
+    if df.isnull().values.any():
+        msno.matrix(df)
+        msno.dendrogram(df)
 
 
 if __name__ == "__main__":
