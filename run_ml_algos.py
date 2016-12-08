@@ -66,10 +66,11 @@ def read_dataframe_without_na_from_csv(csv_filename):
     """
     df = pd.read_csv(csv_filename)
 
-    # Drop any rows that contain at least one NaN value.
-    df_no_na = df.dropna()
-    print >> sys.stderr, 'WARNING: dropped %d rows with at least one NaN.' % (
-        len(df) - len(df_no_na))
+    # Drop any rows that contain at least one NaN.
+    df_no_na = df.dropna().reset_index(drop=True)
+    num_dropped = len(df) - len(df_no_na)
+    if num_dropped > 0:
+        print >> sys.stderr, 'WARNING: dropped %d NaN rows.' % (num_dropped)
 
     return df_no_na
 
@@ -218,6 +219,9 @@ def get_encoded_df(df):
 
 def cross_validate(y_train, X_train, num_folds, ml_algo):
     # Shuffle cross-validation.
+    print >> sys.stderr, 'using %d-fold CV, y_train:' % num_folds
+    print >> sys.stderr, y_train
+
     k_fold = KFold(n_splits=num_folds, shuffle=True)
     for train, test in k_fold.split(X_train):
         # NOTE: This is used if using pandas objects.
@@ -233,11 +237,16 @@ def cross_validate(y_train, X_train, num_folds, ml_algo):
 
 @fn_timer
 def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
-    # Sequential feature selection with 5-fold cross-validation. We limit SFS
-    # to search only for up to ceil[num_columns / 2], as that should suffice
+    # Sequential feature selection with cross-validation. We limit SFS to
+    # search only for up to ceil[num_columns / 2], as that should suffice
     # to find a decent combination of features that predicts the target
     # variable.
     print >> sys.stderr, 'Running SFS:'
+
+    # 5-fold cross-validation if we have at least 100 instances on training
+    # data, and 2-fold otherwise.
+    cv_k = 5 if len(y_train) > 100 else 2
+
     # TODO: Enable n_jobs=-1 to take advantage of all CPUs available.
     sfs = SFS(regressor,
               k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
@@ -245,7 +254,7 @@ def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
               floating=False,
               scoring='neg_mean_squared_error',
               print_progress=False,
-              cv=5)
+              cv=cv_k)
     # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
     sfs = sfs.fit(X_train.as_matrix(), y_train)
 
@@ -255,8 +264,8 @@ def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
     X_train_sfs = sfs.transform(X_train.as_matrix())
     X_test_sfs = sfs.transform(X_test.as_matrix())
 
-    # 5-fold cross-validation for the fit of transformed SFS features.
-    regressor = cross_validate(y_train, X_train_sfs, 5, regressor)
+    # Do cross-validation for the fit of transformed SFS features.
+    regressor = cross_validate(y_train, X_train_sfs, cv_k, regressor)
 
     training_mse = metrics.mean_squared_error(
         y_train, regressor.predict(X_train_sfs))
@@ -276,11 +285,16 @@ def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
 
 @fn_timer
 def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
-    # Sequential feature selection with 5-fold cross-validation. We limit SFS
-    # to search only for up to ceil[num_columns / 2], as that should suffice
+    # Sequential feature selection with cross-validation. We limit SFS to
+    # search only for up to ceil[num_columns / 2], as that should suffice
     # to find a decent combination of features that predicts the target
     # variable.
     print >> sys.stderr, 'Running SFS:'
+
+    # 5-fold cross-validation if we have at least 100 instances on training
+    # data, and 2-fold otherwise.
+    cv_k = 5 if len(y_train) > 100 else 2
+
     # TODO: Enable n_jobs=-1 to take advantage of all CPUs available.
     sfs = SFS(clf,
               k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
@@ -288,7 +302,7 @@ def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
               floating=False,
               scoring='accuracy',
               print_progress=False,
-              cv=5)
+              cv=cv_k)
 
     # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
     sfs = sfs.fit(X_train.as_matrix(), y_train)
@@ -299,11 +313,11 @@ def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
     X_train_sfs = sfs.transform(X_train.as_matrix())
     X_test_sfs = sfs.transform(X_test.as_matrix())
 
-    # 5-fold cross-validation for the fit of transformed SFS features.
-    clf = cross_validate(y_train, X_train_sfs, 5, clf)
+    # Do cross-validation for the fit of transformed SFS features.
+    clf = cross_validate(y_train, X_train_sfs, cv_k, clf)
 
-    # Train calibrated classifier with prefit cross-validation, as 5-fold CV
-    # is performed above.
+    # Train calibrated classifier with prefit cross-validation, as CV is
+    # performed above.
     calibrated_clf = CalibratedClassifierCV(clf, method='sigmoid', cv='prefit')
     calibrated_clf.fit(X_train_sfs, y_train)
 
@@ -325,11 +339,6 @@ def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
 
 
 def run_ml_for_all_columns(df):
-    # FIXME: I don't think we can figure out an arbitrary "threshold" for this.
-    # We should just run both classification and regression for numerical
-    # columns, and record how many unique values we have.
-    #threshold = 30
-
     encoded_df = get_encoded_df(df)
     training_df, test_df = get_training_and_test_datasets(encoded_df)
 
