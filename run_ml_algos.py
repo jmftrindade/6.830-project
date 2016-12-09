@@ -152,7 +152,7 @@ def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
     # we run these experiments on a machine that has more than just 1 cpu.
     classifiers = [
         {'name': 'LogRC',
-         'clf': linear_model.LogisticRegression()},
+         'clf': linear_model.LogisticRegression(n_jobs=-1)},
         {'name': 'DTC',
          'clf': DecisionTreeClassifier(max_depth=1024, random_state=42)},
 # SVM classifiers are too slow.
@@ -161,7 +161,7 @@ def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
 #        {'name': 'LinSVC',
 #         'clf': svm.SVC(kernel='linear')},
         {'name': 'RFC',
-         'clf': RandomForestClassifier(max_depth=1024, random_state=42)}
+         'clf': RandomForestClassifier(max_depth=1024, random_state=42, n_jobs=-1)}
     ]
 
     for classifier in classifiers:
@@ -176,14 +176,14 @@ def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
                        fn_stats_to_record_from_result):
     regressors = [
         {'name': 'RFR',
-         'regressor': RandomForestRegressor(n_estimators=15)},
+         'regressor': RandomForestRegressor(n_estimators=15, n_jobs=-1)},
 # SVM Regressors are too slow.
 #        {'name': 'SVR',
 #         'regressor': svm.SVR()},
 #        {'name': 'CstmSVR',  # Custom SVR for comparison.
 #         'regressor': svm.SVR(kernel='rbf', C=1e3, gamma=0.1)},
         {'name': 'LinR',
-         'regressor': linear_model.LinearRegression()}
+         'regressor': linear_model.LinearRegression(n_jobs=-1)}
     ]
 
     for regressor in regressors:
@@ -355,6 +355,10 @@ def run_ml_for_all_columns(df):
     training_df, test_df = get_training_and_test_datasets(encoded_df)
 
     for column in training_df:
+        # FIXME remove this hack: skipping that slow column.
+        if column == 'fnlwgt':
+            continue
+
         print >> sys.stderr, '\nRunning ML for column \"%s\"' % column
         features = [c for c in training_df.columns if c is not column]
 

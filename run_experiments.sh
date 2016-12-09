@@ -73,10 +73,10 @@ do
     csv_filename=experiment_logs/${file_basename_no_extension}.csv
     plot_file_basename=plots/${file_basename_no_extension}
 
-    run_experiment $input_dataset_file $log_filename $NUMBER_RUNS
-    generate_csv $log_filename $csv_filename
+    #run_experiment $input_dataset_file $log_filename $NUMBER_RUNS
+    #generate_csv $log_filename $csv_filename
 
-    cat $log_filename >> $all_datasets_log_filename
+    #cat $log_filename >> $all_datasets_log_filename
 
     # TODO: Generalize this code.
     # X axis = ML algorithm bar plots.

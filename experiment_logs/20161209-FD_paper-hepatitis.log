@@ -1,0 +1,154 @@
+WARNING: dropped 75 NaN rows.
+num_rows_f=80.000000, training=56, test=24
+
+Running ML for column "Class"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.011782169342,0.259870097419,0.0675324675325,LogRC,False,2,56,True,Class,0.583333333333,0.928571428571,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.00973916053772,0.259870097419,0.0675324675325,DTC,False,2,56,True,Class,0.625,0.928571428571,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.973819971085,0.259870097419,0.0675324675325,RFC,False,2,56,True,Class,0.625,0.964285714286,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.03832316399,0.259870097419,0.0675324675325,RFR,False,2,56,True,Class,,,0.295,0.0295238095238
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0134611129761,0.259870097419,0.0675324675325,LinR,False,2,56,True,Class,,,0.397029201892,0.078678595287
+
+Running ML for column "AGE"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.050507068634,0.250169391876,0.0625847246318,LogRC,False,33,56,True,AGE,0.0,0.285714285714,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0302379131317,0.250169391876,0.0625847246318,DTC,False,33,56,True,AGE,0.0,0.517857142857,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.02601599693,0.250169391876,0.0625847246318,RFC,False,33,56,True,AGE,0.0416666666667,0.553571428571,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.06126999855,0.250169391876,0.0625847246318,RFR,False,33,56,True,AGE,,,179.565555556,102.038412698
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.00865292549133,0.250169391876,0.0625847246318,LinR,False,33,56,True,AGE,,,945.721684769,266.046337636
+
+Running ML for column "SEX"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0100228786469,0.370590963648,0.137337662338,LogRC,False,2,56,True,SEX,0.916666666667,0.821428571429,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.00939202308655,0.370590963648,0.137337662338,DTC,False,2,56,True,SEX,0.666666666667,0.910714285714,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.993386030197,0.370590963648,0.137337662338,RFC,False,2,56,True,SEX,0.916666666667,0.928571428571,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.0419549942,0.370590963648,0.137337662338,RFR,False,2,56,True,SEX,,,0.222222222222,0.0809523809524
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0162868499756,0.370590963648,0.137337662338,LinR,False,2,56,True,SEX,,,0.48257763303,0.380399159579
+
+Running ML for column "STEROID"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.08019304276,0.50323627974,0.253246753247,RFR,True,2,56,True,STEROID,,,0.316481481481,0.195873015873
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0146510601044,0.50323627974,0.253246753247,LinR,True,2,56,True,STEROID,,,2.24519327582,0.685079944034
+
+Running ML for column "ANTIVIRALS"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0145981311798,0.463960925359,0.21525974026,LogRC,False,2,56,True,ANTIVIRALS,0.833333333333,0.696428571429,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0129539966583,0.463960925359,0.21525974026,DTC,False,2,56,True,ANTIVIRALS,0.791666666667,0.821428571429,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.0024960041,0.463960925359,0.21525974026,RFC,False,2,56,True,ANTIVIRALS,0.708333333333,0.803571428571,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.04977488518,0.463960925359,0.21525974026,RFR,False,2,56,True,ANTIVIRALS,,,0.146111111111,0.148095238095
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0134208202362,0.463960925359,0.21525974026,LinR,False,2,56,True,ANTIVIRALS,,,2.07707093517,0.41141595346
+
+Running ML for column "FATIGUE"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.05474805832,0.488504210459,0.238636363636,RFR,True,2,56,True,FATIGUE,,,0.249814814815,0.143968253968
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.00989079475403,0.488504210459,0.238636363636,LinR,True,2,56,True,FATIGUE,,,2.2454692328,0.203828164169
+
+Running ML for column "MALAISE"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.03234601021,0.488504210459,0.238636363636,RFR,True,2,56,True,MALAISE,,,0.216481481481,0.1
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.00874090194702,0.488504210459,0.238636363636,LinR,True,2,56,True,MALAISE,,,0.468898895882,0.187960986295
+
+Running ML for column "ANOREXIA"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.03806090355,0.370590963648,0.137337662338,RFR,True,2,56,True,ANOREXIA,,,0.154074074074,0.0906349206349
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0146889686584,0.370590963648,0.137337662338,LinR,True,2,56,True,ANOREXIA,,,0.208220917899,0.130772485292
+
+Running ML for column "LIVER BIG"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.05140304565,0.386459117308,0.149350649351,RFR,True,2,56,True,LIVER BIG,,,0.199074074074,0.0911111111111
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0111520290375,0.386459117308,0.149350649351,LinR,True,2,56,True,LIVER BIG,,,0.687059018386,0.184725104443
+
+Running ML for column "LIVER FIRM"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.03265285492,0.50323627974,0.253246753247,RFR,True,2,56,True,LIVER FIRM,,,0.33962962963,0.110476190476
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0113530158997,0.50323627974,0.253246753247,LinR,True,2,56,True,LIVER FIRM,,,1.29980716855,0.241378871429
+
+Running ML for column "SPLEEN PALPABLE"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.04370307922,0.353093931802,0.124675324675,RFR,True,2,56,True,SPLEEN PALPABLE,,,0.22962962963,0.0926984126984
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0162088871002,0.353093931802,0.124675324675,LinR,True,2,56,True,SPLEEN PALPABLE,,,2.93700258919,0.590345551458
+
+Running ML for column "SPIDERS"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.06353878975,0.426020547032,0.181493506494,RFR,True,2,56,True,SPIDERS,,,0.275185185185,0.093253968254
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.013436794281,0.426020547032,0.181493506494,LinR,True,2,56,True,SPIDERS,,,1.48214153351,0.317943606073
+
+Running ML for column "ASCITES"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.04618501663,0.227207782929,0.0516233766234,RFR,True,2,56,True,ASCITES,,,0.210740740741,0.0236507936508
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0143461227417,0.227207782929,0.0516233766234,LinR,True,2,56,True,ASCITES,,,0.375,0.0535714285714
+
+Running ML for column "VARICES"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.04518580437,0.227207782929,0.0516233766234,RFR,True,2,56,True,VARICES,,,0.223518518519,0.0112698412698
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0153810977936,0.227207782929,0.0516233766234,LinR,True,2,56,True,VARICES,,,0.236100387732,0.0453058059576
+
+Running ML for column "BILIRUBIN"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.06851696968,0.165212511517,0.0272951739618,RFR,True,19,56,True,BILIRUBIN,,,1.52855925926,0.200549206349
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0111799240112,0.165212511517,0.0272951739618,LinR,True,19,56,True,BILIRUBIN,,,2.70112242171,0.460896638644
+
+Running ML for column "ALK PHOSPHATE"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.04184293747,0.212010707034,0.0449485398971,RFR,True,47,56,True,ALK PHOSPHATE,,,3369.06351852,1644.15619048
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0129840373993,0.212010707034,0.0449485398971,LinR,True,47,56,True,ALK PHOSPHATE,,,37954.8719624,7240.9068082
+
+Running ML for column "SGOT"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.04627895355,0.175575060853,0.0308266019937,RFR,True,43,56,True,SGOT,,,6075.12333333,3579.06706349
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0120539665222,0.175575060853,0.0308266019937,LinR,True,43,56,True,SGOT,,,65058.1519656,25406.6604976
+
+Running ML for column "ALBUMIN"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.03603816032,0.211396740135,0.0446885817396,RFR,True,20,56,True,ALBUMIN,,,0.403090740741,0.112992063492
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0117650032043,0.211396740135,0.0446885817396,LinR,True,20,56,True,ALBUMIN,,,0.649664319851,0.199819148212
+
+Running ML for column "PROTIME"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.02512907982,0.277978040247,0.0772717908594,RFR,True,32,56,True,PROTIME,,,886.798148148,251.627301587
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0122728347778,0.277978040247,0.0772717908594,LinR,True,32,56,True,PROTIME,,,2358.36375047,713.545033519
+
+Running ML for column "HISTOLOGY"
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0145361423492,0.370590963648,0.137337662338,LogRC,False,2,56,True,HISTOLOGY,0.0416666666667,0.821428571429,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.0117871761322,0.370590963648,0.137337662338,DTC,False,2,56,True,HISTOLOGY,0.291666666667,0.875,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.987056970596,0.370590963648,0.137337662338,RFC,False,2,56,True,HISTOLOGY,0.166666666667,0.875,,
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,1.02641987801,0.370590963648,0.137337662338,RFR,False,2,56,True,HISTOLOGY,,,0.4,0.0889682539683
+function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.0139899253845,0.370590963648,0.137337662338,LinR,False,2,56,True,HISTOLOGY,,,0.913091782352,0.274284256941
+Running ML algos for input dataset "datasets/from_FD_paper/hepatitis.csv"
+1 loops, best of 1: 27.2 sec per loop
