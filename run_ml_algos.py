@@ -355,8 +355,15 @@ def run_ml_for_all_columns(df):
     training_df, test_df = get_training_and_test_datasets(encoded_df)
 
     for column in training_df:
-        # FIXME remove this hack: skipping that slow column.
+        # FIXME remove this hack: skipping that slow column from adult DS.
         if column == 'fnlwgt':
+            continue
+
+        # FIXME: Turn this into a heuristic instead, where if a column is not
+        # numerical and all its values are unique, skip it.  This is because
+        # it does not have at least 2 instances of a class, hence we cannot
+        # run k-fold cross validation on it (required by SFS).
+        if column == 'IDENTIF':
             continue
 
         print >> sys.stderr, '\nRunning ML for column \"%s\"' % column
