@@ -1,0 +1,115 @@
+num_rows_f=625.000000, training=438, test=187
+
+Running ML for column "Class Name"
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.178045034409,,,LogRC,False,3,438,False,Class Name,0.561497326203,0.74200913242,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.134079217911,,,DTC,False,3,438,False,Class Name,0.566844919786,0.748858447489,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,12.472140789,,,RFC,False,3,438,False,Class Name,0.508021390374,0.751141552511,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,13.1410341263,,,RFR,False,3,438,False,Class Name,,,0.438143296065,0.274887980734
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.129288911819,,,LinR,False,3,438,False,Class Name,,,0.434776782036,0.284587837128
+
+Running ML for column "Left-Weight"
+/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/utils/validation.py:429: DataConversionWarning: Data with input dtype int64 was converted to float64 by MinMaxScaler.
+  warnings.warn(msg, _DataConversionWarning)
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.192984104156,0.344124865973,0.118421923381,LogRC,False,4,438,True,Left-Weight,0.0,0.388127853881,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.135730028152,0.344124865973,0.118421923381,DTC,False,4,438,True,Left-Weight,0.0,0.401826484018,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,12.3404381275,0.344124865973,0.118421923381,RFC,False,4,438,True,Left-Weight,0.0,0.408675799087,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,13.2425320148,0.344124865973,0.118421923381,RFR,False,4,438,True,Left-Weight,,,5.00817550339,0.973620454575
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.128574132919,0.344124865973,0.118421923381,LinR,False,4,438,True,Left-Weight,,,5.42296042844,1.01264551736
+
+Running ML for column "Left-Distance"
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.201406002045,0.351149944471,0.123306283502,LogRC,False,5,438,True,Left-Distance,0.283422459893,0.287671232877,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.132418870926,0.351149944471,0.123306283502,DTC,False,5,438,True,Left-Distance,0.31550802139,0.324200913242,,
+Running SFS:
+Features: 1/2Features: 2/2Running ML algos for input dataset "datasets/from_FD_paper/balance-scale.csv"
+SFS features and scores: {1: {'avg_score': 0.67816091954022983, 'feature_idx': (2,), 'cv_scores': array([ 0.63636364,  0.65909091,  0.70454545,  0.63218391,  0.75862069])}, 2: {'avg_score': 0.71914838035527695, 'feature_idx': (2, 3), 'cv_scores': array([ 0.69318182,  0.72727273,  0.75      ,  0.65517241,  0.77011494])}}
+SFS features and scores: {1: {'avg_score': 0.66436781609195406, 'feature_idx': (2,), 'cv_scores': array([ 0.63636364,  0.65909091,  0.70454545,  0.6091954 ,  0.71264368])}, 2: {'avg_score': 0.73746081504702199, 'feature_idx': (2, 3), 'cv_scores': array([ 0.64772727,  0.76136364,  0.79545455,  0.66666667,  0.81609195])}}
+SFS features and scores: {1: {'avg_score': 0.6780041797283175, 'feature_idx': (2,), 'cv_scores': array([ 0.68181818,  0.67045455,  0.71590909,  0.6091954 ,  0.71264368])}, 2: {'avg_score': 0.74882445141065834, 'feature_idx': (2, 3), 'cv_scores': array([ 0.70454545,  0.76136364,  0.79545455,  0.66666667,  0.81609195])}}
+SFS features and scores: {1: {'avg_score': -0.36313795336915949, 'feature_idx': (2,), 'cv_scores': array([-0.40805501, -0.3652074 , -0.37847653, -0.29366829, -0.37028252])}, 2: {'avg_score': -0.31329433753863345, 'feature_idx': (2, 3), 'cv_scores': array([-0.39560648, -0.27915007, -0.30841995, -0.26617776, -0.31711742])}}
+SFS features and scores: {1: {'avg_score': -0.36104871307334513, 'feature_idx': (2,), 'cv_scores': array([-0.41001855, -0.36633405, -0.37877755, -0.28834919, -0.36176422])}, 2: {'avg_score': -0.301218070168914, 'feature_idx': (2, 3), 'cv_scores': array([-0.3669179 , -0.29371155, -0.29460263, -0.23363555, -0.31722271])}}
+SFS features and scores: {1: {'avg_score': 0.38824451410658301, 'feature_idx': (0,), 'cv_scores': array([ 0.32954545,  0.38636364,  0.39772727,  0.4137931 ,  0.4137931 ])}, 2: {'avg_score': 0.3859717868338558, 'feature_idx': (0, 2), 'cv_scores': array([ 0.31818182,  0.38636364,  0.39772727,  0.4137931 ,  0.4137931 ])}}
+SFS features and scores: {1: {'avg_score': 0.38824451410658306, 'feature_idx': (0,), 'cv_scores': array([ 0.31818182,  0.38636364,  0.40909091,  0.4137931 ,  0.4137931 ])}, 2: {'avg_score': 0.40653082549634273, 'feature_idx': (0, 2), 'cv_scores': array([ 0.34090909,  0.39772727,  0.42045455,  0.43678161,  0.43678161])}}
+SFS features and scores: {1: {'avg_score': 0.38824451410658306, 'feature_idx': (0,), 'cv_scores': array([ 0.31818182,  0.38636364,  0.40909091,  0.4137931 ,  0.4137931 ])}, 2: {'avg_score': 0.40653082549634273, 'feature_idx': (0, 2), 'cv_scores': array([ 0.34090909,  0.39772727,  0.42045455,  0.43678161,  0.43678161])}}
+SFS features and scores: {1: {'avg_score': -1.4701866077375567, 'feature_idx': (0,), 'cv_scores': array([-2.25052938, -0.87147418, -0.46153981, -0.66256615, -3.10482352])}, 2: {'avg_score': -1.4842490897655884, 'feature_idx': (0, 3), 'cv_scores': array([-2.20655866, -0.90453408, -0.48834387, -0.7431913 , -3.07861755])}}
+SFS features and scores: {1: {'avg_score': -1.5421045013856973, 'feature_idx': (0,), 'cv_scores': array([-2.43606379, -0.96989343, -0.28584582, -0.76695445, -3.25176501])}, 2: {'avg_score': -1.5344210685400086, 'feature_idx': (0, 3), 'cv_scores': array([-2.41568553, -0.96489586, -0.30242753, -0.76084818, -3.22824824])}}
+SFS features and scores: {1: {'avg_score': 0.26491640543364681, 'feature_idx': (0,), 'cv_scores': array([ 0.23863636,  0.26136364,  0.26136364,  0.27586207,  0.28735632])}, 2: {'avg_score': 0.27635841170323933, 'feature_idx': (0, 3), 'cv_scores': array([ 0.25      ,  0.28409091,  0.25      ,  0.29885057,  0.29885057])}}
+SFS features and scores: {1: {'avg_score': 0.2855015673981191, 'feature_idx': (0,), 'cv_scores': array([ 0.26136364,  0.28409091,  0.26136364,  0.31034483,  0.31034483])}, 2: {'avg_score': 0.3037617554858934, 'feature_idx': (0, 3), 'cv_scores': array([ 0.29545455,  0.30681818,  0.26136364,  0.32183908,  0.33333333])}}
+SFS features and scores: {1: {'avg_score': 0.29004702194357368, 'feature_idx': (0,), 'cv_scores': array([ 0.27272727,  0.28409091,  0.27272727,  0.31034483,function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,12.4477109909,0.351149944471,0.123306283502,RFC,False,5,438,True,Left-Distance,0.326203208556,0.324200913242,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,13.2660429478,0.351149944471,0.123306283502,RFR,False,5,438,True,Left-Distance,,,1.52599457022,1.65701564705
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.128262042999,0.351149944471,0.123306283502,LinR,False,5,438,True,Left-Distance,,,1.75301779379,1.83071695064
+
+Running ML for column "Right-Weight"
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.210000038147,0.35365173704,0.125069551111,LogRC,False,5,438,True,Right-Weight,0.272727272727,0.331050228311,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.143355846405,0.35365173704,0.125069551111,DTC,False,5,438,True,Right-Weight,0.304812834225,0.337899543379,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,12.4897880554,0.35365173704,0.125069551111,RFC,False,5,438,True,Right-Weight,0.272727272727,0.340182648402,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,13.1913311481,0.35365173704,0.125069551111,RFR,False,5,438,True,Right-Weight,,,2.42386591084,1.41863011894
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.13341999054,0.35365173704,0.125069551111,LinR,False,5,438,True,Right-Weight,,,2.2585136472,1.63076934792
+
+Running ML for column "Right-Distance"
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.211441040039,0.353751440726,0.125140081816,LogRC,False,5,438,True,Right-Distance,0.283422459893,0.326484018265,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,0.141887903214,0.353751440726,0.125140081816,DTC,False,5,438,True,Right-Distance,0.310160427807,0.337899543379,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,12.3658270836,0.353751440726,0.125140081816,RFC,False,5,438,True,Right-Distance,0.294117647059,0.324200913242,,
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,13.3047029972,0.353751440726,0.125140081816,RFR,False,5,438,True,Right-Distance,,,2.09639013997,1.46921236985
+Running SFS:
+Features: 1/2Features: 2/2function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.136063098907,0.353751440726,0.125140081816,LinR,False,5,438,True,Right-Distance,,,2.15438037936,1.64647060596
+  0.31034483])}, 2: {'avg_score': 0.29009926854754442, 'feature_idx': (0, 3), 'cv_scores': array([ 0.29545455,  0.25      ,  0.26136364,  0.31034483,  0.33333333])}}
+SFS features and scores: {1: {'avg_score': -1.818581918404671, 'feature_idx': (0,), 'cv_scores': array([-1.07393145, -2.66482722, -2.19865902, -0.94880934, -2.20668256])}, 2: {'avg_score': -1.8081957942334044, 'feature_idx': (0, 3), 'cv_scores': array([-1.00386282, -2.69891897, -2.21597372, -0.9591507 , -2.16307276])}}
+SFS features and scores: {1: {'avg_score': -1.9293841042669666, 'feature_idx': (0,), 'cv_scores': array([-1.24655408, -2.72134839, -2.40923884, -0.93573265, -2.33404657])}, 2: {'avg_score': -1.9065345398831166, 'feature_idx': (0, 3), 'cv_scores': array([-1.21061354, -2.71308035, -2.36855055, -0.93176544, -2.30866282])}}
+SFS features and scores: {1: {'avg_score': 0.3311128526645768, 'feature_idx': (0,), 'cv_scores': array([ 0.29545455,  0.32954545,  0.34090909,  0.34482759,  0.34482759])}, 2: {'avg_score': 0.3311128526645768, 'feature_idx': (0, 1), 'cv_scores': array([ 0.29545455,  0.32954545,  0.34090909,  0.34482759,  0.34482759])}}
+SFS features and scores: {1: {'avg_score': 0.32429467084639502, 'feature_idx': (0,), 'cv_scores': array([ 0.28409091,  0.30681818,  0.34090909,  0.34482759,  0.34482759])}, 2: {'avg_score': 0.33563218390804594, 'feature_idx': (0, 2), 'cv_scores': array([ 0.30681818,  0.31818182,  0.375     ,  0.32183908,  0.35632184])}}
+SFS features and scores: {1: {'avg_score': 0.32204806687565307, 'feature_idx': (0,), 'cv_scores': array([ 0.28409091,  0.28409091,  0.34090909,  0.35632184,  0.34482759])}, 2: {'avg_score': 0.337957157784744, 'feature_idx': (0, 1), 'cv_scores': array([ 0.29545455,  0.32954545,  0.36363636,  0.35632184,  0.34482759])}}
+SFS features and scores: {1: {'avg_score': -1.6094977857271675, 'feature_idx': (0,), 'cv_scores': array([-2.02304693, -1.51751023, -1.52593445, -1.51365085, -1.46734646])}, 2: {'avg_score': -1.5591191479808839, 'feature_idx': (0, 3), 'cv_scores': array([-2.17444772, -1.44316576, -1.40409654, -1.38274125, -1.39114447])}}
+SFS features and scores: {1: {'avg_score': -1.7050067855433853, 'feature_idx': (0,), 'cv_scores': array([-1.83926193, -1.68156165, -1.6899517 , -1.66261917, -1.65163947])}, 2: {'avg_score': -1.6572198681790471, 'feature_idx': (0, 3), 'cv_scores': array([-1.8460236 , -1.62276712, -1.61070429, -1.60224436, -1.60435997])}}
+SFS features and scores: {1: {'avg_score': 0.3266636957813428, 'feature_idx': (0,), 'cv_scores': array([ 0.3       ,  0.32222222,  0.35227273,  0.34117647,  0.31764706])}, 2: {'avg_score': 0.3266636957813428, 'feature_idx': (0, 1), 'cv_scores': array([ 0.3       ,  0.32222222,  0.35227273,  0.34117647,  0.31764706])}}
+SFS features and scores: {1: {'avg_score': 0.3199970291146762, 'feature_idx': (0,), 'cv_scores': array([ 0.28888889,  0.3       ,  0.35227273,  0.34117647,  0.31764706])}, 2: {'avg_score': 0.33818775995246581, 'feature_idx': (0, 2), 'cv_scores': array([ 0.31111111,  0.31111111,  0.38636364,  0.35294118,  0.32941176])}}
+SFS features and scores: {1: {'avg_score': 0.30169637551990497, 'feature_idx': (0,), 'cv_scores': array([ 0.27777778,  0.26666667,  0.35227273,  0.31764706,  0.29411765])}, 2: {'avg_score': 0.33125965537730245, 'feature_idx': (0, 2), 'cv_scores': array([ 0.31111111,  0.3       ,  0.38636364,  0.35294118,  0.30588235])}}
+SFS features and scores: {1: {'avg_score': -1.634555123009592, 'feature_idx': (0,), 'cv_scores': array([-1.84839731, -1.62402198, -1.38551759, -1.59261109, -1.72222764])}, 2: {'avg_score': -1.5721372275648782, 'feature_idx': (0, 3), 'cv_scores': array([-2.02741228, -1.53530329, -1.26235266, -1.45744974, -1.57816816])}}
+SFS features and scores: {1: {'avg_score': -1.7186255754422555, 'feature_idx': (0,), 'cv_scores': array([-1.81185615, -1.68772571, -1.5792927 , -1.72847656, -1.78577676])}, 2: {'avg_score': -1.6704261957121507, 'feature_idx': (0, 3), 'cv_scores': array([-1.82127185, -1.62866121, -1.50227106, -1.66597545, -1.73395141])}}
+1 loops, best of 1: 131 sec per loop

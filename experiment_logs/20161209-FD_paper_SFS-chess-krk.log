@@ -1,0 +1,159 @@
+num_rows_f=28056.000000, training=19640, test=8416
+
+Running ML for column "White King File"
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,6.02571678162,,,LogRC,False,4,19640,False,White King File,0.329491444867,0.476731160896,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.18016195297,,,DTC,False,4,19640,False,White King File,0.269011406844,0.502647657841,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,25.6715259552,,,RFC,False,4,19640,False,White King File,0.269011406844,0.502647657841,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,25.3041698933,,,RFR,False,4,19640,False,White King File,,,0.920025507549,0.449522581383
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.863609075546,,,LinR,False,4,19640,False,White King File,,,0.99915224026,0.526988197752
+
+Running ML for column "White King Rank"
+/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/utils/validation.py:429: DataConversionWarning: Data with input dtype int64 was converted to float64 by MinMaxScaler.
+  warnings.warn(msg, _DataConversionWarning)
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,8.18288302422,0.321248305704,0.103200473917,LogRC,False,4,19640,True,White King Rank,0.504039923954,0.419450101833,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.37234401703,0.321248305704,0.103200473917,DTC,False,4,19640,True,White King Rank,0.396981939163,0.455855397149,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,24.9612100124,0.321248305704,0.103200473917,RFC,False,4,19640,True,White King Rank,0.396981939163,0.455855397149,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3Running ML algos for input dataset "datasets/from_FD_paper/chess-krk.csv"
+SFS features and scores: {1: {'avg_score': 0.47667815412247067, 'feature_idx': (0,), 'cv_scores': array([ 0.46412214,  0.49541752,  0.53665988,  0.50089127,  0.38629997])}, 2: {'avg_score': 0.47667815412247067, 'feature_idx': (0, 1), 'cv_scores': array([ 0.46412214,  0.49541752,  0.53665988,  0.50089127,  0.38629997])}, 3: {'avg_score': 0.47693411064009084, 'feature_idx': (0, 1, 3), 'cv_scores': array([ 0.45979644,  0.49363544,  0.52571283,  0.50089127,  0.40463458])}}
+SFS features and scores: {1: {'avg_score': 0.49863232942764191, 'feature_idx': (0,), 'cv_scores': array([ 0.44274809,  0.56008147,  0.46588595,  0.54698243,  0.47746371])}, 2: {'avg_score': 0.48804108726742168, 'feature_idx': (0, 2), 'cv_scores': array([ 0.42468193,  0.54709776,  0.49210794,  0.49809015,  0.47822765])}, 3: {'avg_score': 0.45886234320336439, 'feature_idx': (0, 1, 2), 'cv_scores': array([ 0.42722646,  0.49083503,  0.46537678,  0.45098039,  0.45989305])}}
+SFS features and scores: {1: {'avg_score': 0.51329628054780485, 'feature_idx': (0,), 'cv_scores': array([ 0.44274809,  0.56008147,  0.5392057 ,  0.54698243,  0.47746371])}, 2: {'avg_score': 0.49201324824808879, 'feature_idx': (0, 2), 'cv_scores': array([ 0.42468193,  0.55117108,  0.49465377,  0.51209575,  0.47746371])}, 3: {'avg_score': 0.45835269861996564, 'feature_idx': (0, 1, 2), 'cv_scores': array([ 0.42875318,  0.49287169,  0.46563136,  0.45734657,  0.44716068])}}
+SFS features and scores: {1: {'avg_score': -0.56306328055617905, 'feature_idx': (0,), 'cv_scores': array([-0.65012234, -0.4288629 , -0.56184319, -0.60752937, -0.5669586 ])}, 2: {'avg_score': -0.53999427768244224, 'feature_idx': (0, 3), 'cv_scores': array([-0.6211804 , -0.42600592, -0.51650812, -0.58160957, -0.55466737])}, 3: {'avg_score': -0.53408863345983115, 'feature_idx': (0, 3, 4), 'cv_scores': array([-0.57907285, -0.53823914, -0.46961873, -0.55013662, -0.53337583])}}
+SFS features and scores: {1: {'avg_score': -0.56324578528440283, 'feature_idx': (0,), 'cv_scores': array([-0.64862574, -0.43134334, -0.56114307, -0.60621275, -0.56890402])}, 2: {'avg_score': -0.54411195042934979, 'feature_idx': (0, 3), 'cv_scores': array([-0.61114033, -0.45158258, -0.53027897, -0.59901324, -0.52854463])}, 3: {'avg_score': -0.54358117071884338, 'feature_idx': (0, 1, 3), 'cv_scores': array([-0.61008483, -0.44968123, -0.53277701, -0.59775532, -0.52760747])}}
+SFS features and scores: {1: {'avg_score': 0.41003195605840703, 'feature_idx': (0,), 'cv_scores': array([ 0.4086514 ,  0.38772912,  0.40885947,  0.3789152 ,  0.46600458])}, 2: {'avg_score': 0.41583648869190509, 'feature_idx': (0, 3), 'cv_scores': array([ 0.41017812,  0.39740326,  0.42260692,  0.38477209,  0.46422205])}, 3: {'avg_score': 0.41838292294916102, 'feature_idx': (0, 1, 3), 'cv_scores': array([ 0.41043257,  0.39434827,  0.42566191,  0.39190222,  0.46956965])}}
+SFS features and scores: {1: {'avg_score': 0.45586076003986359, 'feature_idx': (0,), 'cv_scores': array([ 0.43664122,  0.41904277,  0.44501018,  0.43850267,  0.54010695])}, 2: {'avg_score': 0.45127710839738838, 'feature_idx': (0, 2), 'cv_scores': array([ 0.43664122,  0.41904277,  0.44501018,  0.43850267,  0.51718869])}, 3: {'avg_score': 0.42505144300533609, 'feature_idx': (0, 1, 2), 'cv_scores': array([ 0.4346056 ,  0.39893075,  0.41216904,  0.37662338,  0.50292844])}}
+SFS features and scores: {1: {'avg_score': 0.45586076003986359, 'feature_idx': (0,), 'cv_scores': array([ 0.43664122,  0.41904277,  0.44501018,  0.43850267,  0.54010695])}, 2: {'avg_score': 0.45127710839738838, 'feature_idx': (0, 2), 'cv_scores': array([ 0.43664122,  0.41904277,  0.44501018,  0.43850267,  0.51718869])}, 3: {'avg_score': 0.41990860431541233, 'feature_idx': (0, 1, 2), 'cv_scores': array([ 0.43180662,  0.39027495,  0.40885947,  0.3789152 ,  0.48968678])}}
+SFS features and scores: {1: {'avg_score': -0.71922641122674502, 'feature_idx': (0,), 'cv_scores': array([-0.74712261, -0.78477784, -0.85405822, -0.76150364, -0.44866975])}, 2: {'avg_score': -0.70996003421892129, 'feature_idfunction,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,25.6934659481,0.321248305704,0.103200473917,RFR,False,4,19640,True,White King Rank,,,0.74549075349,0.570507257212
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.882368087769,0.321248305704,0.103200473917,LinR,False,4,19640,True,White King Rank,,,0.700149933975,0.662805474951
+
+Running ML for column "White Rook File"
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,13.9407329559,,,LogRC,False,8,19640,False,White Rook File,0.100760456274,0.138900203666,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.41757202148,,,DTC,False,8,19640,False,White Rook File,0.087927756654,0.144348268839,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,25.3139388561,,,RFC,False,8,19640,False,White Rook File,0.0851948669202,0.144653767821,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,25.8079240322,,,RFR,False,8,19640,False,White Rook File,,,5.6992282361,5.10656558846
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.889842987061,,,LinR,False,8,19640,False,White Rook File,,,5.69955091447,5.10184133624
+
+Running ML for column "White Rook Rank"
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,14.9438500404,0.318066796689,0.101166487156,LogRC,False,8,19640,True,White Rook Rank,0.0721245247148,0.145875763747,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.4907450676,0.318066796689,0.101166487156,DTC,False,8,19640,True,White Rook Rank,0.0728374524715,0.149083503055,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3x': (0, 4), 'cv_scores': array([-0.77009456, -0.78375681, -0.83442311, -0.7420881 , -0.41943759])}, 3: {'avg_score': -0.70920303917985039, 'feature_idx': (0, 3, 4), 'cv_scores': array([-0.84400851, -0.80584288, -0.78731033, -0.69288617, -0.4159673 ])}}
+SFS features and scores: {1: {'avg_score': -0.71851977280332346, 'feature_idx': (0,), 'cv_scores': array([-0.74383478, -0.78832041, -0.85600955, -0.75294875, -0.45148538])}, 2: {'avg_score': -0.70066112171467965, 'feature_idx': (0, 4), 'cv_scores': array([-0.74831785, -0.75220252, -0.82848978, -0.74242784, -0.43186763])}, 3: {'avg_score': -0.68618158638760318, 'feature_idx': (0, 3, 4), 'cv_scores': array([-0.70748579, -0.82810865, -0.76570669, -0.71179631, -0.41781049])}}
+SFS features and scores: {1: {'avg_score': 0.1363009480411482, 'feature_idx': (2,), 'cv_scores': array([ 0.13889596,  0.14122137,  0.1438391 ,  0.12681436,  0.13073394])}, 2: {'avg_score': 0.12968537733327976, 'feature_idx': (2, 4), 'cv_scores': array([ 0.11625541,  0.13384224,  0.14256619,  0.12859689,  0.12716616])}, 3: {'avg_score': 0.11710387102106294, 'feature_idx': (2, 4, 5), 'cv_scores': array([ 0.12668532,  0.14987277,  0.09063136,  0.09116374,  0.12716616])}}
+SFS features and scores: {1: {'avg_score': 0.1349816691104149, 'feature_idx': (2,), 'cv_scores': array([ 0.1358433 ,  0.12188295,  0.13721996,  0.14285714,  0.13710499])}, 2: {'avg_score': 0.10712459327112447, 'feature_idx': (0, 2), 'cv_scores': array([ 0.12897482,  0.10127226,  0.09394094,  0.10975299,  0.10168196])}, 3: {'avg_score': 0.078453539161661576, 'feature_idx': (0, 1, 2), 'cv_scores': array([ 0.11142203,  0.08066158,  0.07892057,  0.05398523,  0.06727829])}}
+SFS features and scores: {1: {'avg_score': 0.13263987335193148, 'feature_idx': (2,), 'cv_scores': array([ 0.13533452,  0.11857506,  0.13798371,  0.13165266,  0.13965341])}, 2: {'avg_score': 0.10615611738970795, 'feature_idx': (0, 2), 'cv_scores': array([ 0.13508013,  0.09872774,  0.09317719,  0.10211357,  0.10168196])}, 3: {'avg_score': 0.081967102188740065, 'feature_idx': (0, 1, 2), 'cv_scores': array([ 0.11320275,  0.08167939,  0.08452138,  0.06162465,  0.06880734])}}
+SFS features and scores: {1: {'avg_score': -5.1500980127856284, 'feature_idx': (2,), 'cv_scores': array([-4.9837264 , -5.10585809, -4.79374494, -5.18221935, -5.68494128])}, 2: {'avg_score': -5.1797414025786814, 'feature_idx': (0, 2), 'cv_scores': array([-4.98210943, -5.13037679, -4.85169676, -5.22516901, -5.70935501])}, 3: {'avg_score': -5.3163491938762917, 'feature_idx': (0, 1, 2), 'cv_scores': array([-5.03110465, -5.20912531, -5.01424582, -5.49090726, -5.83636293])}}
+SFS features and scores: {1: {'avg_score': -5.144878891197818, 'feature_idx': (0,), 'cv_scores': array([-4.97165651, -5.10556744, -4.80691155, -5.16241285, -5.6778461 ])}, 2: {'avg_score': -5.1446853629936564, 'feature_idx': (0, 2), 'cv_scores': array([-4.96723128, -5.10473526, -4.80345756, -5.16544598, -5.68255674])}, 3: {'avg_score': -5.1566569546284668, 'feature_idx': (0, 1, 2), 'cv_scores': array([-4.9582665 , -5.10017694, -4.82469695, -5.22500965, -5.67513472])}}
+SFS features and scores: {1: {'avg_score': 0.14637430506028509, 'feature_idx': (4,), 'cv_scores': array([ 0.17899822,  0.14158391,  0.12401324,  0.15380698,  0.13346918])}, 2: {'avg_score': 0.13808159507722434, 'feature_idx': (2, 4), 'cv_scores': array([ 0.15001271,  0.13674561,  0.13012478,  0.14132926,  0.13219562])}, 3: {'avg_score': 0.13131108450124049, 'feature_idx': (2, 3, 4), 'cv_scores': array([ 0.14009662,  0.12655971,  0.11968424,  0.13649096,  0.13372389])}}
+SFS features and scores: {1: {'avg_score': 0.13701501651356301, 'feature_idx': (2,), 'cv_scores': array([ 0.14162217,  0.12706901,  0.13878279,  0.13801884,  0.13958227])}, 2: {'avg_score': 0.11669538967045874, 'feature_idx': (0, 2), 'cv_scores': array([ 0.13501144,  0.11204482,  0.10618793,  0.10618793,  0.12404483])}, 3: {'avg_score': 0.080333418428711709, 'feature_idx': (0, 1, 2), 'cv_scores': array([ 0.11975591,  0.08912656,  0.0667176 ,  0.06086071,  0.06520632])}}
+SFS features and scores: {1: {'avg_score': 0.139function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,25.3698558807,0.318066796689,0.101166487156,RFC,False,8,19640,True,White Rook Rank,0.0728374524715,0.149032586558,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,26.0347850323,0.318066796689,0.101166487156,RFR,False,8,19640,True,White Rook Rank,,,5.82652855356,4.95155441259
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.872109889984,0.318066796689,0.101166487156,LinR,False,8,19640,True,White Rook Rank,,,5.80876108676,4.95529600657
+
+Running ML for column "Black King File"
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,14.5777630806,,,LogRC,False,8,19640,False,Black King File,0.056677756654,0.222556008147,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.63911104202,,,DTC,False,8,19640,False,Black King File,0.056677756654,0.222556008147,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,25.0299851894,,,RFC,False,8,19640,False,Black King File,0.056677756654,0.222556008147,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,26.1615169048,,,RFR,False,8,19640,False,Black King File,,,2.85534065113,5.78525116008
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.918631076813,,,LinR,False,8,19640,False,Black King File,,,2.90345236218,5.99976561338
+
+Running ML for column "Black King Rank"
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/351047048733847, 'feature_idx': (2,), 'cv_scores': array([ 0.14365624,  0.12706901,  0.13878279,  0.13801884,  0.15002547])}, 2: {'avg_score': 0.11822297518713658, 'feature_idx': (0, 2), 'cv_scores': array([ 0.13501144,  0.12019353,  0.10720652,  0.11051693,  0.11818645])}, 3: {'avg_score': 0.081766049449167072, 'feature_idx': (0, 2, 3), 'cv_scores': array([ 0.10170353,  0.07461166,  0.06569901,  0.0802139 ,  0.08660214])}}
+SFS features and scores: {1: {'avg_score': -4.9625089063956613, 'feature_idx': (2,), 'cv_scores': array([-4.33452914, -4.43098862, -5.20021675, -5.43680194, -5.41000808])}, 2: {'avg_score': -4.9876845000419348, 'feature_idx': (0, 2), 'cv_scores': array([-4.31235372, -4.44035387, -5.23520054, -5.46869189, -5.48182248])}, 3: {'avg_score': -5.056318459825806, 'feature_idx': (0, 1, 2), 'cv_scores': array([-4.38339701, -4.52138108, -5.31651443, -5.52930988, -5.5309899 ])}}
+SFS features and scores: {1: {'avg_score': -4.9603765512668403, 'feature_idx': (2,), 'cv_scores': array([-4.33503707, -4.41733252, -5.20830232, -5.43213397, -5.40907687])}, 2: {'avg_score': -4.9683814530516326, 'feature_idx': (2, 5), 'cv_scores': array([-4.33316516, -4.41788201, -5.22188367, -5.45786755, -5.41110887])}, 3: {'avg_score': -4.978224710138444, 'feature_idx': (0, 2, 5), 'cv_scores': array([-4.32380284, -4.41748389, -5.23295303, -5.48197412, -5.43490967])}}
+SFS features and scores: {1: {'avg_score': 0.22255602697321764, 'feature_idx': (0,), 'cv_scores': array([ 0.22258967,  0.22244846,  0.22250509,  0.22256175,  0.22267516])}, 2: {'avg_score': 0.2275471143172462, 'feature_idx': (0, 5), 'cv_scores': array([ 0.22258967,  0.22244846,  0.22250509,  0.24751719,  0.22267516])}, 3: {'avg_score': 0.22530849818903453, 'feature_idx': (0, 3, 5), 'cv_scores': array([ 0.21139659,  0.22244846,  0.22250509,  0.24751719,  0.22267516])}}
+SFS features and scores: {1: {'avg_score': 0.22255602697321764, 'feature_idx': (0,), 'cv_scores': array([ 0.22258967,  0.22244846,  0.22250509,  0.22256175,  0.22267516])}, 2: {'avg_score': 0.21232530887074094, 'feature_idx': (0, 3), 'cv_scores': array([ 0.20732638,  0.19954187,  0.20952138,  0.22256175,  0.22267516])}, 3: {'avg_score': 0.156417710833884, 'feature_idx': (0, 1, 3), 'cv_scores': array([ 0.15365047,  0.15118351,  0.16013238,  0.14769544,  0.16942675])}}
+SFS features and scores: {1: {'avg_score': 0.22255602697321764, 'feature_idx': (0,), 'cv_scores': array([ 0.22258967,  0.22244846,  0.22250509,  0.22256175,  0.22267516])}, 2: {'avg_score': 0.20967783241806801, 'feature_idx': (0, 3), 'cv_scores': array([ 0.20732638,  0.19521507,  0.20086558,  0.22256175,  0.22242038])}, 3: {'avg_score': 0.15682423951999544, 'feature_idx': (0, 1, 3), 'cv_scores': array([ 0.15797507,  0.15016544,  0.16115071,  0.14616756,  0.16866242])}}
+SFS features and scores: {1: {'avg_score': -6.3224784409294825, 'feature_idx': (0,), 'cv_scores': array([-6.47878427, -7.16323678, -7.11506335, -6.59307018, -4.26223762])}, 2: {'avg_score': -6.026286969446824, 'feature_idx': (0, 1), 'cv_scores': array([-6.27337025, -7.59163062, -6.1227331 , -6.1118334 , -4.03186748])}, 3: {'avg_score': -6.1852081715954501, 'feature_idx': (0, 1, 3), 'cv_scores': array([-6.47029352, -7.79329192, -6.31637781, -6.19581791, -4.1502597 ])}}
+SFS features and scores: {1: {'avg_score': -6.3201055442978227, 'feature_idx': (0,), 'cv_scores': array([-6.48489183, -7.11290849, -7.1256723 , -6.59869832, -4.27835678])}, 2: {'avg_score': -6.159476076851627, 'feature_idx': (0, 1), 'cv_scores': array([-6.25364951, -7.55778295, -6.50875302, -6.3453651 , -4.1318298 ])}, 3: {'avg_score': -6.1679369439024407, 'feature_idx': (0, 1, 3), 'cv_scores': array([-6.28078333, -7.5573493 , -6.51546843, -6.35577063, -4.13031303])}}
+SFS features and scores: {1: {'avg_score': 0.18223015211828003, 'feature_idx': (2,), 'cv_scores': array([ 0.18214195,  0.18223467,  0.18228106,  0.18228106,  0.18221203])}, 2: {'avg_score': 0.17591969116220046, 'feature_idx': (2, 3), 'cv_scores': array([ 0.1551768 ,  0.18223467,  0.18228106,  0.18228106,  0.17762487])}, 3: {'avg_score': 0.16895120594893248function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,14.6997978687,0.345861806343,0.119620389087,LogRC,False,8,19640,True,Black King Rank,0.0100998098859,0.182230142566,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.50671100616,0.345861806343,0.119620389087,DTC,False,8,19640,True,Black King Rank,0.0100998098859,0.182230142566,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,24.9663760662,0.345861806343,0.119620389087,RFC,False,8,19640,True,Black King Rank,0.0100998098859,0.182230142566,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,25.5084030628,0.345861806343,0.119620389087,RFR,False,8,19640,True,Black King Rank,,,3.24833851098,5.35134282407
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.943799972534,0.345861806343,0.119620389087,LinR,False,8,19640,True,Black King Rank,,,2.93162147216,5.67291641087
+
+Running ML for column "Endgame"
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,27.7579889297,,,LogRC,False,15,19640,False,Endgame,0.0,0.264918533605,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,1.80062413216,,,DTC,False,15,19640,False,Endgame,0.0412309885932,0.362067209776,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_classifier,25.8675658703,,,RFC,False,15,19640,False,Endgame,0.0444391634981,0.361201629328,,
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,25.5820310116,,,RFR,False,15,19640,False,Endgame,,,13.2753604781,33.2779873103
+Running SFS:
+Features: 1/3Features: 2/3Features: 3/3, 'feature_idx': (2, 3, 4), 'cv_scores': array([ 0.11905368,  0.18223467,  0.17693483,  0.18126273,  0.18527013])}}
+SFS features and scores: {1: {'avg_score': 0.18223015211828003, 'feature_idx': (0,), 'cv_scores': array([ 0.18214195,  0.18223467,  0.18228106,  0.18228106,  0.18221203])}, 2: {'avg_score': 0.14363512333421885, 'feature_idx': (0, 2), 'cv_scores': array([ 0.14983465,  0.12242301,  0.1453666 ,  0.15911405,  0.14143731])}, 3: {'avg_score': 0.12103095946552937, 'feature_idx': (0, 1, 2), 'cv_scores': array([ 0.14576444,  0.09264444,  0.11939919,  0.10285132,  0.14449541])}}
+SFS features and scores: {1: {'avg_score': 0.18223015211828003, 'feature_idx': (0,), 'cv_scores': array([ 0.18214195,  0.18223467,  0.18228106,  0.18228106,  0.18221203])}, 2: {'avg_score': 0.14318840026067209, 'feature_idx': (0, 4), 'cv_scores': array([ 0.10684304,  0.14940188,  0.13772912,  0.14943992,  0.17252803])}, 3: {'avg_score': 0.12124324011761364, 'feature_idx': (0, 1, 4), 'cv_scores': array([ 0.14169423,  0.09162637,  0.09750509,  0.09190428,  0.18348624])}}
+SFS features and scores: {1: {'avg_score': -6.2859453451587042, 'feature_idx': (1,), 'cv_scores': array([-6.12665892, -8.22925058, -6.11570889, -5.74493973, -5.2131686 ])}, 2: {'avg_score': -6.0374448227543427, 'feature_idx': (0, 1), 'cv_scores': array([-6.31130079, -8.37143324, -5.41368185, -5.34120585, -4.74960238])}, 3: {'avg_score': -6.1153346249022311, 'feature_idx': (0, 1, 4), 'cv_scores': array([-7.29144447, -8.31026873, -5.00837535, -5.10272176, -4.86386281])}}
+SFS features and scores: {1: {'avg_score': -6.3503420780841164, 'feature_idx': (1,), 'cv_scores': array([-5.8937919 , -8.44762285, -6.09431701, -5.93715834, -5.37882029])}, 2: {'avg_score': -6.3294458315292035, 'feature_idx': (0, 1), 'cv_scores': array([-6.27488653, -8.68762208, -5.71951198, -5.56366404, -5.40154452])}, 3: {'avg_score': -6.3641997234990537, 'feature_idx': (0, 1, 2), 'cv_scores': array([-6.32208531, -8.73769103, -5.72546066, -5.62963642, -5.40612519])}}
+SFS features and scores: {1: {'avg_score': 0.20146545320407205, 'feature_idx': (0,), 'cv_scores': array([ 0.14684959,  0.31078332,  0.18309142,  0.1832781 ,  0.18332483])}, 2: {'avg_score': 0.22996789562121922, 'feature_idx': (0, 5), 'cv_scores': array([ 0.14684959,  0.28382503,  0.24191495,  0.22584757,  0.25140235])}, 3: {'avg_score': 0.23728854653702153, 'feature_idx': (0, 4, 5), 'cv_scores': array([ 0.1671748 ,  0.2965412 ,  0.24446142,  0.24343615,  0.23482917])}}
+SFS features and scores: {1: {'avg_score': 0.2043015996303062, 'feature_idx': (5,), 'cv_scores': array([ 0.16006098,  0.20701933,  0.22128852,  0.22814173,  0.20499745])}, 2: {'avg_score': 0.28458856330554028, 'feature_idx': (3, 5), 'cv_scores': array([ 0.24720528,  0.29577823,  0.30506748,  0.27427989,  0.30061193])}, 3: {'avg_score': 0.29400325823682466, 'feature_idx': (3, 4, 5), 'cv_scores': array([ 0.24237805,  0.33494405,  0.31092437,  0.29875096,  0.28301887])}}
+SFS features and scores: {1: {'avg_score': 0.20889109478583906, 'feature_idx': (5,), 'cv_scores': array([ 0.16006098,  0.20701933,  0.22128852,  0.22814173,  0.22794493])}, 2: {'avg_score': 0.2844324436914758, 'feature_idx': (3, 5), 'cv_scores': array([ 0.24796748,  0.30289929,  0.30175707,  0.27045628,  0.2990821 ])}, 3: {'avg_score': 0.28839818669415351, 'feature_idx': (3, 4, 5), 'cv_scores': array([ 0.24314024,  0.33265514,  0.298192  ,  0.29008412,  0.27791943])}}
+SFS features and scores: {1: {'avg_score': -42.170508594393404, 'feature_idx': (3,), 'cv_scores': array([-69.11548954, -21.49292796, -22.21050147, -48.41126555, -49.62235844])}, 2: {'avg_score': -42.128334330495214, 'feature_idx': (2, 3), 'cv_scores': array([-68.8603744 , -22.14506894, -22.82276075, -48.02180394, -48.79166362])}, 3: {'avg_score': -44.885418556242925, 'feature_idx': (0, 2, 3), 'cv_scores': array([-69.63866719, -22.49577525, -33.99248539, -49.42524609, -48.87491886])}}
+SFS features and scores: {1: {'avg_score': -42.354985882513205, 'feature_idx': (3,), 'cv_scores': array([-69.61985311, -21.62360698, -21.89123731, -48.63876134, -50.00147067])function,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse
+run_regressor,0.940587043762,,,LinR,False,15,19640,False,Endgame,,,12.6687934411,33.9494249119
+}, 2: {'avg_score': -42.454015190957207, 'feature_idx': (3, 4), 'cv_scores': array([-69.84383264, -21.60865916, -21.8803803 , -48.80801722, -50.12918663])}, 3: {'avg_score': -42.671925566882535, 'feature_idx': (2, 3, 4), 'cv_scores': array([-70.20018126, -22.23087326, -21.88474954, -48.70929446, -50.33452931])}}
+1 loops, best of 1: 475 sec per loop

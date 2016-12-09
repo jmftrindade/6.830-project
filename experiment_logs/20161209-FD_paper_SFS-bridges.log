@@ -1,0 +1,35 @@
+WARNING: dropped 38 NaN rows.
+num_rows_f=70.000000, training=49, test=21
+
+Running ML for column "IDENTIF"
+Running SFS:
+Running ML algos for input dataset "datasets/from_FD_paper/bridges.csv"
+Traceback (most recent call last):
+  File "run_ml_algos.py", line 418, in <module>
+    run_ml_for_all_columns(df)
+  File "run_ml_algos.py", line 395, in run_ml_for_all_columns
+    fn_stats_to_record_from_result)
+  File "run_ml_algos.py", line 172, in run_all_classifiers
+    additional_timer_stats_from_result=fn_stats_to_record_from_result)
+  File "run_ml_algos.py", line 37, in function_timer
+    result = function(*args, **kwargs)
+  File "run_ml_algos.py", line 311, in run_classifier
+    sfs = sfs.fit(X_train.as_matrix(), y_train)
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/mlxtend/feature_selection/sequential_feature_selector.py", line 239, in fit
+    y=y
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/mlxtend/feature_selection/sequential_feature_selector.py", line 344, in _inclusion
+    cv_scores = self._calc_score(X, y, new_subset)
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/mlxtend/feature_selection/sequential_feature_selector.py", line 329, in _calc_score
+    pre_dispatch=self.pre_dispatch)
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/model_selection/_validation.py", line 131, in cross_val_score
+    cv_iter = list(cv.split(X, y, groups))
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/model_selection/_split.py", line 322, in split
+    for train, test in super(_BaseKFold, self).split(X, y, groups):
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/model_selection/_split.py", line 91, in split
+    for test_index in self._iter_test_masks(X, y, groups):
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/model_selection/_split.py", line 610, in _iter_test_masks
+    test_folds = self._make_test_folds(X, y)
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/model_selection/_split.py", line 575, in _make_test_folds
+    % (self.n_splits))
+ValueError: All the n_groups for individual classes are less than n_splits=2.
+1 loops, best of 1: 699 msec per loop
