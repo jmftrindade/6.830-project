@@ -222,12 +222,12 @@ def cross_validate(y_train, X_train, num_folds, ml_algo):
     k_fold = KFold(n_splits=num_folds, shuffle=True)
     for train, test in k_fold.split(X_train):
         # NOTE: This is used if using pandas objects.
-        ml_algo.fit(X_train.iloc[train], y_train[train]).score(
-            X_train.iloc[test], y_train[test])
+        # ml_algo.fit(X_train.iloc[train], y_train[train]).score(
+        #     X_train.iloc[test], y_train[test])
         # NOTE: This is used if using raw numpy arrays, which is the case with
         # SFS in run_regressor and run_classifier.
-        # ml_algo.fit(X_train[train], y_train[train]).score(
-        #    X_train[test], y_train[test])
+        ml_algo.fit(X_train[train], y_train[train]).score(
+           X_train[test], y_train[test])
 
     return ml_algo
 
@@ -238,43 +238,43 @@ def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
     # search only for up to ceil[num_columns / 2], as that should suffice
     # to find a decent combination of features that predicts the target
     # variable.
-#    print >> sys.stderr, 'Running SFS:'
+    print >> sys.stderr, 'Running SFS:'
 
     # 5-fold cross-validation if we have at least 100 instances on training
     # data, and 2-fold otherwise.
     cv_k = 5 if len(y_train) > 100 else 2
 
     # TODO: Enable n_jobs=-1 to take advantage of all CPUs available.
-#    sfs = SFS(regressor,
-#              k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
-#              forward=True,
-#              floating=False,
-#              scoring='neg_mean_squared_error',
-#              print_progress=False,
-#              cv=cv_k)
-#    # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
-#    sfs = sfs.fit(X_train.as_matrix(), y_train)
-#
-#    print 'SFS features and scores: %s' % sfs.subsets_
-#
-#    # Use SFS results to improve the model.
-#    X_train_sfs = sfs.transform(X_train.as_matrix())
-#    X_test_sfs = sfs.transform(X_test.as_matrix())
+    sfs = SFS(regressor,
+              k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
+              forward=True,
+              floating=False,
+              scoring='neg_mean_squared_error',
+              print_progress=False,
+              cv=cv_k)
+    # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
+    sfs = sfs.fit(X_train.as_matrix(), y_train)
+
+    print 'SFS features and scores: %s' % sfs.subsets_
+
+    # Use SFS results to improve the model.
+    X_train_sfs = sfs.transform(X_train.as_matrix())
+    X_test_sfs = sfs.transform(X_test.as_matrix())
 
     # Do cross-validation for the fit of transformed SFS features.
-#    regressor = cross_validate(y_train, X_train_sfs, cv_k, regressor)
-    regressor = cross_validate(y_train, X_train, cv_k, regressor)
+    regressor = cross_validate(y_train, X_train_sfs, cv_k, regressor)
+#    regressor = cross_validate(y_train, X_train, cv_k, regressor)
 
-#    training_mse = metrics.mean_squared_error(
-#        y_train, regressor.predict(X_train_sfs))
-#    test_mse = metrics.mean_squared_error(
-#        y_test, regressor.predict(X_test_sfs))
-#    r2_score = metrics.r2_score(y_test, regressor.predict(X_test_sfs))
     training_mse = metrics.mean_squared_error(
-        y_train, regressor.predict(X_train))
+        y_train, regressor.predict(X_train_sfs))
     test_mse = metrics.mean_squared_error(
-        y_test, regressor.predict(X_test))
-    r2_score = metrics.r2_score(y_test, regressor.predict(X_test))
+        y_test, regressor.predict(X_test_sfs))
+    r2_score = metrics.r2_score(y_test, regressor.predict(X_test_sfs))
+#    training_mse = metrics.mean_squared_error(
+#        y_train, regressor.predict(X_train))
+#    test_mse = metrics.mean_squared_error(
+#        y_test, regressor.predict(X_test))
+#    r2_score = metrics.r2_score(y_test, regressor.predict(X_test))
 
     # Organized as named entries in a dict for stats collection
     return {
@@ -292,53 +292,53 @@ def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
     # search only for up to ceil[num_columns / 2], as that should suffice
     # to find a decent combination of features that predicts the target
     # variable.
-#    print >> sys.stderr, 'Running SFS:'
+    print >> sys.stderr, 'Running SFS:'
 
     # 5-fold cross-validation if we have at least 100 instances on training
     # data, and 2-fold otherwise.
     cv_k = 5 if len(y_train) > 100 else 2
 
     # TODO: Enable n_jobs=-1 to take advantage of all CPUs available.
-#    sfs = SFS(clf,
-#              k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
-#              forward=True,
-#              floating=False,
-#              scoring='accuracy',
-#              print_progress=False,
-#              cv=cv_k)
-#
-#    # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
-#    sfs = sfs.fit(X_train.as_matrix(), y_train)
+    sfs = SFS(clf,
+              k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
+              forward=True,
+              floating=False,
+              scoring='accuracy',
+              print_progress=False,
+              cv=cv_k)
 
-#    print 'SFS features and scores: %s' % sfs.subsets_
+    # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
+    sfs = sfs.fit(X_train.as_matrix(), y_train)
+
+    print 'SFS features and scores: %s' % sfs.subsets_
 
     # Use SFS results to improve the model.
-#    X_train_sfs = sfs.transform(X_train.as_matrix())
-#    X_test_sfs = sfs.transform(X_test.as_matrix())
+    X_train_sfs = sfs.transform(X_train.as_matrix())
+    X_test_sfs = sfs.transform(X_test.as_matrix())
 
     # Do cross-validation for the fit of transformed SFS features.
-#    clf = cross_validate(y_train, X_train_sfs, cv_k, clf)
-    clf = cross_validate(y_train, X_train, cv_k, clf)
+    clf = cross_validate(y_train, X_train_sfs, cv_k, clf)
+#    clf = cross_validate(y_train, X_train, cv_k, clf)
 
     # Train calibrated classifier with prefit cross-validation, as CV is
     # performed above.
     calibrated_clf = CalibratedClassifierCV(clf, method='sigmoid', cv='prefit')
-#    calibrated_clf.fit(X_train_sfs, y_train)
-    calibrated_clf.fit(X_train, y_train)
-
-    # Accuracy over training data set.
-#    training_accuracy = metrics.accuracy_score(
-#        y_train, calibrated_clf.predict(X_train_sfs))
-#    # Accuracy over test data set.
-#    test_accuracy = metrics.accuracy_score(
-#        y_test, calibrated_clf.predict(X_test_sfs))
+    calibrated_clf.fit(X_train_sfs, y_train)
+#    calibrated_clf.fit(X_train, y_train)
 
     # Accuracy over training data set.
     training_accuracy = metrics.accuracy_score(
-        y_train, calibrated_clf.predict(X_train))
+        y_train, calibrated_clf.predict(X_train_sfs))
     # Accuracy over test data set.
     test_accuracy = metrics.accuracy_score(
-        y_test, calibrated_clf.predict(X_test))
+        y_test, calibrated_clf.predict(X_test_sfs))
+
+    # Accuracy over training data set.
+#    training_accuracy = metrics.accuracy_score(
+#        y_train, calibrated_clf.predict(X_train))
+    # Accuracy over test data set.
+#    test_accuracy = metrics.accuracy_score(
+#        y_test, calibrated_clf.predict(X_test))
 
     # Organized as named entries in a dict for stats collection.
     return {
