@@ -1,0 +1,154 @@
+WARNING: dropped 75 NaN rows.
+num_rows_f=80.000000, training=56, test=24
+
+Running ML for column "Class"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0116808414459,hepatitis,56,0.259870097419,80,20,False,LogRC,False,2,0.0675324675325,True,Class,0.625,0.928571428571,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.00974798202515,hepatitis,56,0.259870097419,80,20,False,DTC,False,2,0.0675324675325,True,Class,0.666666666667,0.982142857143,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.978665828705,hepatitis,56,0.259870097419,80,20,False,RFC,False,2,0.0675324675325,True,Class,0.666666666667,0.964285714286,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.20392489433,hepatitis,56,0.259870097419,80,20,False,RFR,False,2,0.0675324675325,True,Class,,,0.269259259259,0.0424603174603,-0.148839506173,0.359829059829
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.022675037384,hepatitis,56,0.259870097419,80,20,False,LinR,False,2,0.0675324675325,True,Class,,,0.375,0.0714285714286,-0.6,-0.0769230769231
+
+Running ML for column "AGE"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0579450130463,hepatitis,56,0.250169391876,80,20,False,LogRC,False,33,0.0625847246318,True,AGE,0.0,0.232142857143,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0328230857849,hepatitis,56,0.250169391876,80,20,False,DTC,False,33,0.0625847246318,True,AGE,0.0,0.5,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.03106713295,hepatitis,56,0.250169391876,80,20,False,RFC,False,33,0.0625847246318,True,AGE,0.0,0.517857142857,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.19531679153,hepatitis,56,0.250169391876,80,20,False,RFR,False,33,0.0625847246318,True,AGE,,,157.463518519,72.0621428571,-0.171700427174,0.365944530954
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0155520439148,hepatitis,56,0.250169391876,80,20,False,LinR,False,33,0.0625847246318,True,AGE,,,581.484085677,387.769313984,-3.32687620595,-2.41187820001
+
+Running ML for column "SEX"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0158441066742,hepatitis,56,0.370590963648,80,20,False,LogRC,False,2,0.137337662338,True,SEX,0.916666666667,0.839285714286,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0147161483765,hepatitis,56,0.370590963648,80,20,False,DTC,False,2,0.137337662338,True,SEX,0.916666666667,0.839285714286,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.01988792419,hepatitis,56,0.370590963648,80,20,False,RFC,False,2,0.137337662338,True,SEX,0.875,0.910714285714,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.19255709648,hepatitis,56,0.370590963648,80,20,False,RFR,False,2,0.137337662338,True,SEX,,,0.135,0.117301587302,-0.767272727273,0.13035986341
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0157301425934,hepatitis,56,0.370590963648,80,20,False,LinR,False,2,0.137337662338,True,SEX,,,0.432395651694,0.200062889697,-4.66045216763,-0.48320856286
+
+Running ML for column "STEROID"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.21072912216,hepatitis,56,0.50323627974,80,20,False,RFR,True,2,0.253246753247,True,STEROID,,,0.296111111111,0.214047619048,-0.184444444444,0.139418803419
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0148119926453,hepatitis,56,0.50323627974,80,20,False,LinR,True,2,0.253246753247,True,STEROID,,,1.19617389158,0.469266786297,-3.7846955663,-0.886693130549
+
+Running ML for column "ANTIVIRALS"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0151369571686,hepatitis,56,0.463960925359,80,20,False,LogRC,False,2,0.21525974026,True,ANTIVIRALS,0.791666666667,0.732142857143,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0127131938934,hepatitis,56,0.463960925359,80,20,False,DTC,False,2,0.21525974026,True,ANTIVIRALS,0.416666666667,0.75,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.979041099548,hepatitis,56,0.463960925359,80,20,False,RFC,False,2,0.21525974026,True,ANTIVIRALS,0.791666666667,0.839285714286,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.18843197823,hepatitis,56,0.463960925359,80,20,False,RFR,False,2,0.21525974026,True,ANTIVIRALS,,,0.192222222222,0.115158730159,-0.384,0.455297469415
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0121698379517,hepatitis,56,0.463960925359,80,20,False,LinR,False,2,0.21525974026,True,ANTIVIRALS,,,4.57233930666,1.21525868479,-31.9208430079,-4.74819190874
+
+Running ML for column "FATIGUE"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.16997814178,hepatitis,56,0.488504210459,80,20,False,RFR,True,2,0.238636363636,True,FATIGUE,,,0.196481481481,0.161666666667,0.0489635854342,0.310222222222
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0104489326477,hepatitis,56,0.488504210459,80,20,False,LinR,True,2,0.238636363636,True,FATIGUE,,,0.697077769249,0.273351886394,-2.37409071502,-0.166301381949
+
+Running ML for column "MALAISE"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.16333293915,hepatitis,56,0.488504210459,80,20,False,RFR,True,2,0.238636363636,True,MALAISE,,,0.18537037037,0.0911111111111,0.237333333333,0.611259259259
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0134170055389,hepatitis,56,0.488504210459,80,20,False,LinR,True,2,0.238636363636,True,MALAISE,,,1.94047477906,0.246415697738,-6.98366766244,-0.0513736436829
+
+Running ML for column "ANOREXIA"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.18361997604,hepatitis,56,0.370590963648,80,20,False,RFR,True,2,0.137337662338,True,ANOREXIA,,,0.125,0.151825396825,-0.142857142857,-0.125589703178
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0166771411896,hepatitis,56,0.370590963648,80,20,False,LinR,True,2,0.137337662338,True,ANOREXIA,,,0.413497514948,0.133693302812,-2.7805487081,0.00883641224731
+
+Running ML for column "LIVER BIG"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.19416379929,hepatitis,56,0.386459117308,80,20,False,RFR,True,2,0.149350649351,True,LIVER BIG,,,0.113888888889,0.100317460317,-0.0412698412698,0.316096618357
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0141661167145,hepatitis,56,0.386459117308,80,20,False,LinR,True,2,0.149350649351,True,LIVER BIG,,,2.89522762803,0.528398294493,-25.4706525991,-2.60229793811
+
+Running ML for column "LIVER FIRM"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.20020699501,hepatitis,56,0.50323627974,80,20,False,RFR,True,2,0.253246753247,True,LIVER FIRM,,,0.274074074074,0.112936507937,-0.0962962962963,0.545937321937
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0159049034119,hepatitis,56,0.50323627974,80,20,False,LinR,True,2,0.253246753247,True,LIVER FIRM,,,1.97648055673,0.439267705344,-6.90592222692,-0.766081440973
+
+Running ML for column "SPLEEN PALPABLE"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.19496393204,hepatitis,56,0.353093931802,80,20,False,RFR,True,2,0.124675324675,True,SPLEEN PALPABLE,,,0.214444444444,0.094126984127,-0.0379831932773,0.231296296296
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0187239646912,hepatitis,56,0.353093931802,80,20,False,LinR,True,2,0.124675324675,True,SPLEEN PALPABLE,,,0.524913363864,0.369266871459,-1.54075712257,-2.01567945025
+
+Running ML for column "SPIDERS"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.17162489891,hepatitis,56,0.426020547032,80,20,False,RFR,True,2,0.181493506494,True,SPIDERS,,,0.294074074074,0.113968253968,-0.176296296296,0.36063605645
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0116169452667,hepatitis,56,0.426020547032,80,20,False,LinR,True,2,0.181493506494,True,SPIDERS,,,0.861528099241,0.139803528452,-2.44611239696,0.215699704427
+
+Running ML for column "ASCITES"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.16554617882,hepatitis,56,0.227207782929,80,20,False,RFR,True,2,0.0516233766234,True,ASCITES,,,0.107962962963,0.0210317460317,0.539358024691,0.585185185185
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0168778896332,hepatitis,56,0.227207782929,80,20,False,LinR,True,2,0.0516233766234,True,ASCITES,,,0.75,0.142857142857,-2.2,-1.81761006289
+
+Running ML for column "VARICES"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.17361903191,hepatitis,56,0.227207782929,80,20,False,RFR,True,2,0.0516233766234,True,VARICES,,,0.230740740741,0.0157936507937,-0.116862745098,0.688497554158
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.016529083252,hepatitis,56,0.227207782929,80,20,False,LinR,True,2,0.0516233766234,True,VARICES,,,0.434710207824,0.0450457440725,-1.10414352695,0.111550607476
+
+Running ML for column "BILIRUBIN"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.18592095375,hepatitis,56,0.165212511517,80,20,False,RFR,True,19,0.0272951739618,True,BILIRUBIN,,,1.19256666667,0.19798015873,-0.0457448201318,0.635299707602
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0148859024048,hepatitis,56,0.165212511517,80,20,False,LinR,True,19,0.0272951739618,True,BILIRUBIN,,,5.15942269397,0.58768156877,-3.5242246894,-0.0825713108912
+
+Running ML for column "ALK PHOSPHATE"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.17860889435,hepatitis,56,0.212010707034,80,20,False,RFR,True,47,0.0449485398971,True,ALK PHOSPHATE,,,4763.22777778,1374.4002381,-0.950423088708,0.517435313861
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0108850002289,hepatitis,56,0.212010707034,80,20,False,LinR,True,47,0.0449485398971,True,ALK PHOSPHATE,,,19593.5373915,2940.56761115,-7.02306534574,-0.0324605940911
+
+Running ML for column "SGOT"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.18329906464,hepatitis,56,0.175575060853,80,20,False,RFR,True,43,0.0308266019937,True,SGOT,,,3654.38814815,3093.15071429,0.280404035984,0.380204103279
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.01442694664,hepatitis,56,0.175575060853,80,20,False,LinR,True,43,0.0308266019937,True,SGOT,,,26474.8689207,8901.14719083,-4.21324173866,-0.783584123305
+
+Running ML for column "ALBUMIN"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.15107178688,hepatitis,56,0.211396740135,80,20,False,RFR,True,20,0.0446885817396,True,ALBUMIN,,,0.23462962963,0.0892746031746,0.417044098405,0.615495858436
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0103280544281,hepatitis,56,0.211396740135,80,20,False,LinR,True,20,0.0446885817396,True,ALBUMIN,,,0.311334387435,0.290291556758,0.226465051276,-0.250280615824
+
+Running ML for column "PROTIME"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.16647195816,hepatitis,56,0.277978040247,80,20,False,RFR,True,32,0.0772717908594,True,PROTIME,,,691.270740741,239.086269841,-0.353336664231,0.495216891606
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0153160095215,hepatitis,56,0.277978040247,80,20,False,LinR,True,32,0.0772717908594,True,PROTIME,,,2685.09649995,1044.82429831,-4.25675300025,-1.2059387073
+
+Running ML for column "HISTOLOGY"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0173199176788,hepatitis,56,0.370590963648,80,20,False,LogRC,False,2,0.137337662338,True,HISTOLOGY,0.0833333333333,0.857142857143,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.01620221138,hepatitis,56,0.370590963648,80,20,False,DTC,False,2,0.137337662338,True,HISTOLOGY,0.0,0.839285714286,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.989381074905,hepatitis,56,0.370590963648,80,20,False,RFC,False,2,0.137337662338,True,HISTOLOGY,0.0,0.910714285714,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.18701982498,hepatitis,56,0.370590963648,80,20,False,RFR,False,2,0.137337662338,True,HISTOLOGY,,,0.543148148148,0.0987301587302,0.0,0.26804307854
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0145471096039,hepatitis,56,0.370590963648,80,20,False,LinR,False,2,0.137337662338,True,HISTOLOGY,,,0.690376294896,0.238163859536,0.0,-0.765678164312
+Running ML algos for input dataset "datasets/from_FD_paper/hepatitis.csv"
+1 loops, best of 1: 30.3 sec per loop

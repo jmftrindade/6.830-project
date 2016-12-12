@@ -1,0 +1,65 @@
+num_rows_f=625.000000, training=438, test=187
+
+Running ML for column "Class Name"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0446529388428,balance-scale,438,,625,5,False,LogRC,False,3,,False,Class Name,0.882352941176,0.890410958904,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0358068943024,balance-scale,438,,625,5,False,DTC,False,3,,False,Class Name,0.764705882353,0.954337899543,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.95926880836,balance-scale,438,,625,5,False,RFC,False,3,,False,Class Name,0.786096256684,0.956621004566,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,2.15870785713,balance-scale,438,,625,5,False,RFR,False,3,,False,Class Name,,,0.328033273916,0.121998985287,-0.253934800564,0.702248287853
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0392777919769,balance-scale,438,,625,5,False,LinR,False,3,,False,Class Name,,,0.264230767052,0.234130280688,-0.0100443477295,0.428579739606
+
+Running ML for column "Left-Weight"
+/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/utils/validation.py:429: DataConversionWarning: Data with input dtype int64 was converted to float64 by MinMaxScaler.
+  warnings.warn(msg, _DataConversionWarning)
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0562560558319,balance-scale,438,0.344124865973,625,5,False,LogRC,False,4,0.118421923381,True,Left-Weight,0.0,0.39497716895,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0361831188202,balance-scale,438,0.344124865973,625,5,False,DTC,False,4,0.118421923381,True,Left-Weight,0.0,0.440639269406,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.93733906746,balance-scale,438,0.344124865973,625,5,False,RFC,False,4,0.118421923381,True,Left-Weight,0.0,0.447488584475,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,2.12275195122,balance-scale,438,0.344124865973,625,5,False,RFR,False,4,0.118421923381,True,Left-Weight,,,4.26418107127,0.738743795908,-18.2405352105,0.305276643225
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0428259372711,balance-scale,438,0.344124865973,625,5,False,LinR,False,4,0.118421923381,True,Left-Weight,,,5.38593793639,0.922623423259,-23.3020469287,0.132354078374
+
+Running ML for column "Left-Distance"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0707831382751,balance-scale,438,0.351149944471,625,5,False,LogRC,False,5,0.123306283502,True,Left-Distance,0.181818181818,0.301369863014,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0396211147308,balance-scale,438,0.351149944471,625,5,False,DTC,False,5,0.123306283502,True,Left-Distance,0.20320855615,0.385844748858,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.94173598289,balance-scale,438,0.351149944471,625,5,False,RFC,False,5,0.123306283502,True,Left-Distance,0.176470588235,0.381278538813,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,2.19676613808,balance-scale,438,0.351149944471,625,5,False,RFR,False,5,0.123306283502,True,Left-Distance,,,2.76738261945,1.2167911909,-0.500350431308,0.381836241701
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0443890094757,balance-scale,438,0.351149944471,625,5,False,LinR,False,5,0.123306283502,True,Left-Distance,,,2.85881739879,1.64239350427,-0.549922257647,0.165618432486
+
+Running ML for column "Right-Weight"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.065407037735,balance-scale,438,0.35365173704,625,5,False,LogRC,False,5,0.125069551111,True,Right-Weight,0.256684491979,0.319634703196,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0399749279022,balance-scale,438,0.35365173704,625,5,False,DTC,False,5,0.125069551111,True,Right-Weight,0.256684491979,0.369863013699,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.9256401062,balance-scale,438,0.35365173704,625,5,False,RFC,False,5,0.125069551111,True,Right-Weight,0.27807486631,0.367579908676,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,2.15394687653,balance-scale,438,0.35365173704,625,5,False,RFR,False,5,0.125069551111,True,Right-Weight,,,1.88590167803,1.18906829839,0.0565365410725,0.404436737456
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0402519702911,balance-scale,438,0.35365173704,625,5,False,LinR,False,5,0.125069551111,True,Right-Weight,,,2.05383698876,1.57824000244,-0.0274767619462,0.20951406559
+
+Running ML for column "Right-Distance"
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0632479190826,balance-scale,438,0.353751440726,625,5,False,LogRC,False,5,0.125140081816,True,Right-Distance,0.283422459893,0.326484018265,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,0.0367197990417,balance-scale,438,0.353751440726,625,5,False,DTC,False,5,0.125140081816,True,Right-Distance,0.272727272727,0.367579908676,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.92046308517,balance-scale,438,0.353751440726,625,5,False,RFC,False,5,0.125140081816,True,Right-Distance,0.262032085561,0.365296803653,,,,
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,2.1851170063,balance-scale,438,0.353751440726,625,5,False,RFR,False,5,0.125140081816,True,Right-Distance,,,1.66546427434,1.22352621738,0.169381878465,0.387523350458
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,0.0415630340576,balance-scale,438,0.353751440726,625,5,False,LinR,False,5,0.125140081816,True,Right-Distance,,,2.02534027566,1.59450620104,-0.0100993225463,0.201817009056
+Running ML algos for input dataset "datasets/from_FD_paper/balance-scale.csv"
+1 loops, best of 1: 21.9 sec per loop
