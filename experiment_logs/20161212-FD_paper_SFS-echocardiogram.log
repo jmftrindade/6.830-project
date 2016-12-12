@@ -1,0 +1,618 @@
+WARNING: dropped 70 NaN rows.
+num_rows_f=61.000000, training=43, test=18
+
+Running ML for column "survival"
+Running SFS:
+Running ML algos for input dataset "datasets/from_FD_paper/echocardiogram.csv"
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,28.5529720783,echocardiogram,43,0.320412152302,61,13,True,RFR,True,28,0.102663947343,True,survival,,,142.019315646,150.850345224,0.526440591334,0.532893637011
+Running SFS:
+SFS features and scores: {1: {'avg_score': -167.97255587380053, 'feature_idx': (11,), 'cv_scores': array([-172.9407525 , -163.00435925])}, 2: {'avg_score': -156.47897965938211, 'feature_idx': (0, 11), 'cv_scores': array([-161.85171464, -151.10624468])}, 3: {'avg_score': -156.10468440976888, 'feature_idx': (0, 9, 11), 'cv_scores': array([-161.29307049, -150.91629832])}, 4: {'avg_score': -156.47343857256533, 'feature_idx': (0, 9, 10, 11), 'cv_scores': array([-161.84063247, -151.10624468])}, 5: {'avg_score': -156.76108485722699, 'feature_idx': (0, 9, 10, 11, 2), 'cv_scores': array([-158.84946506, -154.67270466])}, 6: {'avg_score': -185.03420796347862, 'feature_idx': (0, 2, 7, 9, 10, 11), 'cv_scores': array([-148.25845354, -221.80996239])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,9.960698843,echocardiogram,43,0.320412152302,61,13,True,LinR,True,28,0.102663947343,True,survival,,,141.010961727,150.966346215,0.529802919084,0.532534441271
+
+Running ML for column "still-alive"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -162.19087574718128, 'feature_idx': (11,), 'cv_scores': array([-173.01406631, -151.36768519])}, 2: {'avg_score': -151.36396913883391, 'feature_idx': (0, 11), 'cv_scores': array([-161.50053267, -141.22740561])}, 3: {'avg_score': -149.669890389285, 'feature_idx': (0, 11, 6), 'cv_scores': array([-159.54245144, -139.79732933])}, 4: {'avg_score': -148.60430579765983, 'feature_idx': (0, 1, 11, 6), 'cv_scores': array([-158.28014845, -138.92846315])}, 5: {'avg_score': -148.60430579765983, 'feature_idx': (0, 1, 11, 6, 9), 'cv_scores': array([-158.28014845, -138.92846315])}, 6: {'avg_score': -149.01228861717735, 'feature_idx': (0, 1, 2, 6, 9, 11), 'cv_scores': array([-157.61497837, -140.40959887])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,9.88734698296,echocardiogram,43,0.474137323515,61,13,True,LogRC,False,2,0.22480620155,True,still-alive,0.944444444444,0.93023255814,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.93073593073593064, 'feature_idx': (11,), 'cv_scores': array([ 0.90909091,  0.95238095])}, 2: {'avg_score': 0.93073593073593064, 'feature_idx': (0, 11), 'cv_scores': array([ 0.90909091,  0.95238095])}, 3: {'avg_score': 0.93073593073593064, 'feature_idx': (0, 2, 11), 'cv_scores': array([ 0.90909091,  0.95238095])}, 4: {'avg_score': 0.93073593073593064, 'feature_idx': (0, 3, 2, 11), 'cv_scores': array([ 0.90909091,  0.95238095])}, 5: {'avg_score': 0.93073593073593064, 'feature_idx': (0, 3, 2, 11, 7), 'cv_scores': array([ 0.90909091,  0.95238095])}, 6: {'avg_score': 0.93073593073593064, 'feature_idx': (0, 1, 2, 3, 7, 11), 'cv_scores': array([ 0.90909091,  0.95238095])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,9.94738316536,echocardiogram,43,0.474137323515,61,13,True,DTC,False,2,0.22480620155,True,still-alive,0.944444444444,0.93023255814,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.93073593073593064, 'feature_idx': (11,), 'cv_scores': array([ 0.90909091,  0.95238095])}, 2: {'avg_score': 0.93073593073593064, 'feature_idx': (2, 11), 'cv_scores': array([ 0.90909091,  0.95238095])}, 3: {'avg_score': 0.93073593073593064, 'feature_idx': (9, 2, 11), 'cv_scores': array([ 0.90909091,  0.95238095])}, 4: {'avg_score': 0.93073593073593064, 'feature_idx': (9, 2, 11, 10), 'cv_scores': array([ 0.90909091,  0.95238095])}, 5: {'avg_score': 0.90800865800865793, 'feature_idx': (8, 9, 2, 11, 10), 'cv_scores': array([ 0.86363636,  0.95238095])}, 6: {'avg_score': 0.90800865800865793, 'feature_idx': (1, 2, 8, 9, 10, 11), 'cv_scores': array([ 0.86363636,  0.95238095])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,28.1599450111,echocardiogram,43,0.474137323515,61,13,True,RFC,False,2,0.22480620155,True,still-alive,0.944444444444,0.93023255814,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.93073593073593064, 'feature_idx': (11,), 'cv_scores': array([ 0.90909091,  0.95238095])}, 2: {'avg_score': 0.93073593073593064, 'feature_idx': (2, 11), 'cv_scores': array([ 0.90909091,  0.95238095])}, 3: {'avg_score': 0.93073593073593064, 'feature_idx': (9, 2, 11), 'cv_scores': array([ 0.90909091,  0.95238095])}, 4: {'avg_score': 0.93073593073593064, 'feature_idx': (9, 2, 11, 10), 'cv_scores': array([ 0.90909091,  0.95238095])}, 5: {'avg_score': 0.88528138528138522, 'feature_idx': (9, 2, 11, 10, 6), 'cv_scores': array([ 0.81818182,  0.95238095])}, 6: {'avg_score': 0.93073593073593064, 'feature_idx': (0, 2, 6, 9, 10, 11), 'cv_scores': array([ 0.90909091,  0.95238095])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,28.5437970161,echocardiogram,43,0.474137323515,61,13,True,RFR,False,2,0.22480620155,True,still-alive,,,0.0587962962963,0.0284008039047,0.752597402597,0.870657422611
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.068664324470936497, 'feature_idx': (11,), 'cv_scores': array([-0.0856891 , -0.05163955])}, 2: {'avg_score': -0.062278739778739781, 'feature_idx': (0, 11), 'cv_scores': array([-0.0759596 , -0.04859788])}, 3: {'avg_score': -0.067591390091390091, 'feature_idx': (0, 9, 11), 'cv_scores': array([-0.08505051, -0.05013228])}, 4: {'avg_score': -0.062199374699374699, 'feature_idx': (0, 9, 10, 11), 'cv_scores': array([-0.0759596 , -0.04843915])}, 5: {'avg_score': -0.069835257335257334, 'feature_idx': (0, 9, 10, 11, 2), 'cv_scores': array([-0.08747475, -0.05219577])}, 6: {'avg_score': -0.071471861471861464, 'feature_idx': (0, 2, 3, 9, 10, 11), 'cv_scores': array([-0.0959596 , -0.04698413])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,10.3200130463,echocardiogram,43,0.474137323515,61,13,True,LinR,False,2,0.22480620155,True,still-alive,,,0.111765967705,0.0568635237252,0.529712031996,0.741032868552
+
+Running ML for column "age-at-heart-attack"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.065942652759261769, 'feature_idx': (11,), 'cv_scores': array([-0.08257314, -0.04931217])}, 2: {'avg_score': -0.060265100747527736, 'feature_idx': (11, 4), 'cv_scores': array([-0.0724374 , -0.04809281])}, 3: {'avg_score': -0.057094084471808346, 'feature_idx': (0, 11, 4), 'cv_scores': array([-0.06929761, -0.04489056])}, 4: {'avg_score': -0.057094084471808443, 'feature_idx': (0, 9, 11, 4), 'cv_scores': array([-0.06929761, -0.04489056])}, 5: {'avg_score': -0.057560204147073885, 'feature_idx': (0, 9, 11, 4, 1), 'cv_scores': array([-0.06924263, -0.04587778])}, 6: {'avg_score': -0.058496836863504438, 'feature_idx': (0, 1, 2, 4, 9, 11), 'cv_scores': array([-0.07117242, -0.04582125])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,28.4423499107,echocardiogram,43,0.225721371387,61,13,True,RFR,True,25,0.0509501375007,True,age-at-heart-attack,,,40.6540740741,64.2321730465,0.278685723673,0.19331043882
+Running SFS:
+SFS features and scores: {1: {'avg_score': -67.810169213304974, 'feature_idx': (8,), 'cv_scores': array([-48.32356181, -87.29677662])}, 2: {'avg_score': -63.811210193569025, 'feature_idx': (8, 0), 'cv_scores': array([-49.5848554 , -78.03756499])}, 3: {'avg_score': -64.042807115165957, 'feature_idx': (8, 0, 9), 'cv_scores': array([-52.93334025, -75.15227398])}, 4: {'avg_score': -63.606897485536308, 'feature_idx': (8, 0, 10, 9), 'cv_scores': array([-48.89254025, -78.32125472])}, 5: {'avg_score': -65.373246162784994, 'feature_idx': (8, 0, 10, 11, 9), 'cv_scores': array([-48.75518469, -81.99130763])}, 6: {'avg_score': -65.84344948168831, 'feature_idx': (0, 1, 8, 9, 10, 11), 'cv_scores': array([-49.71717863, -81.96972033])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,10.0179719925,echocardiogram,43,0.225721371387,61,13,True,LinR,True,25,0.0509501375007,True,age-at-heart-attack,,,81.0176409264,68.119676841,-0.437474161336,0.144487417873
+
+Running ML for column "pericardial-effusion"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -75.82797303547224, 'feature_idx': (8,), 'cv_scores': array([-67.97786312, -83.67808295])}, 2: {'avg_score': -71.927602856908166, 'feature_idx': (8, 11), 'cv_scores': array([-60.69878558, -83.15642014])}, 3: {'avg_score': -69.638971478632087, 'feature_idx': (8, 1, 11), 'cv_scores': array([-60.51896783, -78.75897513])}, 4: {'avg_score': -67.418777475145745, 'feature_idx': (8, 1, 10, 11), 'cv_scores': array([-56.07857982, -78.75897513])}, 5: {'avg_score': -67.418777475145745, 'feature_idx': (8, 1, 10, 11, 9), 'cv_scores': array([-56.07857982, -78.75897513])}, 6: {'avg_score': -67.955839996473344, 'feature_idx': (0, 1, 8, 9, 10, 11), 'cv_scores': array([-56.14214789, -79.7695321 ])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,9.9801030159,echocardiogram,43,0.411625091493,61,13,True,LogRC,False,2,0.169435215947,True,pericardial-effusion,0.888888888889,0.790697674419,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.79112554112554112, 'feature_idx': (0,), 'cv_scores': array([ 0.77272727,  0.80952381])}, 2: {'avg_score': 0.79112554112554112, 'feature_idx': (0, 1), 'cv_scores': array([ 0.77272727,  0.80952381])}, 3: {'avg_score': 0.79112554112554112, 'feature_idx': (0, 1, 2), 'cv_scores': array([ 0.77272727,  0.80952381])}, 4: {'avg_score': 0.79112554112554112, 'feature_idx': (0, 1, 2, 3), 'cv_scores': array([ 0.77272727,  0.80952381])}, 5: {'avg_score': 0.79112554112554112, 'feature_idx': (0, 1, 2, 3, 5), 'cv_scores': array([ 0.77272727,  0.80952381])}, 6: {'avg_score': 0.79112554112554112, 'feature_idx': (0, 1, 2, 3, 4, 5), 'cv_scores': array([ 0.77272727,  0.80952381])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,10.0123450756,echocardiogram,43,0.411625091493,61,13,True,DTC,False,2,0.169435215947,True,pericardial-effusion,0.888888888889,0.790697674419,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.79112554112554112, 'feature_idx': (1,), 'cv_scores': array([ 0.77272727,  0.80952381])}, 2: {'avg_score': 0.79112554112554112, 'feature_idx': (1, 2), 'cv_scores': array([ 0.77272727,  0.80952381])}, 3: {'avg_score': 0.79112554112554112, 'feature_idx': (1, 2, 9), 'cv_scores': array([ 0.77272727,  0.80952381])}, 4: {'avg_score': 0.79112554112554112, 'feature_idx': (1, 2, 11, 9), 'cv_scores': array([ 0.77272727,  0.80952381])}, 5: {'avg_score': 0.79112554112554112, 'feature_idx': (0, 1, 2, 11, 9), 'cv_scores': array([ 0.77272727,  0.80952381])}, 6: {'avg_score': 0.79112554112554112, 'feature_idx': (0, 1, 2, 9, 10, 11), 'cv_scores': array([ 0.77272727,  0.80952381])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,28.1502318382,echocardiogram,43,0.411625091493,61,13,True,RFC,False,2,0.169435215947,True,pericardial-effusion,0.888888888889,0.790697674419,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.79112554112554112, 'feature_idx': (1,), 'cv_scores': array([ 0.77272727,  0.80952381])}, 2: {'avg_score': 0.79112554112554112, 'feature_idx': (1, 9), 'cv_scores': array([ 0.77272727,  0.80952381])}, 3: {'avg_score': 0.79112554112554112, 'feature_idx': (1, 10, 9), 'cv_scores': array([ 0.77272727,  0.80952381])}, 4: {'avg_score': 0.79112554112554112, 'feature_idx': (1, 10, 11, 9), 'cv_scores': array([ 0.77272727,  0.80952381])}, 5: {'avg_score': 0.76839826839826841, 'feature_idx': (1, 10, 11, 2, 9), 'cv_scores': array([ 0.72727273,  0.80952381])}, 6: {'avg_score': 0.79112554112554112, 'feature_idx': (1, 2, 5, 9, 10, 11), 'cv_scores': array([ 0.77272727,  0.80952381])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,28.2718510628,echocardiogram,43,0.411625091493,61,13,True,RFR,False,2,0.169435215947,True,pericardial-effusion,,,0.144197530864,0.117105943152,-0.46,0.292389251997
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.17514699668280548, 'feature_idx': (7,), 'cv_scores': array([-0.21959596, -0.13069803])}, 2: {'avg_score': -0.17514699668280548, 'feature_idx': (9, 7), 'cv_scores': array([-0.21959596, -0.13069803])}, 3: {'avg_score': -0.17514699668280548, 'feature_idx': (9, 10, 7), 'cv_scores': array([-0.21959596, -0.13069803])}, 4: {'avg_score': -0.17781144781144781, 'feature_idx': (9, 10, 3, 7), 'cv_scores': array([-0.22080808, -0.13481481])}, 5: {'avg_score': -0.17855699855699858, 'feature_idx': (9, 10, 3, 2, 7), 'cv_scores': array([-0.22060606, -0.13650794])}, 6: {'avg_score': -0.17113035113035113, 'feature_idx': (2, 3, 7, 8, 9, 10), 'cv_scores': array([-0.2169697 , -0.12529101])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,10.048938036,echocardiogram,43,0.411625091493,61,13,True,LinR,False,2,0.169435215947,True,pericardial-effusion,,,0.143856012482,0.169582959088,-0.456542126379,-0.0247022593236
+
+Running ML for column "fractional-shortening"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.17480774072453781, 'feature_idx': (3,), 'cv_scores': array([-0.21304361, -0.13657188])}, 2: {'avg_score': -0.17222953814299802, 'feature_idx': (3, 7), 'cv_scores': array([-0.2074189 , -0.13704018])}, 3: {'avg_score': -0.17128532195615931, 'feature_idx': (3, 5, 7), 'cv_scores': array([-0.20635739, -0.13621326])}, 4: {'avg_score': -0.17128532195615931, 'feature_idx': (9, 3, 5, 7), 'cv_scores': array([-0.20635739, -0.13621326])}, 5: {'avg_score': -0.1783366269242363, 'feature_idx': (9, 2, 3, 5, 7), 'cv_scores': array([-0.20781909, -0.14885416])}, 6: {'avg_score': -0.19617406775579355, 'feature_idx': (2, 3, 5, 7, 9, 10), 'cv_scores': array([-0.24349397, -0.14885416])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,28.7235250473,echocardiogram,43,0.191722647385,61,13,True,RFR,True,31,0.0367575735204,True,fractional-shortening,,,0.00800824691358,0.00887158904393,-0.115220014089,0.313609528851
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.011056098623804177, 'feature_idx': (4,), 'cv_scores': array([-0.00754652, -0.01456568])}, 2: {'avg_score': -0.0095634931361231329, 'feature_idx': (8, 4), 'cv_scores': array([-0.00550717, -0.01361981])}, 3: {'avg_score': -0.0089706465704665703, 'feature_idx': (8, 1, 4), 'cv_scores': array([-0.0048279 , -0.01311339])}, 4: {'avg_score': -0.009155680009620009, 'feature_idx': (8, 1, 2, 4), 'cv_scores': array([-0.00560623, -0.01270513])}, 5: {'avg_score': -0.0088586519143819126, 'feature_idx': (8, 1, 2, 4, 9), 'cv_scores': array([-0.00533957, -0.01237774])}, 6: {'avg_score': -0.0092362634391534373, 'feature_idx': (1, 2, 4, 8, 9, 11), 'cv_scores': array([-0.00594779, -0.01252474])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,10.1392869949,echocardiogram,43,0.191722647385,61,13,True,LinR,True,31,0.0367575735204,True,fractional-shortening,,,0.00976465288778,0.00935955173506,-0.359815256522,0.275856095975
+
+Running ML for column "epss"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.010471504577396033, 'feature_idx': (4,), 'cv_scores': array([-0.00642193, -0.01452108])}, 2: {'avg_score': -0.0096897829003845058, 'feature_idx': (4, 5), 'cv_scores': array([-0.00599802, -0.01338154])}, 3: {'avg_score': -0.009689782900384504, 'feature_idx': (9, 4, 5), 'cv_scores': array([-0.00599802, -0.01338154])}, 4: {'avg_score': -0.0097092020311203304, 'feature_idx': (9, 2, 4, 5), 'cv_scores': array([-0.00604953, -0.01336887])}, 5: {'avg_score': -0.009905796768727243, 'feature_idx': (9, 2, 4, 5, 7), 'cv_scores': array([-0.00635713, -0.01345447])}, 6: {'avg_score': -0.010190821524290281, 'feature_idx': (2, 3, 4, 5, 7, 9), 'cv_scores': array([-0.00686022, -0.01352142])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,28.3078079224,echocardiogram,43,0.208136493191,61,13,True,RFR,True,38,0.0433207997979,True,epss,,,88.5795883737,34.0723495267,-0.0667542861196,0.162082243614
+Running SFS:
+SFS features and scores: {1: {'avg_score': -36.839289615671348, 'feature_idx': (1,), 'cv_scores': array([-41.19300848, -32.48557076])}, 2: {'avg_score': -36.839289615671348, 'feature_idx': (1, 9), 'cv_scores': array([-41.19300848, -32.48557076])}, 3: {'avg_score': -36.807934289184033, 'feature_idx': (1, 11, 9), 'cv_scores': array([-42.97757828, -30.6382903 ])}, 4: {'avg_score': -40.531035754085764, 'feature_idx': (1, 2, 11, 9), 'cv_scores': array([-43.77173824, -37.29033327])}, 5: {'avg_score': -44.436540062874542, 'feature_idx': (1, 2, 11, 10, 9), 'cv_scores': array([-51.83356433, -37.0395158 ])}, 6: {'avg_score': -46.87356136915345, 'feature_idx': (1, 2, 4, 9, 10, 11), 'cv_scores': array([-51.17864487, -42.56847787])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,10.1301159859,echocardiogram,43,0.208136493191,61,13,True,LinR,True,38,0.0433207997979,True,epss,,,59.0215829659,34.5642333912,0.289209537339,0.149985683504
+
+Running ML for column "lvdd"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -37.271461870503309, 'feature_idx': (6,), 'cv_scores': array([-45.24699678, -29.29592696])}, 2: {'avg_score': -32.982748761509676, 'feature_idx': (5, 6), 'cv_scores': array([-34.65675505, -31.30874247])}, 3: {'avg_score': -32.789018752687873, 'feature_idx': (0, 5, 6), 'cv_scores': array([-35.44826585, -30.12977165])}, 4: {'avg_score': -32.789018752687895, 'feature_idx': (0, 9, 5, 6), 'cv_scores': array([-35.44826585, -30.12977165])}, 5: {'avg_score': -33.589324073231026, 'feature_idx': (0, 9, 5, 6, 1), 'cv_scores': array([-37.14253249, -30.03611566])}, 6: {'avg_score': -33.075702580562037, 'feature_idx': (0, 1, 5, 6, 9, 11), 'cv_scores': array([-37.62740197, -28.5240032 ])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,28.4472491741,echocardiogram,43,0.270971397391,61,13,True,RFR,True,40,0.0734254982041,True,lvdd,,,0.656157040942,0.41426773726,-0.138688052299,0.298723021764
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.57004657080089216, 'feature_idx': (1,), 'cv_scores': array([-0.44914868, -0.69094447])}, 2: {'avg_score': -0.54764131299228413, 'feature_idx': (1, 11), 'cv_scores': array([-0.42099323, -0.67428939])}, 3: {'avg_score': -0.54056498917040363, 'feature_idx': (1, 10, 11), 'cv_scores': array([-0.40684059, -0.67428939])}, 4: {'avg_score': -0.5372028126132079, 'feature_idx': (3, 1, 10, 11), 'cv_scores': array([-0.39367853, -0.6807271 ])}, 5: {'avg_score': -0.53707678417763249, 'feature_idx': (3, 1, 10, 11, 9), 'cv_scores': array([-0.39342647, -0.6807271 ])}, 6: {'avg_score': -0.567364808698122, 'feature_idx': (1, 3, 8, 9, 10, 11), 'cv_scores': array([-0.54444898, -0.59028064])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,10.3479068279,echocardiogram,43,0.270971397391,61,13,True,LinR,True,40,0.0734254982041,True,lvdd,,,0.418229244685,0.440921815649,0.274209351833,0.253602704952
+
+Running ML for column "wall-motion-score"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.49957426107024372, 'feature_idx': (5,), 'cv_scores': array([-0.39182933, -0.60731919])}, 2: {'avg_score': -0.45782860267434999, 'feature_idx': (4, 5), 'cv_scores': array([-0.36391758, -0.55173962])}, 3: {'avg_score': -0.43264526394168668, 'feature_idx': (8, 4, 5), 'cv_scores': array([-0.3222241 , -0.54306643])}, 4: {'avg_score': -0.43264526394168712, 'feature_idx': (8, 9, 4, 5), 'cv_scores': array([-0.3222241 , -0.54306643])}, 5: {'avg_score': -0.4343658391735743, 'feature_idx': (8, 9, 3, 4, 5), 'cv_scores': array([-0.32474095, -0.54399072])}, 6: {'avg_score': -0.45133449298772821, 'feature_idx': (3, 4, 5, 7, 8, 9), 'cv_scores': array([-0.33561467, -0.56705432])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,28.5637910366,echocardiogram,43,0.175938168031,61,13,True,RFR,True,23,0.0309542389703,True,wall-motion-score,,,5.43048849383,8.43448834109,0.676771387784,0.751418867495
+Running SFS:
+SFS features and scores: {1: {'avg_score': -28.103559749757764, 'feature_idx': (0,), 'cv_scores': array([-17.18614009, -39.02097941])}, 2: {'avg_score': -18.881451087061087, 'feature_idx': (0, 8), 'cv_scores': array([-11.90306545, -25.85983672])}, 3: {'avg_score': -15.394724746993743, 'feature_idx': (0, 8, 7), 'cv_scores': array([ -8.98558107, -21.80386842])}, 4: {'avg_score': -14.698120045214051, 'feature_idx': (0, 8, 11, 7), 'cv_scores': array([ -9.42385855, -19.97238154])}, 5: {'avg_score': -15.177750690716696, 'feature_idx': (0, 8, 11, 1, 7), 'cv_scores': array([-10.58316966, -19.77233172])}, 6: {'avg_score': -15.465866798460802, 'feature_idx': (0, 1, 7, 8, 9, 11), 'cv_scores': array([ -9.41395313, -21.51778047])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,9.75676298141,echocardiogram,43,0.175938168031,61,13,True,LinR,True,23,0.0309542389703,True,wall-motion-score,,,0.289301705401,1.967263489,0.982780446206,0.942020835615
+
+Running ML for column "wall-motion-index"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -23.964277396535248, 'feature_idx': (7,), 'cv_scores': array([-22.82985266, -25.09870214])}, 2: {'avg_score': -2.6683776489782769, 'feature_idx': (8, 7), 'cv_scores': array([-2.8391504, -2.4976049])}, 3: {'avg_score': -2.5752038939742641, 'feature_idx': (8, 3, 7), 'cv_scores': array([-2.77265335, -2.37775444])}, 4: {'avg_score': -2.5752038939742574, 'feature_idx': (8, 9, 3, 7), 'cv_scores': array([-2.77265335, -2.37775444])}, 5: {'avg_score': -2.6046474851624462, 'feature_idx': (8, 9, 3, 6, 7), 'cv_scores': array([-2.79069303, -2.41860194])}, 6: {'avg_score': -2.6292698063616688, 'feature_idx': (3, 4, 6, 7, 8, 9), 'cv_scores': array([-2.8489934 , -2.40954621])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,33.3202590942,echocardiogram,43,0.245224511795,61,13,True,RFR,True,28,0.0601350611849,True,wall-motion-index,,,0.0288475338272,0.0449011857364,0.703546964137,0.80888744153
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.17284850770023891, 'feature_idx': (7,), 'cv_scores': array([-0.15953289, -0.18616413])}, 2: {'avg_score': -0.12414850182299178, 'feature_idx': (8, 7), 'cv_scores': array([-0.08857169, -0.15972532])}, 3: {'avg_score': -0.12368274391053385, 'feature_idx': (8, 0, 7), 'cv_scores': array([-0.09145837, -0.15590712])}, 4: {'avg_score': -0.11931940517556514, 'feature_idx': (8, 0, 11, 7), 'cv_scores': array([-0.09176986, -0.14686895])}, 5: {'avg_score': -0.11145215893698888, 'feature_idx': (8, 0, 11, 9, 7), 'cv_scores': array([-0.08528302, -0.1376213 ])}, 6: {'avg_score': -0.12299920220298216, 'feature_idx': (0, 7, 8, 9, 10, 11), 'cv_scores': array([-0.11243506, -0.13356335])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,9.99748587608,echocardiogram,43,0.245224511795,61,13,True,LinR,True,28,0.0601350611849,True,wall-motion-index,,,0.00221517787959,0.0131347382047,0.97723562051,0.944094718614
+
+Running ML for column "mult"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.10180386907089309, 'feature_idx': (7,), 'cv_scores': array([-0.14302437, -0.06058337])}, 2: {'avg_score': -0.022321804144362307, 'feature_idx': (8, 7), 'cv_scores': array([-0.02104382, -0.02359979])}, 3: {'avg_score': -0.021403322175551479, 'feature_idx': (8, 3, 7), 'cv_scores': array([-0.02069004, -0.02211661])}, 4: {'avg_score': -0.021330206589647092, 'feature_idx': (8, 0, 3, 7), 'cv_scores': array([-0.02084407, -0.02181635])}, 5: {'avg_score': -0.021330206589647134, 'feature_idx': (8, 0, 3, 9, 7), 'cv_scores': array([-0.02084407, -0.02181635])}, 6: {'avg_score': -0.021416856755871974, 'feature_idx': (0, 3, 6, 7, 8, 9), 'cv_scores': array([-0.02108359, -0.02175013])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,28.3245720863,echocardiogram,43,0.292983350048,61,13,True,RFR,True,20,0.0858392434055,True,mult,,,0.0067615182716,0.0082122078553,0.488179752894,0.765291844113
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.022563834240155782, 'feature_idx': (7,), 'cv_scores': array([-0.02632409, -0.01880358])}, 2: {'avg_score': -0.010868371996151991, 'feature_idx': (8, 7), 'cv_scores': array([-0.00935826, -0.01237848])}, 3: {'avg_score': -0.010201827277537271, 'feature_idx': (8, 9, 7), 'cv_scores': array([-0.00903001, -0.01137364])}, 4: {'avg_score': -0.010244644603174599, 'feature_idx': (8, 9, 1, 7), 'cv_scores': array([-0.00881922, -0.01167007])}, 5: {'avg_score': -0.010168411168831165, 'feature_idx': (8, 9, 11, 1, 7), 'cv_scores': array([-0.00812331, -0.01221351])}, 6: {'avg_score': -0.011011795060125052, 'feature_idx': (1, 3, 7, 8, 9, 11), 'cv_scores': array([-0.00946099, -0.0125626 ])}}
+Features: 1/6Features: 2/6Features: 3/6Features: 4/6Features: 5/6Features: 6/6function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,9.89337897301,echocardiogram,43,0.292983350048,61,13,True,LinR,True,20,0.0858392434055,True,mult,,,0.00115963593476,0.00356459392209,0.912220136537,0.898122492674
+
+Running ML for column "name"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.034710322205150523, 'feature_idx': (7,), 'cv_scores': array([-0.04042244, -0.0289982 ])}, 2: {'avg_score': -0.0067807856124786903, 'feature_idx': (8, 7), 'cv_scores': array([-0.00668514, -0.00687643])}, 3: {'avg_score': -0.0064732982984776789, 'feature_idx': (8, 3, 7), 'cv_scores': array([-0.00642018, -0.00652642])}, 4: {'avg_score': -0.0063678625269483185, 'feature_idx': (8, 3, 6, 7), 'cv_scores': array([-0.00639611, -0.00633962])}, 5: {'avg_score': -0.0063678625269483107, 'feature_idx': (8, 9, 3, 6, 7), 'cv_scores': array([-0.00639611, -0.00633962])}, 6: {'avg_score': -0.0065332232405390161, 'feature_idx': (0, 3, 6, 7, 8, 9), 'cv_scores': array([-0.00651971, -0.00654674])}}
+Traceback (most recent call last):
+  File "run_ml_algos.py", line 457, in <module>
+    run_ml_for_all_columns(df, dataset_name, args.should_use_SFS)
+  File "run_ml_algos.py", line 422, in run_ml_for_all_columns
+    fn_stats_to_record, fn_stats_to_record_from_result)
+  File "run_ml_algos.py", line 173, in run_all_classifiers
+    additional_timer_stats_from_result=fn_stats_to_record_from_result)
+  File "run_ml_algos.py", line 39, in function_timer
+    result = function(*args, **kwargs)
+  File "run_ml_algos.py", line 322, in run_classifier
+    sfs = sfs.fit(X_train.as_matrix(), y_train)
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/mlxtend/feature_selection/sequential_feature_selector.py", line 239, in fit
+    y=y
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/mlxtend/feature_selection/sequential_feature_selector.py", line 344, in _inclusion
+    cv_scores = self._calc_score(X, y, new_subset)
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/mlxtend/feature_selection/sequential_feature_selector.py", line 329, in _calc_score
+    pre_dispatch=self.pre_dispatch)
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/model_selection/_validation.py", line 140, in cross_val_score
+    for train, test in cv_iter)
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/externals/joblib/parallel.py", line 768, in __call__
+    self.retrieve()
+  File "/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/externals/joblib/parallel.py", line 719, in retrieve
+    raise exception
+sklearn.externals.joblib.my_exceptions.JoblibValueError: JoblibValueError
+___________________________________________________________________________
+Multiprocessing exception:
+...........................................................................
+/home/joana/src/6.830-project/run_ml_algos.py in <module>()
+    452 
+    453     print('Running ML algos for input dataset \"%s\"' % args.input_csv_file)
+    454 
+    455     df = read_dataframe_without_na_from_csv(args.input_csv_file)
+    456     dataset_name = os.path.splitext(basename(args.input_csv_file))[0]
+--> 457     run_ml_for_all_columns(df, dataset_name, args.should_use_SFS)
+    458 
+    459 
+    460 
+    461 
+
+...........................................................................
+/home/joana/src/6.830-project/run_ml_algos.py in run_ml_for_all_columns(df=    survival  still-alive  age-at-heart-attack  ...name    2.0         1.0  
+
+[61 rows x 13 columns], dataset_name='echocardiogram', should_use_SFS=True)
+    417             fn_stats_to_record['target_stdev'] = scaled_target.std()
+    418 
+    419         # Only use classification for discrete data (numerical or not).
+    420         if not is_continuous(df, column):
+    421             run_all_classifiers(y_train, X_train, y_test, X_test, should_use_SFS,
+--> 422                                 fn_stats_to_record, fn_stats_to_record_from_result)
+        fn_stats_to_record = {'SFS': True, 'algo': 'LogRC', 'column_name': 'name', 'dataset': 'echocardiogram', 'num_rows': 43, 'original_num_cols': 13, 'original_num_rows': 61, 'target_is_continuous': False, 'target_is_numerical': False, 'target_num_unique': 1, ...}
+        fn_stats_to_record_from_result = ['test_accuracy', 'training_accuracy', 'test_mse', 'training_mse', 'test_R2_score', 'training_R2_score']
+    423 
+    424         # While we use regression for any data set, since after encoding
+    425         # categorical data, all the columns are numerical (discrete or
+    426         # continuous).
+
+...........................................................................
+/home/joana/src/6.830-project/run_ml_algos.py in run_all_classifiers(y_train=0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64, X_train=    survival  still-alive  age-at-heart-attack  ...42              2.180  0.786    2.0         1.0  , y_test=43    0
+44    0
+45    0
+46    0
+47    0
+48    0
+...
+58    0
+59    0
+60    0
+Name: name, dtype: int64, X_test=    survival  still-alive  age-at-heart-attack  ... 2.0         1.0  
+60  1.000    2.0         1.0  , should_use_SFS=True, fn_stats_to_record={'SFS': True, 'algo': 'LogRC', 'column_name': 'name', 'dataset': 'echocardiogram', 'num_rows': 43, 'original_num_cols': 13, 'original_num_rows': 61, 'target_is_continuous': False, 'target_is_numerical': False, 'target_num_unique': 1, ...}, fn_stats_to_record_from_result=['test_accuracy', 'training_accuracy', 'test_mse', 'training_mse', 'test_R2_score', 'training_R2_score'])
+    168         fn_stats_to_record['algo'] = classifier['name']
+    169         res = run_classifier(
+    170             y_train, X_train, y_test, X_test, classifier['clf'],
+    171             should_use_SFS,
+    172             additional_timer_stats=fn_stats_to_record,
+--> 173             additional_timer_stats_from_result=fn_stats_to_record_from_result)
+        fn_stats_to_record_from_result = ['test_accuracy', 'training_accuracy', 'test_mse', 'training_mse', 'test_R2_score', 'training_R2_score']
+    174 
+    175 
+    176 def run_all_regressors(y_train, X_train, y_test, X_test, should_use_SFS,
+    177                        fn_stats_to_record, fn_stats_to_record_from_result):
+
+...........................................................................
+/home/joana/src/6.830-project/run_ml_algos.py in function_timer(*args=(0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64,     survival  still-alive  age-at-heart-attack  ...42              2.180  0.786    2.0         1.0  , 43    0
+44    0
+45    0
+46    0
+47    0
+48    0
+...
+58    0
+59    0
+60    0
+Name: name, dtype: int64,     survival  still-alive  age-at-heart-attack  ... 2.0         1.0  
+60  1.000    2.0         1.0  , LogisticRegression(C=1.0, class_weight=None, dua...ol=0.0001,
+          verbose=0, warm_start=False), True), **kwargs={'additional_timer_stats': {'SFS': True, 'algo': 'LogRC', 'column_name': 'name', 'dataset': 'echocardiogram', 'num_rows': 43, 'original_num_cols': 13, 'original_num_rows': 61, 'target_is_continuous': False, 'target_is_numerical': False, 'target_num_unique': 1, ...}, 'additional_timer_stats_from_result': ['test_accuracy', 'training_accuracy', 'test_mse', 'training_mse', 'test_R2_score', 'training_R2_score']})
+     34     a "additional_timer_stats" kwarg.
+     35     """
+     36     @wraps(function)
+     37     def function_timer(*args, **kwargs):
+     38         t0 = time.time()
+---> 39         result = function(*args, **kwargs)
+        result = undefined
+        args = (0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64,     survival  still-alive  age-at-heart-attack  ...42              2.180  0.786    2.0         1.0  , 43    0
+44    0
+45    0
+46    0
+47    0
+48    0
+...
+58    0
+59    0
+60    0
+Name: name, dtype: int64,     survival  still-alive  age-at-heart-attack  ... 2.0         1.0  
+60  1.000    2.0         1.0  , LogisticRegression(C=1.0, class_weight=None, dua...ol=0.0001,
+          verbose=0, warm_start=False), True)
+        kwargs = {'additional_timer_stats': {'SFS': True, 'algo': 'LogRC', 'column_name': 'name', 'dataset': 'echocardiogram', 'num_rows': 43, 'original_num_cols': 13, 'original_num_rows': 61, 'target_is_continuous': False, 'target_is_numerical': False, 'target_num_unique': 1, ...}, 'additional_timer_stats_from_result': ['test_accuracy', 'training_accuracy', 'test_mse', 'training_mse', 'test_R2_score', 'training_R2_score']}
+     40         t1 = time.time()
+     41 
+     42         # First column is time.
+     43         stats_csv_header = 'function,runtime_seconds'
+
+...........................................................................
+/home/joana/src/6.830-project/run_ml_algos.py in run_classifier(y_train=0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64, X_train=    survival  still-alive  age-at-heart-attack  ...42              2.180  0.786    2.0         1.0  , y_test=43    0
+44    0
+45    0
+46    0
+47    0
+48    0
+...
+58    0
+59    0
+60    0
+Name: name, dtype: int64, X_test=    survival  still-alive  age-at-heart-attack  ... 2.0         1.0  
+60  1.000    2.0         1.0  , clf=LogisticRegression(C=1.0, class_weight=None, dua...ol=0.0001,
+          verbose=0, warm_start=False), should_use_SFS=True, *args=(), **kwargs={'additional_timer_stats': {'SFS': True, 'algo': 'LogRC', 'column_name': 'name', 'dataset': 'echocardiogram', 'num_rows': 43, 'original_num_cols': 13, 'original_num_rows': 61, 'target_is_continuous': False, 'target_is_numerical': False, 'target_num_unique': 1, ...}, 'additional_timer_stats_from_result': ['test_accuracy', 'training_accuracy', 'test_mse', 'training_mse', 'test_R2_score', 'training_R2_score']})
+    317                   scoring='accuracy',
+    318                   print_progress=False,
+    319                   n_jobs=-1,
+    320                   cv=cv_k)
+    321         # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
+--> 322         sfs = sfs.fit(X_train.as_matrix(), y_train)
+        sfs = SequentialFeatureSelector(clone_estimator=True, ...coring='accuracy', skip_if_stuck=True, verbose=1)
+        sfs.fit = <bound method SequentialFeatureSelector.fit of S...oring='accuracy', skip_if_stuck=True, verbose=1)>
+        X_train.as_matrix = <bound method DataFrame.as_matrix of     surviva...2              2.180  0.786    2.0         1.0  >
+        y_train = 0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64
+    323 
+    324         print 'SFS features and scores: %s' % sfs.subsets_
+    325         # Use SFS results to improve the model.
+    326         X_train_sfs = sfs.transform(X_train.as_matrix())
+
+...........................................................................
+/home/ubuntu/x2/local/lib/python2.7/site-packages/mlxtend/feature_selection/sequential_feature_selector.py in fit(self=SequentialFeatureSelector(clone_estimator=True, ...coring='accuracy', skip_if_stuck=True, verbose=1), X=array([[  1.10000000e+01,   0.00000000e+00,   7....000000e-01,   2.00000000e+00,   1.00000000e+00]]), y=0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64)
+    234                 if self.forward:
+    235                     k_idx, k_score, cv_scores = self._inclusion(
+    236                         orig_set=orig_set,
+    237                         subset=prev_subset,
+    238                         X=X,
+--> 239                         y=y
+        y = 0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64
+    240                     )
+    241                 else:
+    242                     k_idx, k_score, cv_scores = self._exclusion(
+    243                         feature_set=prev_subset,
+
+...........................................................................
+/home/ubuntu/x2/local/lib/python2.7/site-packages/mlxtend/feature_selection/sequential_feature_selector.py in _inclusion(self=SequentialFeatureSelector(clone_estimator=True, ...coring='accuracy', skip_if_stuck=True, verbose=1), orig_set=set([0, 1, 2, 3, 4, 5, ...]), subset=set([]), X=array([[  1.10000000e+01,   0.00000000e+00,   7....000000e-01,   2.00000000e+00,   1.00000000e+00]]), y=0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64)
+    339         res = (None, None, None)
+    340         remaining = orig_set - subset
+    341         if remaining:
+    342             for feature in remaining:
+    343                 new_subset = tuple(subset | {feature})
+--> 344                 cv_scores = self._calc_score(X, y, new_subset)
+        cv_scores = undefined
+        self._calc_score = <bound method SequentialFeatureSelector._calc_sc...oring='accuracy', skip_if_stuck=True, verbose=1)>
+        X = array([[  1.10000000e+01,   0.00000000e+00,   7....000000e-01,   2.00000000e+00,   1.00000000e+00]])
+        y = 0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64
+        new_subset = (0,)
+    345                 all_avg_scores.append(cv_scores.mean())
+    346                 all_cv_scores.append(cv_scores)
+    347                 all_subsets.append(new_subset)
+    348             best = np.argmax(all_avg_scores)
+
+...........................................................................
+/home/ubuntu/x2/local/lib/python2.7/site-packages/mlxtend/feature_selection/sequential_feature_selector.py in _calc_score(self=SequentialFeatureSelector(clone_estimator=True, ...coring='accuracy', skip_if_stuck=True, verbose=1), X=array([[  1.10000000e+01,   0.00000000e+00,   7....000000e-01,   2.00000000e+00,   1.00000000e+00]]), y=0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64, indices=(0,))
+    324             scores = cross_val_score(self.est_,
+    325                                      X[:, indices], y,
+    326                                      cv=self.cv,
+    327                                      scoring=self.scorer,
+    328                                      n_jobs=self.n_jobs,
+--> 329                                      pre_dispatch=self.pre_dispatch)
+        self.pre_dispatch = '2*n_jobs'
+    330         else:
+    331             self.est_.fit(X[:, indices], y)
+    332             scores = np.array([self.scorer(self.est_, X[:, indices], y)])
+    333         return scores
+
+...........................................................................
+/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/model_selection/_validation.py in cross_val_score(estimator=LogisticRegression(C=1.0, class_weight=None, dua...ol=0.0001,
+          verbose=0, warm_start=False), X=array([[ 11.  ],
+       [ 19.  ],
+       [ 16.  ...     [ 47.  ],
+       [ 41.  ],
+       [  0.25]]), y=0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64, groups=None, scoring=make_scorer(accuracy_score), cv=StratifiedKFold(n_splits=2, random_state=None, shuffle=False), n_jobs=-1, verbose=0, fit_params=None, pre_dispatch='2*n_jobs')
+    135     parallel = Parallel(n_jobs=n_jobs, verbose=verbose,
+    136                         pre_dispatch=pre_dispatch)
+    137     scores = parallel(delayed(_fit_and_score)(clone(estimator), X, y, scorer,
+    138                                               train, test, verbose, None,
+    139                                               fit_params)
+--> 140                       for train, test in cv_iter)
+        cv_iter = [(array([22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+       39, 40, 41, 42]), array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 1..., 12, 13, 14, 15, 16,
+       17, 18, 19, 20, 21])), (array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 1..., 12, 13, 14, 15, 16,
+       17, 18, 19, 20, 21]), array([22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+       39, 40, 41, 42]))]
+    141     return np.array(scores)[:, 0]
+    142 
+    143 
+    144 def _fit_and_score(estimator, X, y, scorer, train, test, verbose,
+
+...........................................................................
+/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/externals/joblib/parallel.py in __call__(self=Parallel(n_jobs=-1), iterable=<generator object <genexpr>>)
+    763             if pre_dispatch == "all" or n_jobs == 1:
+    764                 # The iterable was consumed all at once by the above for loop.
+    765                 # No need to wait for async callbacks to trigger to
+    766                 # consumption.
+    767                 self._iterating = False
+--> 768             self.retrieve()
+        self.retrieve = <bound method Parallel.retrieve of Parallel(n_jobs=-1)>
+    769             # Make sure that we get a last message telling us we are done
+    770             elapsed_time = time.time() - self._start_time
+    771             self._print('Done %3i out of %3i | elapsed: %s finished',
+    772                         (len(self._output), len(self._output),
+
+---------------------------------------------------------------------------
+Sub-process traceback:
+---------------------------------------------------------------------------
+ValueError                                         Mon Dec 12 07:04:23 2016
+PID: 11989                         Python 2.7.6: /home/ubuntu/x2/bin/python
+...........................................................................
+/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/externals/joblib/parallel.py in __call__(self=<sklearn.externals.joblib.parallel.BatchedCalls object>)
+    126     def __init__(self, iterator_slice):
+    127         self.items = list(iterator_slice)
+    128         self._size = len(self.items)
+    129 
+    130     def __call__(self):
+--> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
+        func = <function _fit_and_score>
+        args = (LogisticRegression(C=1.0, class_weight=None, dua...ol=0.0001,
+          verbose=0, warm_start=False), array([[ 11.  ],
+       [ 19.  ],
+       [ 16.  ...     [ 47.  ],
+       [ 41.  ],
+       [  0.25]]), 0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64, make_scorer(accuracy_score), array([22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+       39, 40, 41, 42]), array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 1..., 12, 13, 14, 15, 16,
+       17, 18, 19, 20, 21]), 0, None, None)
+        kwargs = {}
+        self.items = [(<function _fit_and_score>, (LogisticRegression(C=1.0, class_weight=None, dua...ol=0.0001,
+          verbose=0, warm_start=False), array([[ 11.  ],
+       [ 19.  ],
+       [ 16.  ...     [ 47.  ],
+       [ 41.  ],
+       [  0.25]]), 0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64, make_scorer(accuracy_score), array([22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+       39, 40, 41, 42]), array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 1..., 12, 13, 14, 15, 16,
+       17, 18, 19, 20, 21]), 0, None, None), {})]
+    132 
+    133     def __len__(self):
+    134         return self._size
+    135 
+
+...........................................................................
+/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/model_selection/_validation.py in _fit_and_score(estimator=LogisticRegression(C=1.0, class_weight=None, dua...ol=0.0001,
+          verbose=0, warm_start=False), X=array([[ 11.  ],
+       [ 19.  ],
+       [ 16.  ...     [ 47.  ],
+       [ 41.  ],
+       [  0.25]]), y=0     0
+1     0
+2     0
+3     0
+4     0
+5     0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64, scorer=make_scorer(accuracy_score), train=array([22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+       39, 40, 41, 42]), test=array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 1..., 12, 13, 14, 15, 16,
+       17, 18, 19, 20, 21]), verbose=0, parameters=None, fit_params={}, return_train_score=False, return_parameters=False, return_n_test_samples=False, return_times=False, error_score='raise')
+    233 
+    234     try:
+    235         if y_train is None:
+    236             estimator.fit(X_train, **fit_params)
+    237         else:
+--> 238             estimator.fit(X_train, y_train, **fit_params)
+        estimator.fit = <bound method LogisticRegression.fit of Logistic...l=0.0001,
+          verbose=0, warm_start=False)>
+        X_train = array([[  0.5 ],
+       [  5.  ],
+       [ 36.  ...     [ 47.  ],
+       [ 41.  ],
+       [  0.25]])
+        y_train = 22    0
+23    0
+24    0
+25    0
+26    0
+27    0
+...
+40    0
+41    0
+42    0
+Name: name, dtype: int64
+        fit_params = {}
+    239 
+    240     except Exception as e:
+    241         # Note fit time as time until error
+    242         fit_time = time.time() - start_time
+
+...........................................................................
+/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/linear_model/logistic.py in fit(self=LogisticRegression(C=1.0, class_weight=None, dua...ol=0.0001,
+          verbose=0, warm_start=False), X=array([[  0.5 ],
+       [  5.  ],
+       [ 36.  ...     [ 47.  ],
+       [ 41.  ],
+       [  0.25]]), y=array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), sample_weight=None)
+   1181         if self.solver == 'liblinear':
+   1182             self.coef_, self.intercept_, n_iter_ = _fit_liblinear(
+   1183                 X, y, self.C, self.fit_intercept, self.intercept_scaling,
+   1184                 self.class_weight, self.penalty, self.dual, self.verbose,
+   1185                 self.max_iter, self.tol, self.random_state,
+-> 1186                 sample_weight=sample_weight)
+        sample_weight = None
+   1187             self.n_iter_ = np.array([n_iter_])
+   1188             return self
+   1189 
+   1190         if self.solver == 'sag':
+
+...........................................................................
+/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/svm/base.py in _fit_liblinear(X=array([[  0.5 ],
+       [  5.  ],
+       [ 36.  ...     [ 47.  ],
+       [ 41.  ],
+       [  0.25]]), y=array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, penalty='l2', dual=False, verbose=0, max_iter=100, tol=0.0001, random_state=None, multi_class='ovr', loss='logistic_regression', epsilon=0.1, sample_weight=None)
+    870         y_ind = enc.fit_transform(y)
+    871         classes_ = enc.classes_
+    872         if len(classes_) < 2:
+    873             raise ValueError("This solver needs samples of at least 2 classes"
+    874                              " in the data, but the data contains only one"
+--> 875                              " class: %r" % classes_[0])
+        classes_ = array([0])
+    876 
+    877         class_weight_ = compute_class_weight(class_weight, classes_, y)
+    878     else:
+    879         class_weight_ = np.empty(0, dtype=np.float64)
+
+ValueError: This solver needs samples of at least 2 classes in the data, but the data contains only one class: 0
+___________________________________________________________________________
+1 loops, best of 1: 488 sec per loop

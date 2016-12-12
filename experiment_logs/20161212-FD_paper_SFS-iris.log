@@ -1,0 +1,65 @@
+num_rows_f=150.000000, training=105, test=45
+
+Running ML for column "sepal length"
+Running SFS:
+Running ML algos for input dataset "datasets/from_FD_paper/iris.csv"
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,5.41528296471,iris,105,0.236890430265,150,5,True,RFR,True,29,0.0561170759513,True,sepal length,,,0.277095946922,0.0412687812325,0.334488587284,0.905296395949
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.15726199534880778, 'feature_idx': (1,), 'cv_scores': array([-0.16730557, -0.10534886, -0.14140754, -0.21589399, -0.15635401])}, 2: {'avg_score': -0.13536065654057033, 'feature_idx': (0, 1), 'cv_scores': array([-0.10661523, -0.08276855, -0.15255508, -0.22661151, -0.10825291])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.24308300018,iris,105,0.236890430265,150,5,True,LinR,True,29,0.0561170759513,True,sepal length,,,0.148812124987,0.0929705423194,0.642592507652,0.786651188494
+
+Running ML for column "sepal width"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.15001618456809623, 'feature_idx': (1,), 'cv_scores': array([-0.17906763, -0.08627902, -0.20251419, -0.11591971, -0.16630037])}, 2: {'avg_score': -0.1144081602970847, 'feature_idx': (0, 1), 'cv_scores': array([-0.06985892, -0.05380278, -0.12303547, -0.12945603, -0.19588761])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,5.42385911942,iris,105,0.19460490719,150,5,True,RFR,True,23,0.0378710699023,True,sepal width,,,0.111265798628,0.0472199513705,-0.0201631903569,0.781449684786
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.11995662432921736, 'feature_idx': (3,), 'cv_scores': array([-0.15709238, -0.15804244, -0.13225159, -0.0623911 , -0.0900056 ])}, 2: {'avg_score': -0.078945615875618685, 'feature_idx': (0, 3), 'cv_scores': array([-0.04799842, -0.09342388, -0.0956778 , -0.0608053 , -0.09682268])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.22406506538,iris,105,0.19460490719,150,5,True,LinR,True,23,0.0378710699023,True,sepal width,,,0.112775252901,0.100776164256,-0.0340029300252,0.533572953277
+
+Running ML for column "petal length"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.15820883622436938, 'feature_idx': (1,), 'cv_scores': array([-0.19636107, -0.15004708, -0.18598221, -0.10020026, -0.15845357])}, 2: {'avg_score': -0.12234290016004454, 'feature_idx': (0, 1), 'cv_scores': array([-0.07781764, -0.09710061, -0.10903858, -0.12706136, -0.2006963 ])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,5.38513302803,iris,105,0.307632695691,150,5,True,RFR,True,32,0.0946378754579,True,petal length,,,0.29861457476,0.0244214440917,0.0619946733334,0.989578690117
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.10949485877407936, 'feature_idx': (2,), 'cv_scores': array([-0.03055799, -0.03695572, -0.07813025, -0.16753169, -0.23429865])}, 2: {'avg_score': -0.0981643606575964, 'feature_idx': (0, 2), 'cv_scores': array([-0.02964497, -0.03347607, -0.04709297, -0.1136279 , -0.26697989])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.24212908745,iris,105,0.307632695691,150,5,True,LinR,True,32,0.0946378754579,True,petal length,,,0.534318376537,0.0883952472529,-0.678395917985,0.962279287813
+
+Running ML for column "petal width"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.11009125167384046, 'feature_idx': (2,), 'cv_scores': array([-0.05756496, -0.08932312, -0.10659723, -0.14289718, -0.15407376])}, 2: {'avg_score': -0.096350750190670645, 'feature_idx': (1, 2), 'cv_scores': array([-0.0331588 , -0.09987673, -0.10889481, -0.11561826, -0.12420515])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,5.49650192261,iris,105,0.259314670804,150,5,True,RFR,True,19,0.0672440984941,True,petal width,,,0.130472098765,0.00840784808696,-0.74439455962,0.97808385541
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.032159563666099081, 'feature_idx': (2,), 'cv_scores': array([-0.01060368, -0.01194848, -0.02303109, -0.02821474, -0.08699983])}, 2: {'avg_score': -0.029597034522309818, 'feature_idx': (1, 2), 'cv_scores': array([-0.01232844, -0.01219518, -0.02188748, -0.02574074, -0.07583333])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.21218585968,iris,105,0.259314670804,150,5,True,LinR,True,19,0.0672440984941,True,petal width,,,0.0809264471966,0.0143005818628,-0.0819758059756,0.9627236819
+
+Running ML for column "class"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.017872439144478291, 'feature_idx': (2,), 'cv_scores': array([-0.00819821, -0.01373441, -0.01638852, -0.02097718, -0.03006388])}, 2: {'avg_score': -0.01537937870632817, 'feature_idx': (2, 3), 'cv_scores': array([-0.0074518 , -0.01202867, -0.01618382, -0.02058437, -0.02064824])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.20062208176,iris,105,,150,5,True,LogRC,False,3,,False,class,0.0,0.952380952381,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.95238095238095233, 'feature_idx': (2,), 'cv_scores': array([ 0.95238095,  0.95238095,  0.95238095,  0.95238095,  0.95238095])}, 2: {'avg_score': 0.95238095238095233, 'feature_idx': (0, 2), 'cv_scores': array([ 0.95238095,  0.95238095,  0.95238095,  0.95238095,  0.95238095])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.23537778854,iris,105,,150,5,True,DTC,False,3,,False,class,0.8,0.990476190476,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.98095238095238102, 'feature_idx': (2,), 'cv_scores': array([ 1.        ,  0.95238095,  1.        ,  0.95238095,  1.        ])}, 2: {'avg_score': 0.98095238095238102, 'feature_idx': (0, 2), 'cv_scores': array([ 1.        ,  0.95238095,  1.        ,  0.95238095,  1.        ])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,5.28058886528,iris,105,,150,5,True,RFC,False,3,,False,class,0.577777777778,1.0,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.98095238095238102, 'feature_idx': (2,), 'cv_scores': array([ 1.        ,  0.95238095,  1.        ,  0.95238095,  1.        ])}, 2: {'avg_score': 0.99047619047619051, 'feature_idx': (0, 2), 'cv_scores': array([ 1.        ,  0.95238095,  1.        ,  1.        ,  1.        ])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,5.47512984276,iris,105,,150,5,True,RFR,False,3,,False,class,,,0.154469135802,0.00228571428571,0.0,0.99328
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.052402116402116408, 'feature_idx': (2,), 'cv_scores': array([-0.        , -0.        , -0.        , -0.02391534, -0.23809524])}, 2: {'avg_score': -0.051216931216931216, 'feature_idx': (2, 3), 'cv_scores': array([-0.        , -0.        , -0.        , -0.01798942, -0.23809524])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.21526503563,iris,105,,150,5,True,LinR,False,3,,False,class,,,0.237438350593,0.0209534607911,0.0,0.938396825274
+SFS features and scores: {1: {'avg_score': -0.031450135223951528, 'feature_idx': (3,), 'cv_scores': array([-0.00694044, -0.00964634, -0.02898897, -0.0456591 , -0.06601582])}, 2: {'avg_score': -0.029723681113242185, 'feature_idx': (1, 3), 'cv_scores': array([-0.00333402, -0.01550901, -0.01708974, -0.03800048, -0.07468516])}}
+1 loops, best of 1: 41.8 sec per loop

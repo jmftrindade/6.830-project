@@ -1,0 +1,115 @@
+num_rows_f=625.000000, training=438, test=187
+
+Running ML for column "Class Name"
+Running SFS:
+Running ML algos for input dataset "datasets/from_FD_paper/balance-scale.csv"
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.17843699455,balance-scale,438,,625,5,True,LogRC,False,3,,False,Class Name,0.561497326203,0.74200913242,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.67816091954022983, 'feature_idx': (2,), 'cv_scores': array([ 0.63636364,  0.65909091,  0.70454545,  0.63218391,  0.75862069])}, 2: {'avg_score': 0.71914838035527695, 'feature_idx': (2, 3), 'cv_scores': array([ 0.69318182,  0.72727273,  0.75      ,  0.65517241,  0.77011494])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.22768378258,balance-scale,438,,625,5,True,DTC,False,3,,False,Class Name,0.566844919786,0.748858447489,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.66436781609195406, 'feature_idx': (2,), 'cv_scores': array([ 0.63636364,  0.65909091,  0.70454545,  0.6091954 ,  0.71264368])}, 2: {'avg_score': 0.73746081504702199, 'feature_idx': (2, 3), 'cv_scores': array([ 0.64772727,  0.76136364,  0.79545455,  0.66666667,  0.81609195])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,5.23474502563,balance-scale,438,,625,5,True,RFC,False,3,,False,Class Name,0.577540106952,0.753424657534,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.6780041797283175, 'feature_idx': (2,), 'cv_scores': array([ 0.68181818,  0.67045455,  0.71590909,  0.6091954 ,  0.71264368])}, 2: {'avg_score': 0.74882445141065834, 'feature_idx': (2, 3), 'cv_scores': array([ 0.70454545,  0.76136364,  0.79545455,  0.66666667,  0.81609195])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,5.43852710724,balance-scale,438,,625,5,True,RFR,False,3,,False,Class Name,,,0.450538209176,0.276953168088,-0.722220227008,0.324065853588
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.36267978396672734, 'feature_idx': (2,), 'cv_scores': array([-0.40962529, -0.3654683 , -0.37842118, -0.29635822, -0.36352592])}, 2: {'avg_score': -0.31787011761740647, 'feature_idx': (2, 3), 'cv_scores': array([-0.4120923 , -0.29131698, -0.30453294, -0.2641358 , -0.31727257])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.17430996895,balance-scale,438,,625,5,True,LinR,False,3,,False,Class Name,,,0.44572680465,0.283812453427,-0.703828228225,0.307325026203
+
+Running ML for column "Left-Weight"
+/home/ubuntu/x2/local/lib/python2.7/site-packages/sklearn/utils/validation.py:429: DataConversionWarning: Data with input dtype int64 was converted to float64 by MinMaxScaler.
+  warnings.warn(msg, _DataConversionWarning)
+Running SFS:
+SFS features and scores: {1: {'avg_score': -0.36104871307334513, 'feature_idx': (2,), 'cv_scores': array([-0.41001855, -0.36633405, -0.37877755, -0.28834919, -0.36176422])}, 2: {'avg_score': -0.301218070168914, 'feature_idx': (2, 3), 'cv_scores': array([-0.3669179 , -0.29371155, -0.29460263, -0.23363555, -0.31722271])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.24701905251,balance-scale,438,0.344124865973,625,5,True,LogRC,False,4,0.118421923381,True,Left-Weight,0.0,0.388127853881,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.38824451410658301, 'feature_idx': (0,), 'cv_scores': array([ 0.32954545,  0.38636364,  0.39772727,  0.4137931 ,  0.4137931 ])}, 2: {'avg_score': 0.3859717868338558, 'feature_idx': (0, 2), 'cv_scores': array([ 0.31818182,  0.38636364,  0.39772727,  0.4137931 ,  0.4137931 ])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.24001908302,balance-scale,438,0.344124865973,625,5,True,DTC,False,4,0.118421923381,True,Left-Weight,0.0160427807487,0.408675799087,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.38824451410658306, 'feature_idx': (0,), 'cv_scores': array([ 0.31818182,  0.38636364,  0.40909091,  0.4137931 ,  0.4137931 ])}, 2: {'avg_score': 0.40653082549634273, 'feature_idx': (0, 2), 'cv_scores': array([ 0.34090909,  0.39772727,  0.42045455,  0.43678161,  0.43678161])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,5.21538996696,balance-scale,438,0.344124865973,625,5,True,RFC,False,4,0.118421923381,True,Left-Weight,0.0160427807487,0.39497716895,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.38824451410658306, 'feature_idx': (0,), 'cv_scores': array([ 0.31818182,  0.38636364,  0.40909091,  0.4137931 ,  0.4137931 ])}, 2: {'avg_score': 0.40653082549634273, 'feature_idx': (0, 2), 'cv_scores': array([ 0.34090909,  0.39772727,  0.42045455,  0.43678161,  0.43678161])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,5.4796898365,balance-scale,438,0.344124865973,625,5,True,RFR,False,4,0.118421923381,True,Left-Weight,,,4.92814449786,0.954680605053,-21.2364238639,0.102207127472
+Running SFS:
+SFS features and scores: {1: {'avg_score': -1.4804843450124845, 'feature_idx': (0,), 'cv_scores': array([-2.28059221, -0.87627758, -0.47602194, -0.70469374, -3.06483626])}, 2: {'avg_score': -1.4707334034421453, 'feature_idx': (0, 3), 'cv_scores': array([-2.24256402, -0.87356196, -0.54923667, -0.68933912, -2.99896525])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.24869418144,balance-scale,438,0.344124865973,625,5,True,LinR,False,4,0.118421923381,True,Left-Weight,,,5.33065584207,1.0122870467,-23.052606986,0.0480333520221
+
+Running ML for column "Left-Distance"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -1.5421045013856973, 'feature_idx': (0,), 'cv_scores': array([-2.43606379, -0.96989343, -0.28584582, -0.76695445, -3.25176501])}, 2: {'avg_score': -1.5344210685400086, 'feature_idx': (0, 3), 'cv_scores': array([-2.41568553, -0.96489586, -0.30242753, -0.76084818, -3.22824824])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.28429508209,balance-scale,438,0.351149944471,625,5,True,LogRC,False,5,0.123306283502,True,Left-Distance,0.245989304813,0.278538812785,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.26491640543364681, 'feature_idx': (0,), 'cv_scores': array([ 0.23863636,  0.26136364,  0.26136364,  0.27586207,  0.28735632])}, 2: {'avg_score': 0.27635841170323933, 'feature_idx': (0, 3), 'cv_scores': array([ 0.25      ,  0.28409091,  0.25      ,  0.29885057,  0.29885057])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.23520088196,balance-scale,438,0.351149944471,625,5,True,DTC,False,5,0.123306283502,True,Left-Distance,0.326203208556,0.312785388128,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.2855015673981191, 'feature_idx': (0,), 'cv_scores': array([ 0.26136364,  0.28409091,  0.26136364,  0.31034483,  0.31034483])}, 2: {'avg_score': 0.3037617554858934, 'feature_idx': (0, 3), 'cv_scores': array([ 0.29545455,  0.30681818,  0.26136364,  0.32183908,  0.33333333])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,5.0999648571,balance-scale,438,0.351149944471,625,5,True,RFC,False,5,0.123306283502,True,Left-Distance,0.310160427807,0.315068493151,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.29004702194357368, 'feature_idx': (0,), 'cv_scores': array([ 0.27272727,  0.28409091,  0.27272727,  0.31034483,  0.31034483])}, 2: {'avg_score': 0.29009926854754442, 'feature_idx': (0, 3), 'cv_scores': array([ 0.29545455,  0.25      ,  0.26136364,  0.31034483,  0.33333333])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,5.43170690536,balance-scale,438,0.351149944471,625,5,True,RFR,False,5,0.123306283502,True,Left-Distance,,,1.43763588903,1.6710646277,0.220578458858,0.151052704571
+Running SFS:
+SFS features and scores: {1: {'avg_score': -1.8280672938655678, 'feature_idx': (0,), 'cv_scores': array([-1.0999945 , -2.63522828, -2.23493239, -0.95009661, -2.2200847 ])}, 2: {'avg_score': -1.8047985902685486, 'feature_idx': (0, 3), 'cv_scores': array([-1.05915605, -2.68395741, -2.18839779, -0.93848383, -2.15399788])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.23649096489,balance-scale,438,0.351149944471,625,5,True,LinR,False,5,0.123306283502,True,Left-Distance,,,1.76642770404,1.82564239678,0.0423223196498,0.0725228997848
+
+Running ML for column "Right-Weight"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -1.9293841042669666, 'feature_idx': (0,), 'cv_scores': array([-1.24655408, -2.72134839, -2.40923884, -0.93573265, -2.33404657])}, 2: {'avg_score': -1.9065345398831166, 'feature_idx': (0, 3), 'cv_scores': array([-1.21061354, -2.71308035, -2.36855055, -0.93176544, -2.30866282])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.28797602654,balance-scale,438,0.35365173704,625,5,True,LogRC,False,5,0.125069551111,True,Right-Weight,0.272727272727,0.331050228311,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.3311128526645768, 'feature_idx': (0,), 'cv_scores': array([ 0.29545455,  0.32954545,  0.34090909,  0.34482759,  0.34482759])}, 2: {'avg_score': 0.3311128526645768, 'feature_idx': (0, 1), 'cv_scores': array([ 0.29545455,  0.32954545,  0.34090909,  0.34482759,  0.34482759])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.24599194527,balance-scale,438,0.35365173704,625,5,True,DTC,False,5,0.125069551111,True,Right-Weight,0.299465240642,0.340182648402,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.32429467084639502, 'feature_idx': (0,), 'cv_scores': array([ 0.28409091,  0.30681818,  0.34090909,  0.34482759,  0.34482759])}, 2: {'avg_score': 0.33563218390804594, 'feature_idx': (0, 2), 'cv_scores': array([ 0.30681818,  0.31818182,  0.375     ,  0.32183908,  0.35632184])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,5.27561283112,balance-scale,438,0.35365173704,625,5,True,RFC,False,5,0.125069551111,True,Right-Weight,0.288770053476,0.333333333333,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.32204806687565307, 'feature_idx': (0,), 'cv_scores': array([ 0.28409091,  0.28409091,  0.34090909,  0.35632184,  0.34482759])}, 2: {'avg_score': 0.337957157784744, 'feature_idx': (0, 1), 'cv_scores': array([ 0.29545455,  0.32954545,  0.36363636,  0.35632184,  0.34482759])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,5.59822297096,balance-scale,438,0.35365173704,625,5,True,RFR,False,5,0.125069551111,True,Right-Weight,,,2.56369465004,1.44351849812,-0.282544180503,0.27699141635
+Running SFS:
+SFS features and scores: {1: {'avg_score': -1.5983441094895903, 'feature_idx': (0,), 'cv_scores': array([-2.00264706, -1.51106237, -1.52932338, -1.49607563, -1.45261211])}, 2: {'avg_score': -1.5560859203971678, 'feature_idx': (0, 3), 'cv_scores': array([-2.16514455, -1.48665203, -1.38829204, -1.36967504, -1.37066594])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.26641798019,balance-scale,438,0.35365173704,625,5,True,LinR,False,5,0.125069551111,True,Right-Weight,,,2.24577493062,1.62238778596,-0.123497904848,0.187401964858
+
+Running ML for column "Right-Distance"
+Running SFS:
+SFS features and scores: {1: {'avg_score': -1.7050067855433853, 'feature_idx': (0,), 'cv_scores': array([-1.83926193, -1.68156165, -1.6899517 , -1.66261917, -1.65163947])}, 2: {'avg_score': -1.6572198681790471, 'feature_idx': (0, 3), 'cv_scores': array([-1.8460236 , -1.62276712, -1.61070429, -1.60224436, -1.60435997])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.30239605904,balance-scale,438,0.353751440726,625,5,True,LogRC,False,5,0.125140081816,True,Right-Distance,0.283422459893,0.326484018265,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.3266636957813428, 'feature_idx': (0,), 'cv_scores': array([ 0.3       ,  0.32222222,  0.35227273,  0.34117647,  0.31764706])}, 2: {'avg_score': 0.3266636957813428, 'feature_idx': (0, 1), 'cv_scores': array([ 0.3       ,  0.32222222,  0.35227273,  0.34117647,  0.31764706])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.31414604187,balance-scale,438,0.353751440726,625,5,True,DTC,False,5,0.125140081816,True,Right-Distance,0.320855614973,0.344748858447,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.3199970291146762, 'feature_idx': (0,), 'cv_scores': array([ 0.28888889,  0.3       ,  0.35227273,  0.34117647,  0.31764706])}, 2: {'avg_score': 0.33818775995246581, 'feature_idx': (0, 2), 'cv_scores': array([ 0.31111111,  0.31111111,  0.38636364,  0.35294118,  0.32941176])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,5.27533221245,balance-scale,438,0.353751440726,625,5,True,RFC,False,5,0.125140081816,True,Right-Distance,0.31550802139,0.337899543379,,,,
+Running SFS:
+SFS features and scores: {1: {'avg_score': 0.30169637551990497, 'feature_idx': (0,), 'cv_scores': array([ 0.27777778,  0.26666667,  0.35227273,  0.31764706,  0.29411765])}, 2: {'avg_score': 0.33125965537730245, 'feature_idx': (0, 2), 'cv_scores': array([ 0.31111111,  0.3       ,  0.38636364,  0.35294118,  0.30588235])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,5.54584503174,balance-scale,438,0.353751440726,625,5,True,RFR,False,5,0.125140081816,True,Right-Distance,,,2.20130958654,1.46236140373,-0.0978606157209,0.267966472436
+Running SFS:
+SFS features and scores: {1: {'avg_score': -1.6306395389680035, 'feature_idx': (0,), 'cv_scores': array([-1.85069536, -1.61768078, -1.40113801, -1.58682063, -1.69686292])}, 2: {'avg_score': -1.567178498166236, 'feature_idx': (0, 3), 'cv_scores': array([-2.0068375 , -1.54184085, -1.26581878, -1.4434558 , -1.57793956])}}
+Features: 1/2Features: 2/2function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_regressor,1.29819083214,balance-scale,438,0.353751440726,625,5,True,LinR,False,5,0.125140081816,True,Right-Distance,,,2.19138759828,1.64628712987,-0.0929122158162,0.175896346835
+SFS features and scores: {1: {'avg_score': -1.7186255754422555, 'feature_idx': (0,), 'cv_scores': array([-1.81185615, -1.68772571, -1.5792927 , -1.72847656, -1.78577676])}, 2: {'avg_score': -1.6704261957121507, 'feature_idx': (0, 3), 'cv_scores': array([-1.82127185, -1.62866121, -1.50227106, -1.66597545, -1.73395141])}}
+1 loops, best of 1: 73.1 sec per loop

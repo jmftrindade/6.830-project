@@ -1,0 +1,26 @@
+function,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score
+run_classifier,1.17843699455,balance-scale,438,,625,5,True,LogRC,False,3,,False,Class Name,0.561497326203,0.74200913242,,,,
+run_classifier,1.22768378258,balance-scale,438,,625,5,True,DTC,False,3,,False,Class Name,0.566844919786,0.748858447489,,,,
+run_classifier,5.23474502563,balance-scale,438,,625,5,True,RFC,False,3,,False,Class Name,0.577540106952,0.753424657534,,,,
+run_regressor,5.43852710724,balance-scale,438,,625,5,True,RFR,False,3,,False,Class Name,,,0.450538209176,0.276953168088,-0.722220227008,0.324065853588
+run_regressor,1.17430996895,balance-scale,438,,625,5,True,LinR,False,3,,False,Class Name,,,0.44572680465,0.283812453427,-0.703828228225,0.307325026203
+run_classifier,1.24701905251,balance-scale,438,0.344124865973,625,5,True,LogRC,False,4,0.118421923381,True,Left-Weight,0.0,0.388127853881,,,,
+run_classifier,1.24001908302,balance-scale,438,0.344124865973,625,5,True,DTC,False,4,0.118421923381,True,Left-Weight,0.0160427807487,0.408675799087,,,,
+run_classifier,5.21538996696,balance-scale,438,0.344124865973,625,5,True,RFC,False,4,0.118421923381,True,Left-Weight,0.0160427807487,0.39497716895,,,,
+run_regressor,5.4796898365,balance-scale,438,0.344124865973,625,5,True,RFR,False,4,0.118421923381,True,Left-Weight,,,4.92814449786,0.954680605053,-21.2364238639,0.102207127472
+run_regressor,1.24869418144,balance-scale,438,0.344124865973,625,5,True,LinR,False,4,0.118421923381,True,Left-Weight,,,5.33065584207,1.0122870467,-23.052606986,0.0480333520221
+run_classifier,1.28429508209,balance-scale,438,0.351149944471,625,5,True,LogRC,False,5,0.123306283502,True,Left-Distance,0.245989304813,0.278538812785,,,,
+run_classifier,1.23520088196,balance-scale,438,0.351149944471,625,5,True,DTC,False,5,0.123306283502,True,Left-Distance,0.326203208556,0.312785388128,,,,
+run_classifier,5.0999648571,balance-scale,438,0.351149944471,625,5,True,RFC,False,5,0.123306283502,True,Left-Distance,0.310160427807,0.315068493151,,,,
+run_regressor,5.43170690536,balance-scale,438,0.351149944471,625,5,True,RFR,False,5,0.123306283502,True,Left-Distance,,,1.43763588903,1.6710646277,0.220578458858,0.151052704571
+run_regressor,1.23649096489,balance-scale,438,0.351149944471,625,5,True,LinR,False,5,0.123306283502,True,Left-Distance,,,1.76642770404,1.82564239678,0.0423223196498,0.0725228997848
+run_classifier,1.28797602654,balance-scale,438,0.35365173704,625,5,True,LogRC,False,5,0.125069551111,True,Right-Weight,0.272727272727,0.331050228311,,,,
+run_classifier,1.24599194527,balance-scale,438,0.35365173704,625,5,True,DTC,False,5,0.125069551111,True,Right-Weight,0.299465240642,0.340182648402,,,,
+run_classifier,5.27561283112,balance-scale,438,0.35365173704,625,5,True,RFC,False,5,0.125069551111,True,Right-Weight,0.288770053476,0.333333333333,,,,
+run_regressor,5.59822297096,balance-scale,438,0.35365173704,625,5,True,RFR,False,5,0.125069551111,True,Right-Weight,,,2.56369465004,1.44351849812,-0.282544180503,0.27699141635
+run_regressor,1.26641798019,balance-scale,438,0.35365173704,625,5,True,LinR,False,5,0.125069551111,True,Right-Weight,,,2.24577493062,1.62238778596,-0.123497904848,0.187401964858
+run_classifier,1.30239605904,balance-scale,438,0.353751440726,625,5,True,LogRC,False,5,0.125140081816,True,Right-Distance,0.283422459893,0.326484018265,,,,
+run_classifier,1.31414604187,balance-scale,438,0.353751440726,625,5,True,DTC,False,5,0.125140081816,True,Right-Distance,0.320855614973,0.344748858447,,,,
+run_classifier,5.27533221245,balance-scale,438,0.353751440726,625,5,True,RFC,False,5,0.125140081816,True,Right-Distance,0.31550802139,0.337899543379,,,,
+run_regressor,5.54584503174,balance-scale,438,0.353751440726,625,5,True,RFR,False,5,0.125140081816,True,Right-Distance,,,2.20130958654,1.46236140373,-0.0978606157209,0.267966472436
+run_regressor,1.29819083214,balance-scale,438,0.353751440726,625,5,True,LinR,False,5,0.125140081816,True,Right-Distance,,,2.19138759828,1.64628712987,-0.0929122158162,0.175896346835
