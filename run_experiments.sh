@@ -11,7 +11,8 @@ NUMBER_RUNS=1  #10
 declare -A EXPERIMENT_DATASETS
 #EXPERIMENT_DATASETS["categorical"]=datasets/classification/*csv
 #EXPERIMENT_DATASETS["numerical"]=datasets/regression/*csv
-EXPERIMENT_DATASETS["FD_paper"]=datasets/from_FD_paper/*csv
+#EXPERIMENT_DATASETS["FD_paper"]=datasets/from_FD_paper/*csv
+EXPERIMENT_DATASETS["FD_paper_SFS"]=datasets/from_FD_paper/*csv
 
 # Run experiment and generate logs.
 function run_experiment {
@@ -23,7 +24,8 @@ function run_experiment {
   echo "output_log_file=$output_log_file"
   echo "number_runs=$number_runs"
 
-  args="-m timeit -n 1 -r ${number_runs} 'import os' 'os.system(\"python run_ml_algos.py -f ${input_dataset}\")' > ${output_log_file} 2>&1"
+  #args="-m timeit -n 1 -r ${number_runs} 'import os' 'os.system(\"python run_ml_algos.py -f ${input_dataset}\")' > ${output_log_file} 2>&1"
+  args="-m timeit -n 1 -r ${number_runs} 'import os' 'os.system(\"python run_ml_algos.py -f ${input_dataset} --sfs\")' > ${output_log_file} 2>&1"
   echo "Running:"
   echo "python $args"
   eval python $args
