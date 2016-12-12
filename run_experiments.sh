@@ -11,7 +11,7 @@ NUMBER_RUNS=1  #10
 declare -A EXPERIMENT_DATASETS
 #EXPERIMENT_DATASETS["categorical"]=datasets/classification/*csv
 #EXPERIMENT_DATASETS["numerical"]=datasets/regression/*csv
-EXPERIMENT_DATASETS["FD_paper_SFS"]=datasets/from_FD_paper/*csv
+EXPERIMENT_DATASETS["FD_paper"]=datasets/from_FD_paper/*csv
 
 # Run experiment and generate logs.
 function run_experiment {
