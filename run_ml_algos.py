@@ -1,6 +1,7 @@
 import argparse
 import math
 import numpy as np
+import os
 import pandas as pd
 import random
 import sys
@@ -14,6 +15,7 @@ warnings.filterwarnings(action="ignore", module="scipy",
 from functools import wraps
 from math import sqrt
 from mlxtend.feature_selection import SequentialFeatureSelector as SFS
+from os.path import basename
 from sklearn import linear_model, metrics, preprocessing, svm
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
@@ -155,11 +157,11 @@ def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
          'clf': linear_model.LogisticRegression(n_jobs=-1)},
         {'name': 'DTC',
          'clf': DecisionTreeClassifier(max_depth=1024, random_state=42)},
-# SVM classifiers are too slow.
-#        {'name': 'SVC',
-#         'clf': svm.SVC()},
-#        {'name': 'LinSVC',
-#         'clf': svm.SVC(kernel='linear')},
+        # SVM classifiers are too slow.
+        #        {'name': 'SVC',
+        #         'clf': svm.SVC()},
+        #        {'name': 'LinSVC',
+        #         'clf': svm.SVC(kernel='linear')},
         {'name': 'RFC',
          'clf': RandomForestClassifier(max_depth=1024, random_state=42, n_jobs=-1)}
     ]
@@ -177,11 +179,11 @@ def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
     regressors = [
         {'name': 'RFR',
          'regressor': RandomForestRegressor(n_estimators=15, n_jobs=-1)},
-# SVM Regressors are too slow.
-#        {'name': 'SVR',
-#         'regressor': svm.SVR()},
-#        {'name': 'CstmSVR',  # Custom SVR for comparison.
-#         'regressor': svm.SVR(kernel='rbf', C=1e3, gamma=0.1)},
+        # SVM Regressors are too slow.
+        #        {'name': 'SVR',
+        #         'regressor': svm.SVR()},
+        #        {'name': 'CstmSVR',  # Custom SVR for comparison.
+        #         'regressor': svm.SVR(kernel='rbf', C=1e3, gamma=0.1)},
         {'name': 'LinR',
          'regressor': linear_model.LinearRegression(n_jobs=-1)}
     ]
@@ -227,7 +229,7 @@ def cross_validate(y_train, X_train, num_folds, ml_algo):
         # NOTE: This is used if using raw numpy arrays, which is the case with
         # SFS in run_regressor and run_classifier.
         ml_algo.fit(X_train[train], y_train[train]).score(
-           X_train[test], y_train[test])
+            X_train[test], y_train[test])
 
     return ml_algo
 
@@ -269,7 +271,9 @@ def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
         y_train, regressor.predict(X_train_sfs))
     test_mse = metrics.mean_squared_error(
         y_test, regressor.predict(X_test_sfs))
-    r2_score = metrics.r2_score(y_test, regressor.predict(X_test_sfs))
+    training_r2_score = metrics.r2_score(
+        y_train, regressor.predict(X_train_sfs))
+    test_r2_score = metrics.r2_score(y_test, regressor.predict(X_test_sfs))
 #    training_mse = metrics.mean_squared_error(
 #        y_train, regressor.predict(X_train))
 #    test_mse = metrics.mean_squared_error(
@@ -282,7 +286,8 @@ def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
         'training_accuracy': '',
         'test_mse': test_mse,
         'training_mse': training_mse,
-        'test_R2_score': r2_score
+        'test_R2_score': test_r2_score,
+        'training_R2_score': training_r2_score
     }
 
 
@@ -346,11 +351,12 @@ def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
         'training_accuracy': training_accuracy,
         'test_mse': '',
         'training_mse': '',
-        'test_R2_score': ''
+        'test_R2_score': '',
+        'training_R2_score': ''
     }
 
 
-def run_ml_for_all_columns(df):
+def run_ml_for_all_columns(df, dataset_name):
     encoded_df = get_encoded_df(df)
     training_df, test_df = get_training_and_test_datasets(encoded_df)
 
@@ -381,6 +387,10 @@ def run_ml_for_all_columns(df):
         is_column_numerical = is_numerical(df, column)
         fn_stats_to_record = {
             'column_name': column,
+            'original_num_cols': df.shape[1],
+            'original_num_rows': df.shape[0],
+            'SFS': 'True',
+            'dataset': dataset_name,
             'num_rows': training_df.shape[0],
             'target_num_unique': len(y_train.unique()),
             'target_variance': '',
@@ -422,4 +432,5 @@ if __name__ == "__main__":
     print('Running ML algos for input dataset \"%s\"' % args.input_csv_file)
 
     df = read_dataframe_without_na_from_csv(args.input_csv_file)
-    run_ml_for_all_columns(df)
+    dataset_name = os.path.splitext(basename(args.input_csv_file))[0]
+    run_ml_for_all_columns(df, dataset_name)
