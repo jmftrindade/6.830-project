@@ -37,7 +37,7 @@ function generate_csv {
 
   # Generate CSV from experiment logs.
   echo "Generating CSV from \"$input_log_file\", will save under \"$output_csv_file\"..."
-  grep '^run_classifier\|^run_regressor' ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,target_stdev,target_variance,algo,target_is_continuous,target_num_unique,num_rows,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse' > ${output_csv_file}
+  grep '^run_classifier\|^run_regressor' ${input_log_file} | sed -e $'1i\\\nfunction,runtime_seconds,dataset,num_rows,target_stdev,original_num_rows,original_num_cols,SFS,algo,target_is_continuous,target_num_unique,target_variance,target_is_numerical,column_name,test_accuracy,training_accuracy,test_mse,training_mse,test_R2_score,training_R2_score' > ${output_csv_file}
 }
 
 # Generates plot from CSV.
@@ -83,20 +83,20 @@ do
     plot_csv $csv_filename $plot_file_basename-algo_vs_runtime.pdf algo runtime_seconds bar
     plot_csv $csv_filename $plot_file_basename-algo_vs_test_accuracy.pdf algo test_accuracy bar
     plot_csv $csv_filename $plot_file_basename-algo_vs_training_accuracy.pdf algo training_accuracy bar
-    plot_csv $csv_filename $plot_file_basename-algo_vs_test_mse.pdf algo test_mse bar
-    plot_csv $csv_filename $plot_file_basename-algo_vs_training_mse.pdf algo training_mse bar
+    plot_csv $csv_filename $plot_file_basename-algo_vs_test_R2_score.pdf algo test_R2_score bar
+    plot_csv $csv_filename $plot_file_basename-algo_vs_training_R2_score.pdf algo training_R2_score bar
     # X axis = number of uniques in target variable.
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_runtime.pdf target_num_unique runtime_seconds
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_test_accuracy.pdf target_num_unique test_accuracy
     plot_csv $csv_filename $plot_file_basename-num_unique_vs_training_accuracy.pdf target_num_unique training_accuracy
-    plot_csv $csv_filename $plot_file_basename-num_unique_vs_test_mse.pdf target_num_unique test_mse
-    plot_csv $csv_filename $plot_file_basename-num_unique_vs_training_mse.pdf target_num_unique training_mse
+    plot_csv $csv_filename $plot_file_basename-num_unique_vs_test_R2_score.pdf target_num_unique test_R2_score
+    plot_csv $csv_filename $plot_file_basename-num_unique_vs_training_R2_score.pdf target_num_unique training_R2_score
     # X axis = target variable scaled and normalized variance.
-    plot_csv $csv_filename $plot_file_basename-variance_vs_training_mse.pdf target_variance training_mse
-    plot_csv $csv_filename $plot_file_basename-variance_vs_test_mse.pdf target_variance test_mse
+    plot_csv $csv_filename $plot_file_basename-variance_vs_training_R2_score.pdf target_variance training_R2_score
+    plot_csv $csv_filename $plot_file_basename-variance_vs_test_R2_score.pdf target_variance test_R2_score
     # X axis = target variable scaled and normalized standard deviation.
-    plot_csv $csv_filename $plot_file_basename-stdev_vs_training_mse.pdf target_stdev training_mse
-    plot_csv $csv_filename $plot_file_basename-stdev_vs_test_mse.pdf target_stdev test_mse
+    plot_csv $csv_filename $plot_file_basename-stdev_vs_training_R2_score.pdf target_stdev training_R2_score
+    plot_csv $csv_filename $plot_file_basename-stdev_vs_test_R2_score.pdf target_stdev test_R2_score
   done
 
   # Generate combined CSV from all data sets results.
@@ -111,20 +111,20 @@ do
   plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-algo_vs_runtime.pdf algo runtime_seconds bar
   plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-algo_vs_test_accuracy.pdf algo test_accuracy bar
   plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-algo_vs_training_accuracy.pdf algo training_accuracy bar
-  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-algo_vs_test_mse.pdf algo test_mse bar
-  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-algo_vs_training_mse.pdf algo training_mse bar
+  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-algo_vs_test_R2_score.pdf algo test_R2_score bar
+  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-algo_vs_training_R2_score.pdf algo training_R2_score bar
   # X axis = number of uniques in target variable.
   plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-num_unique_vs_runtime.pdf target_num_unique runtime_seconds
   plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-num_unique_vs_test_accuracy.pdf target_num_unique test_accuracy
   plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-num_unique_vs_training_accuracy.pdf target_num_unique training_accuracy
-  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-num_unique_vs_test_mse.pdf target_num_unique test_mse
-  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-num_unique_vs_training_mse.pdf target_num_unique training_mse
+  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-num_unique_vs_test_R2_score.pdf target_num_unique test_R2_score
+  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-num_unique_vs_training_R2_score.pdf target_num_unique training_R2_score
   # X axis = target variable scaled and normalized variance.
-  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-variance_vs_training_mse.pdf target_variance training_mse
-  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-variance_vs_test_mse.pdf target_variance test_mse
+  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-variance_vs_training_R2_score.pdf target_variance training_R2_score
+  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-variance_vs_test_R2_score.pdf target_variance test_R2_score
   # X axis = target variable scaled and normalized standard deviation.
-  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-stdev_vs_training_mse.pdf target_stdev training_mse
-  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-stdev_vs_test_mse.pdf target_stdev test_mse
+  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-stdev_vs_training_R2_score.pdf target_stdev training_R2_score
+  plot_csv $all_datasets_csv_filename $all_datasets_plot_file_basename-stdev_vs_test_R2_score.pdf target_stdev test_R2_score
 
 
   # It only makes sense to plot these for multiple data sets.

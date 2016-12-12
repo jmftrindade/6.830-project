@@ -145,13 +145,11 @@ def is_continuous(df, column_name):
     return df[column_name].dtypes.kind in (np.typecodes["AllFloat"])
 
 
-def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
-                        fn_stats_to_record_from_result):
+def run_all_classifiers(y_train, X_train, y_test, X_test, should_use_SFS,
+                        fn_stats_to_record, fn_stats_to_record_from_result):
     # All classifiers that we consider.
     # TODO: Optionally investigate using GridSearch if the accuracies end up
     # being too low.
-    # TODO: Consider using n_jobs=-1 for the classifiers that accept it when
-    # we run these experiments on a machine that has more than just 1 cpu.
     classifiers = [
         {'name': 'LogRC',
          'clf': linear_model.LogisticRegression(n_jobs=-1)},
@@ -170,12 +168,13 @@ def run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
         fn_stats_to_record['algo'] = classifier['name']
         res = run_classifier(
             y_train, X_train, y_test, X_test, classifier['clf'],
+            should_use_SFS,
             additional_timer_stats=fn_stats_to_record,
             additional_timer_stats_from_result=fn_stats_to_record_from_result)
 
 
-def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
-                       fn_stats_to_record_from_result):
+def run_all_regressors(y_train, X_train, y_test, X_test, should_use_SFS,
+                       fn_stats_to_record, fn_stats_to_record_from_result):
     regressors = [
         {'name': 'RFR',
          'regressor': RandomForestRegressor(n_estimators=15, n_jobs=-1)},
@@ -192,6 +191,7 @@ def run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
         fn_stats_to_record['algo'] = regressor['name']
         res = run_regressor(
             y_train, X_train, y_test, X_test, regressor['regressor'],
+            should_use_SFS,
             additional_timer_stats=fn_stats_to_record,
             additional_timer_stats_from_result=fn_stats_to_record_from_result)
 
@@ -219,66 +219,73 @@ def get_encoded_df(df):
     return copy_df
 
 
-def cross_validate(y_train, X_train, num_folds, ml_algo):
+def cross_validate(y_train, X_train, num_folds, ml_algo, should_use_SFS):
     # Shuffle cross-validation.
     k_fold = KFold(n_splits=num_folds, shuffle=True)
     for train, test in k_fold.split(X_train):
-        # NOTE: This is used if using pandas objects.
-        # ml_algo.fit(X_train.iloc[train], y_train[train]).score(
-        #     X_train.iloc[test], y_train[test])
         # NOTE: This is used if using raw numpy arrays, which is the case with
         # SFS in run_regressor and run_classifier.
-        ml_algo.fit(X_train[train], y_train[train]).score(
-            X_train[test], y_train[test])
+        if should_use_SFS:
+            ml_algo.fit(X_train[train], y_train[train]).score(
+                X_train[test], y_train[test])
+        else:
+            # NOTE: This is used if using pandas objects.
+            ml_algo.fit(X_train.iloc[train], y_train[train]).score(
+                X_train.iloc[test], y_train[test])
 
     return ml_algo
 
 
 @fn_timer
-def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
-    # Sequential feature selection with cross-validation. We limit SFS to
-    # search only for up to ceil[num_columns / 2], as that should suffice
-    # to find a decent combination of features that predicts the target
-    # variable.
-    print >> sys.stderr, 'Running SFS:'
-
+def run_regressor(y_train, X_train, y_test, X_test, regressor,
+                  should_use_SFS, *args, **kwargs):
     # 5-fold cross-validation if we have at least 100 instances on training
     # data, and 2-fold otherwise.
     cv_k = 5 if len(y_train) > 100 else 2
 
-    # TODO: Enable n_jobs=-1 to take advantage of all CPUs available.
-    sfs = SFS(regressor,
-              k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
-              forward=True,
-              floating=False,
-              scoring='neg_mean_squared_error',
-              print_progress=False,
-              cv=cv_k)
-    # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
-    sfs = sfs.fit(X_train.as_matrix(), y_train)
+    if should_use_SFS:
+        # Sequential feature selection with cross-validation. We limit SFS to
+        # search only for up to ceil[num_columns / 2], as that should suffice
+        # to find a decent combination of features that predicts the target
+        # variable.
+        print >> sys.stderr, 'Running SFS:'
+        sfs = SFS(regressor,
+                  k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
+                  forward=True,
+                  floating=False,
+                  scoring='neg_mean_squared_error',
+                  print_progress=False,
+                  n_jobs=-1,
+                  cv=cv_k)
+        # The mlxtend library's SFS expects underlying numpy array
+        # (as_matrix()).
+        sfs = sfs.fit(X_train.as_matrix(), y_train)
 
-    print 'SFS features and scores: %s' % sfs.subsets_
+        print 'SFS features and scores: %s' % sfs.subsets_
+        # Use SFS results to improve the model.
+        X_train_sfs = sfs.transform(X_train.as_matrix())
+        X_test_sfs = sfs.transform(X_test.as_matrix())
 
-    # Use SFS results to improve the model.
-    X_train_sfs = sfs.transform(X_train.as_matrix())
-    X_test_sfs = sfs.transform(X_test.as_matrix())
-
-    # Do cross-validation for the fit of transformed SFS features.
-    regressor = cross_validate(y_train, X_train_sfs, cv_k, regressor)
-#    regressor = cross_validate(y_train, X_train, cv_k, regressor)
-
-    training_mse = metrics.mean_squared_error(
-        y_train, regressor.predict(X_train_sfs))
-    test_mse = metrics.mean_squared_error(
-        y_test, regressor.predict(X_test_sfs))
-    training_r2_score = metrics.r2_score(
-        y_train, regressor.predict(X_train_sfs))
-    test_r2_score = metrics.r2_score(y_test, regressor.predict(X_test_sfs))
-#    training_mse = metrics.mean_squared_error(
-#        y_train, regressor.predict(X_train))
-#    test_mse = metrics.mean_squared_error(
-#        y_test, regressor.predict(X_test))
-#    r2_score = metrics.r2_score(y_test, regressor.predict(X_test))
+        # Do cross-validation for the fit of transformed SFS features.
+        regressor = cross_validate(
+            y_train, X_train_sfs, cv_k, regressor, should_use_SFS)
+        training_mse = metrics.mean_squared_error(
+            y_train, regressor.predict(X_train_sfs))
+        test_mse = metrics.mean_squared_error(
+            y_test, regressor.predict(X_test_sfs))
+        training_r2_score = metrics.r2_score(
+            y_train, regressor.predict(X_train_sfs))
+        test_r2_score = metrics.r2_score(y_test, regressor.predict(X_test_sfs))
+    else:
+        regressor = cross_validate(
+            y_train, X_train, cv_k, regressor, should_use_SFS)
+        training_mse = metrics.mean_squared_error(
+            y_train, regressor.predict(X_train))
+        test_mse = metrics.mean_squared_error(
+            y_test, regressor.predict(X_test))
+        training_r2_score = metrics.r2_score(
+            y_train, regressor.predict(X_train))
+        test_r2_score = metrics.r2_score(y_test, regressor.predict(X_test))
 
     # Organized as named entries in a dict for stats collection
     return {
@@ -292,58 +299,60 @@ def run_regressor(y_train, X_train, y_test, X_test, regressor, *args, **kwargs):
 
 
 @fn_timer
-def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
-    # Sequential feature selection with cross-validation. We limit SFS to
-    # search only for up to ceil[num_columns / 2], as that should suffice
-    # to find a decent combination of features that predicts the target
-    # variable.
-    print >> sys.stderr, 'Running SFS:'
-
-    # 5-fold cross-validation if we have at least 100 instances on training
+def run_classifier(y_train, X_train, y_test, X_test, clf,
+                   should_use_SFS, *args, **kwargs):
     # data, and 2-fold otherwise.
     cv_k = 5 if len(y_train) > 100 else 2
 
-    # TODO: Enable n_jobs=-1 to take advantage of all CPUs available.
-    sfs = SFS(clf,
-              k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
-              forward=True,
-              floating=False,
-              scoring='accuracy',
-              print_progress=False,
-              cv=cv_k)
+    if should_use_SFS:
+        # Sequential feature selection with cross-validation. We limit SFS to
+        # search only for up to ceil[num_columns / 2], as that should suffice
+        # to find a decent combination of features that predicts the target
+        # variable.
+        print >> sys.stderr, 'Running SFS:'
+        sfs = SFS(clf,
+                  k_features=(1, int(math.ceil(len(X_train.columns) / 2))),
+                  forward=True,
+                  floating=False,
+                  scoring='accuracy',
+                  print_progress=False,
+                  n_jobs=-1,
+                  cv=cv_k)
+        # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
+        sfs = sfs.fit(X_train.as_matrix(), y_train)
 
-    # The mlxtend library's SFS expects underlying numpy array (as_matrix()).
-    sfs = sfs.fit(X_train.as_matrix(), y_train)
+        print 'SFS features and scores: %s' % sfs.subsets_
+        # Use SFS results to improve the model.
+        X_train_sfs = sfs.transform(X_train.as_matrix())
+        X_test_sfs = sfs.transform(X_test.as_matrix())
 
-    print 'SFS features and scores: %s' % sfs.subsets_
+        # Do cross-validation for the fit of transformed SFS features.
+        clf = cross_validate(y_train, X_train_sfs, cv_k, clf, should_use_SFS)
 
-    # Use SFS results to improve the model.
-    X_train_sfs = sfs.transform(X_train.as_matrix())
-    X_test_sfs = sfs.transform(X_test.as_matrix())
+        # Train calibrated classifier with prefit cross-validation, as CV is
+        # performed above.
+        calibrated_clf = CalibratedClassifierCV(clf, method='sigmoid', cv='prefit')
+        calibrated_clf.fit(X_train_sfs, y_train)
 
-    # Do cross-validation for the fit of transformed SFS features.
-    clf = cross_validate(y_train, X_train_sfs, cv_k, clf)
-#    clf = cross_validate(y_train, X_train, cv_k, clf)
+        # Accuracy over training data set.
+        training_accuracy = metrics.accuracy_score(
+            y_train, calibrated_clf.predict(X_train_sfs))
+        # Accuracy over test data set.
+        test_accuracy = metrics.accuracy_score(
+            y_test, calibrated_clf.predict(X_test_sfs))
+    else:
+        clf = cross_validate(y_train, X_train, cv_k, clf, should_use_SFS)
+        # Train calibrated classifier with prefit cross-validation, as CV is
+        # performed above.
+        calibrated_clf = CalibratedClassifierCV(clf, method='sigmoid', cv='prefit')
+        calibrated_clf.fit(X_train, y_train)
 
-    # Train calibrated classifier with prefit cross-validation, as CV is
-    # performed above.
-    calibrated_clf = CalibratedClassifierCV(clf, method='sigmoid', cv='prefit')
-    calibrated_clf.fit(X_train_sfs, y_train)
-#    calibrated_clf.fit(X_train, y_train)
-
-    # Accuracy over training data set.
-    training_accuracy = metrics.accuracy_score(
-        y_train, calibrated_clf.predict(X_train_sfs))
-    # Accuracy over test data set.
-    test_accuracy = metrics.accuracy_score(
-        y_test, calibrated_clf.predict(X_test_sfs))
-
-    # Accuracy over training data set.
-#    training_accuracy = metrics.accuracy_score(
-#        y_train, calibrated_clf.predict(X_train))
-    # Accuracy over test data set.
-#    test_accuracy = metrics.accuracy_score(
-#        y_test, calibrated_clf.predict(X_test))
+        # Accuracy over training data set.
+        training_accuracy = metrics.accuracy_score(
+            y_train, calibrated_clf.predict(X_train))
+        # Accuracy over test data set.
+        test_accuracy = metrics.accuracy_score(
+            y_test, calibrated_clf.predict(X_test))
 
     # Organized as named entries in a dict for stats collection.
     return {
@@ -356,7 +365,7 @@ def run_classifier(y_train, X_train, y_test, X_test, clf, *args, **kwargs):
     }
 
 
-def run_ml_for_all_columns(df, dataset_name):
+def run_ml_for_all_columns(df, dataset_name, should_use_SFS):
     encoded_df = get_encoded_df(df)
     training_df, test_df = get_training_and_test_datasets(encoded_df)
 
@@ -382,14 +391,15 @@ def run_ml_for_all_columns(df, dataset_name):
 
         # Experiment stats to record per classifier run for numerical columns.
         fn_stats_to_record_from_result = ['test_accuracy', 'training_accuracy',
-                                          'test_mse', 'training_mse']
+                                          'test_mse', 'training_mse',
+                                          'test_R2_score', 'training_R2_score']
         is_column_continuous = is_continuous(df, column)
         is_column_numerical = is_numerical(df, column)
         fn_stats_to_record = {
             'column_name': column,
             'original_num_cols': df.shape[1],
             'original_num_rows': df.shape[0],
-            'SFS': 'True',
+            'SFS': should_use_SFS,
             'dataset': dataset_name,
             'num_rows': training_df.shape[0],
             'target_num_unique': len(y_train.unique()),
@@ -408,14 +418,14 @@ def run_ml_for_all_columns(df, dataset_name):
 
         # Only use classification for discrete data (numerical or not).
         if not is_continuous(df, column):
-            run_all_classifiers(y_train, X_train, y_test, X_test, fn_stats_to_record,
-                                fn_stats_to_record_from_result)
+            run_all_classifiers(y_train, X_train, y_test, X_test, should_use_SFS,
+                                fn_stats_to_record, fn_stats_to_record_from_result)
 
         # While we use regression for any data set, since after encoding
         # categorical data, all the columns are numerical (discrete or
         # continuous).
-        run_all_regressors(y_train, X_train, y_test, X_test, fn_stats_to_record,
-                           fn_stats_to_record_from_result)
+        run_all_regressors(y_train, X_train, y_test, X_test, should_use_SFS,
+                           fn_stats_to_record, fn_stats_to_record_from_result)
 
 
 if __name__ == "__main__":
@@ -427,10 +437,21 @@ if __name__ == "__main__":
         help='Relative path of input CSV file containing data set with numeric'
         ' columns.',
         required='True')
+    parser.add_argument(
+        '--sfs',
+        dest='should_use_SFS',
+        action='store_true',
+        help='Enable Sequential Feature Selection (SFS).')
+    parser.add_argument(
+        '--no-sfs',
+        dest='should_use_SFS',
+        action='store_false',
+        help='Disable Sequential Feature Selection (SFS).')
+    parser.set_defaults(should_use_SFS=False)
     args = parser.parse_args()
 
     print('Running ML algos for input dataset \"%s\"' % args.input_csv_file)
 
     df = read_dataframe_without_na_from_csv(args.input_csv_file)
     dataset_name = os.path.splitext(basename(args.input_csv_file))[0]
-    run_ml_for_all_columns(df, dataset_name)
+    run_ml_for_all_columns(df, dataset_name, args.should_use_SFS)
