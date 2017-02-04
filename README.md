@@ -1,6 +1,8 @@
 # 6.830-project
 Class project for 6.830 database systems.
 
+TODO: Update this with the final report (maybe make it a TR?).
+
 # Generate Missing Value training and test data sets:
 
 The script ```generate_missing_value_data_sets.py``` can be used as follows:
