@@ -1,4 +1,4 @@
-# TODO: Update this with the final report (maybe make it a TR?).
+# TODO: Update this with the final report.
 
 # 6.830-project
 Class project for 6.830 database systems.
