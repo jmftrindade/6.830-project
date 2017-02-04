@@ -1,7 +1,7 @@
+# TODO: Update this with the final report (maybe make it a TR?).
+
 # 6.830-project
 Class project for 6.830 database systems.
-
-TODO: Update this with the final report (maybe make it a TR?).
 
 # Generate Missing Value training and test data sets:
 
