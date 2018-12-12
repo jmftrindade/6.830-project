@@ -1,36 +1,12 @@
-# TODO: Update this with the final report.
+## An auto-cleaning layer for data management systems
 
-# 6.830-project
-Class project for 6.830 database systems.
+Class project for Fall 2016's edition of [MIT's 6.830/6.814: Database Systems](http://db.csail.mit.edu/6.830/).
 
-# Generate Missing Value training and test data sets:
+In this project, we proposed and evaluated the performance -- both prediction accuracy as well as time to train -- of different supervised learning algorithms on the task of predicting missing values in tabular data.  Additionally, we purposefully relied on an auto-ML like approach, where we didn't perform any explicit feature engineering, and instead used SFS (Sequential Feature Selection) to prune the search space of features to consider.
 
-The script ```generate_missing_value_data_sets.py``` can be used as follows:
+The tl;dr was: random forests provided the best trade-off in terms of prediction accuracy and time to train.  We also found that using SFS added incurred in significant performance penalty at training time, while offering only marginal gains on prediction accuracy compared to using all available table columns as features.
 
-```
-$ python generate_missing_value_datasets.py -h
-usage: generate_missing_value_datasets.py [-h] -f INPUT_CSV_FILE
-                                          -m MISSING_VALUE_FRACTION
+Final report available [here](report.pdf).
 
-Generate missing values training and test data sets.
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -f INPUT_CSV_FILE, --input_csv_file INPUT_CSV_FILE
-                        Relative path of input CSV file containing data set
-                        with numeric columns.
-  -m MISSING_VALUE_FRACTION, --missing_value_fraction MISSING_VALUE_FRACTION
-                        Fraction of missing values to be inserted.
-```
-
-E.g.,
-
-```
-$ python generate_missing_value_datasets.py -f wine_dataset/red.csv -m 0.5
-```
-
-which will generate training and test data set files under
-```wine_dataset/red_training.csv``` and ```wine_dataset/red_test.csv```
-respectively.  The training data set contains the first 70% rows, and target
-columns, while the test data set contains the last 70% rows of the original
-dataset, and no target columns.
+### TODO
+- [ ] Add at least some documentation on how the scripts are organized, and how to run them.
