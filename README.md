@@ -9,4 +9,4 @@ The tl;dr was: random forests provided the best trade-off in terms of prediction
 Final report available [here](report.pdf).
 
 ### TODO
-- [ ] Add at least some documentation on how the scripts are organized, and how to run them.
+- [ ] Add at least some documentation on how the repo is organized, e.g., how to run the training scripts.
