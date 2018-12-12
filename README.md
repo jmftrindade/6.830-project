@@ -1,4 +1,4 @@
-## An auto-cleaning layer for data management systems
+## An auto-cleaning layer for tabular data management systems
 
 Class project for Fall 2016's edition of [MIT's 6.830/6.814: Database Systems](http://db.csail.mit.edu/6.830/).
 
